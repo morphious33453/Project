@@ -1,0 +1,18 @@
+{
+  "id": "semi-gloss",
+  "name": "Semi-Gloss Finish",
+  "slug": "semi-gloss",
+  "description": "Durable finish with moderate shine.",
+  "characteristics": [
+    "Moderate shine",
+    "Easy to clean",
+    "Moisture resistant",
+    "Shows some imperfections"
+  ],
+  "bestUsedFor": [
+    "Kitchens",
+    "Bathrooms",
+    "Trim and doors",
+    "High-traffic areas"
+  ]
+}

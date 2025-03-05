@@ -1,0 +1,84 @@
+{
+  "id": "sherwin-williams-st-catharines",
+  "name": "Sherwin-Williams St. Catharines",
+  "slug": "sherwin-williams-st-catharines",
+  "type": "retailer",
+  "services": [
+    "paint sales",
+    "color consultation",
+    "commercial coatings"
+  ],
+  "locations": [
+    {
+      "city": "St. Catharines",
+      "address": "400 Scott Street",
+      "region": "Niagara"
+    }
+  ],
+  "phone": "905-555-0100",
+  "email": "stcatharines@sherwinwilliams.com",
+  "website": "https://www.sherwin-williams.com",
+  "rating": "4.5",
+  "reviewCount": "75",
+  "yearsInBusiness": "25",
+  "expertise": {
+    "description": "Sherwin-Williams St. Catharines has been providing professional painting services in the Niagara region for 25 years.",
+    "specialties": [
+      "paint sales",
+      "color consultation",
+      "commercial coatings"
+    ],
+    "certifications": [],
+    "specialProjects": [],
+    "awards": []
+  },
+  "serviceDetails": {
+    "timeEstimates": "2-3 days for average-sized rooms",
+    "process": [
+      "Initial consultation and color selection",
+      "Surface preparation and cleaning",
+      "Priming if necessary",
+      "Application of paint coats",
+      "Final inspection and touch-ups"
+    ],
+    "preparation": [
+      "Move or cover furniture",
+      "Clean surfaces thoroughly",
+      "Repair any wall damage",
+      "Tape off areas not to be painted"
+    ],
+    "maintenance": [
+      "Regular cleaning with mild soap and water",
+      "Touch up any chips or scratches promptly",
+      "Repaint every 3-5 years for best results"
+    ],
+    "aftercare": [
+      "Allow paint to cure fully",
+      "Clean walls gently",
+      "Monitor for any issues"
+    ],
+    "warranty": "5-year warranty on workmanship"
+  },
+  "tips": {
+    "maintenance": [
+      "Clean walls regularly with a soft cloth",
+      "Address any water damage immediately",
+      "Keep rooms well-ventilated"
+    ],
+    "colorSelection": [
+      "Consider room lighting",
+      "Test samples on walls",
+      "Think about room function"
+    ],
+    "general": [
+      "Schedule painting in dry weather",
+      "Ensure proper ventilation",
+      "Allow adequate drying time"
+    ],
+    "applicationTips": [
+      "Use quality brushes and rollers",
+      "Apply thin, even coats",
+      "Follow manufacturer guidelines"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "wood",
+  "name": "Wood Surfaces",
+  "slug": "wood",
+  "description": "Natural wood surfaces requiring specific preparation and paint types.",
+  "preparationSteps": [
+    "Sand the surface thoroughly",
+    "Clean dust and debris",
+    "Apply wood primer",
+    "Fill any holes or cracks"
+  ],
+  "recommendedProducts": [
+    "Oil-based primers",
+    "Exterior wood stains",
+    "High-quality brushes",
+    "Wood fillers"
+  ]
+}

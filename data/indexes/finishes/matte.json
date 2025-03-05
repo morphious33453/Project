@@ -1,0 +1,18 @@
+{
+  "id": "matte",
+  "name": "Matte Finish",
+  "slug": "matte",
+  "description": "Non-reflective finish that hides surface imperfections.",
+  "characteristics": [
+    "No shine or reflection",
+    "Excellent hide of surface imperfections",
+    "Rich color depth",
+    "Difficult to clean"
+  ],
+  "bestUsedFor": [
+    "Living room walls",
+    "Bedroom walls",
+    "Ceilings",
+    "Low-traffic areas"
+  ]
+}

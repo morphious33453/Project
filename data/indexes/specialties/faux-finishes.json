@@ -1,0 +1,18 @@
+{
+  "id": "faux-finishes",
+  "name": "Faux Finishes",
+  "slug": "faux-finishes",
+  "description": "Decorative painting techniques that mimic other materials.",
+  "techniques": [
+    "Color washing",
+    "Sponging",
+    "Ragging",
+    "Marbling"
+  ],
+  "requiredSkills": [
+    "Color theory knowledge",
+    "Specialized tool expertise",
+    "Pattern recognition",
+    "Attention to detail"
+  ]
+}

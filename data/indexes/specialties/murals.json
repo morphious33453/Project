@@ -1,0 +1,18 @@
+{
+  "id": "murals",
+  "name": "Mural Painting",
+  "slug": "murals",
+  "description": "Large-scale artistic paintings applied directly to walls.",
+  "techniques": [
+    "Sketching and planning",
+    "Color mixing",
+    "Scale management",
+    "Detail work"
+  ],
+  "requiredSkills": [
+    "Artistic ability",
+    "Project planning",
+    "Color matching",
+    "Perspective drawing"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "latex",
+  "name": "Latex Paint",
+  "slug": "latex",
+  "description": "Water-based paint that offers easy cleanup and quick drying time.",
+  "applications": [
+    "Interior walls and ceilings",
+    "Exterior siding",
+    "Trim and moldings",
+    "New drywall"
+  ],
+  "benefits": [
+    "Quick drying time",
+    "Easy cleanup with water",
+    "Low VOC options available",
+    "Excellent durability"
+  ]
+}

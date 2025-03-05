@@ -1,0 +1,18 @@
+{
+  "id": "drywall",
+  "name": "Drywall",
+  "slug": "drywall",
+  "description": "Interior wall surfaces requiring smooth finish and proper preparation.",
+  "preparationSteps": [
+    "Repair any damage",
+    "Sand smooth",
+    "Apply drywall primer",
+    "Clean surface thoroughly"
+  ],
+  "recommendedProducts": [
+    "Drywall primer",
+    "Interior latex paint",
+    "Drywall repair compounds",
+    "Fine-grit sandpaper"
+  ]
+}

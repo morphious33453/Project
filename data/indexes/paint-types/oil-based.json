@@ -1,0 +1,18 @@
+{
+  "id": "oil-based",
+  "name": "Oil-Based Paint",
+  "slug": "oil-based",
+  "description": "Traditional paint that provides a durable, high-gloss finish.",
+  "applications": [
+    "Trim and moldings",
+    "Doors and windows",
+    "High-moisture areas",
+    "Metal surfaces"
+  ],
+  "benefits": [
+    "Superior durability",
+    "Rich, glossy finish",
+    "Excellent coverage",
+    "Moisture resistant"
+  ]
+}

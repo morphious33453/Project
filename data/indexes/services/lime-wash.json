@@ -1,0 +1,109 @@
+{
+  "name": "lime wash",
+  "slug": "lime-wash",
+  "companies": [
+    {
+      "id": "heritage-restoration-paints",
+      "name": "Heritage Restoration Paints",
+      "slug": "heritage-restoration-paints",
+      "type": "supplier",
+      "services": [
+        "historical finishes",
+        "lime wash",
+        "milk paint"
+      ],
+      "locations": [
+        {
+          "city": "Thorold",
+          "address": "45 Front Street",
+          "region": "Niagara"
+        },
+        {
+          "city": "St. Catharines",
+          "address": "45 Front Street",
+          "region": "Niagara"
+        },
+        {
+          "city": "Niagara-on-the-Lake",
+          "address": "45 Front Street",
+          "region": "Niagara"
+        }
+      ],
+      "phone": "905-555-0900",
+      "email": "info@heritagerestorationpaints.com",
+      "website": "https://www.heritagerestorationpaints.com",
+      "rating": "4.7",
+      "reviewCount": "35",
+      "yearsInBusiness": "10",
+      "expertise": {
+        "description": "Heritage Restoration Paints has been providing professional painting services in the Niagara region for 10 years.",
+        "specialties": [
+          "historical finishes",
+          "lime wash",
+          "milk paint"
+        ],
+        "certifications": [],
+        "specialProjects": [],
+        "awards": []
+      },
+      "serviceDetails": {
+        "timeEstimates": "2-3 days for average-sized rooms",
+        "process": [
+          "Initial consultation and color selection",
+          "Surface preparation and cleaning",
+          "Priming if necessary",
+          "Application of paint coats",
+          "Final inspection and touch-ups"
+        ],
+        "preparation": [
+          "Move or cover furniture",
+          "Clean surfaces thoroughly",
+          "Repair any wall damage",
+          "Tape off areas not to be painted"
+        ],
+        "maintenance": [
+          "Regular cleaning with mild soap and water",
+          "Touch up any chips or scratches promptly",
+          "Repaint every 3-5 years for best results"
+        ],
+        "aftercare": [
+          "Allow paint to cure fully",
+          "Clean walls gently",
+          "Monitor for any issues"
+        ],
+        "warranty": "5-year warranty on workmanship"
+      },
+      "tips": {
+        "maintenance": [
+          "Clean walls regularly with a soft cloth",
+          "Address any water damage immediately",
+          "Keep rooms well-ventilated"
+        ],
+        "colorSelection": [
+          "Consider room lighting",
+          "Test samples on walls",
+          "Think about room function"
+        ],
+        "general": [
+          "Schedule painting in dry weather",
+          "Ensure proper ventilation",
+          "Allow adequate drying time"
+        ],
+        "applicationTips": [
+          "Use quality brushes and rollers",
+          "Apply thin, even coats",
+          "Follow manufacturer guidelines"
+        ]
+      }
+    }
+  ],
+  "totalCompanies": 1,
+  "regions": [
+    "Niagara"
+  ],
+  "averagePricing": {
+    "min": 500,
+    "max": 2500,
+    "unit": "per project"
+  }
+}

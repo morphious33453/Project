@@ -1,215 +1,191 @@
-import fs from 'fs/promises'
-import path from 'path'
-import { Company } from '../lib/utils/types'
+import fs from 'fs/promises';
+import path from 'path';
+import { env } from '../lib/utils/env';
 
-const URLS_PER_SITEMAP = 2500
-const BASE_URL = 'https://yourwebsite.com' // Replace with your actual domain
+const SITEMAP_SIZE = 2500;
+const BASE_URL = env.SITE_URL;
 
-interface SitemapEntry {
-  url: string
-  lastmod: string
-  changefreq: string
-  priority: string
+interface Company {
+  name: string;
+  slug: string;
+  region: string;
+  city: string;
 }
 
-function generateSitemapXML(entries: SitemapEntry[]): string {
-  return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${entries.map(entry => `  <url>
-    <loc>${entry.url}</loc>
-    <lastmod>${entry.lastmod}</lastmod>
-    <changefreq>${entry.changefreq}</changefreq>
-    <priority>${entry.priority}</priority>
-  </url>`).join('\n')}
-</urlset>`
+interface Service {
+  name: string;
+  slug: string;
 }
 
-function generateSitemapIndex(sitemaps: string[]): string {
-  const today = new Date().toISOString().split('T')[0]
+async function readJsonFiles(directory: string): Promise<any[]> {
+  try {
+    const files = await fs.readdir(directory);
+    const jsonFiles = files.filter(file => file.endsWith('.json'));
+    
+    const data = await Promise.all(
+      jsonFiles.map(async (file) => {
+        const content = await fs.readFile(path.join(directory, file), 'utf-8');
+        return JSON.parse(content);
+      })
+    );
+    
+    return data;
+  } catch (error) {
+    console.error(`Error reading directory ${directory}:`, error);
+    return [];
+  }
+}
+
+function generateSitemapXML(urls: string[]): string {
+  const urlElements = urls.map(url => `
+    <url>
+      <loc>${url}</loc>
+      <changefreq>daily</changefreq>
+      <priority>0.7</priority>
+    </url>
+  `).join('');
+
   return `<?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${sitemaps.map(sitemap => `  <sitemap>
-    <loc>${BASE_URL}/${sitemap}</loc>
-    <lastmod>${today}</lastmod>
-  </sitemap>`).join('\n')}
-</sitemapindex>`
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      ${urlElements}
+    </urlset>`;
+}
+
+function generateSitemapIndex(sitemapFiles: string[]): string {
+  const sitemapElements = sitemapFiles.map(file => `
+    <sitemap>
+      <loc>${BASE_URL}/${file}</loc>
+    </sitemap>
+  `).join('');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+    <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      ${sitemapElements}
+    </sitemapindex>`;
 }
 
 async function generateCompanySitemaps(): Promise<string[]> {
-  const companiesDir = path.join(process.cwd(), 'data', 'companies')
-  const files = await fs.readdir(companiesDir)
+  const companies = await readJsonFiles(path.join(process.cwd(), 'data/companies'));
+  const urls = companies.map(company => `${BASE_URL}/companies/${company.slug}`);
   
-  const entries: SitemapEntry[] = await Promise.all(
-    files.map(async (file) => {
-      const content = await fs.readFile(path.join(companiesDir, file), 'utf-8')
-      const company = JSON.parse(content) as Company
-      return {
-        url: `${BASE_URL}/companies/${company.slug}`,
-        lastmod: new Date().toISOString().split('T')[0],
-        changefreq: 'weekly',
-        priority: '0.8'
-      }
-    })
-  )
-
-  const sitemapFiles: string[] = []
-  for (let i = 0; i < entries.length; i += URLS_PER_SITEMAP) {
-    const chunk = entries.slice(i, i + URLS_PER_SITEMAP)
-    const sitemapContent = generateSitemapXML(chunk)
-    const filename = `sitemap-companies-${Math.floor(i / URLS_PER_SITEMAP) + 1}.xml`
-    await fs.writeFile(path.join(process.cwd(), 'public', filename), sitemapContent)
-    sitemapFiles.push(filename)
+  const sitemapFiles: string[] = [];
+  for (let i = 0; i < urls.length; i += SITEMAP_SIZE) {
+    const chunk = urls.slice(i, i + SITEMAP_SIZE);
+    const sitemapName = `sitemap-companies-${Math.floor(i / SITEMAP_SIZE) + 1}.xml`;
+    await fs.writeFile(
+      path.join(process.cwd(), 'public', sitemapName),
+      generateSitemapXML(chunk)
+    );
+    sitemapFiles.push(sitemapName);
   }
-
-  return sitemapFiles
+  
+  return sitemapFiles;
 }
 
 async function generateServiceSitemaps(): Promise<string[]> {
-  const servicesDir = path.join(process.cwd(), 'data', 'indexes', 'services')
-  const files = await fs.readdir(servicesDir)
+  const services = await readJsonFiles(path.join(process.cwd(), 'data/indexes/services'));
+  const urls = services.map(service => `${BASE_URL}/service/${service.slug}`);
   
-  const entries: SitemapEntry[] = files.map(file => ({
-    url: `${BASE_URL}/service/${path.basename(file, '.json')}`,
-    lastmod: new Date().toISOString().split('T')[0],
-    changefreq: 'weekly',
-    priority: '0.7'
-  }))
-
-  const sitemapFiles: string[] = []
-  for (let i = 0; i < entries.length; i += URLS_PER_SITEMAP) {
-    const chunk = entries.slice(i, i + URLS_PER_SITEMAP)
-    const sitemapContent = generateSitemapXML(chunk)
-    const filename = `sitemap-services-${Math.floor(i / URLS_PER_SITEMAP) + 1}.xml`
-    await fs.writeFile(path.join(process.cwd(), 'public', filename), sitemapContent)
-    sitemapFiles.push(filename)
+  const sitemapFiles: string[] = [];
+  for (let i = 0; i < urls.length; i += SITEMAP_SIZE) {
+    const chunk = urls.slice(i, i + SITEMAP_SIZE);
+    const sitemapName = `sitemap-services-${Math.floor(i / SITEMAP_SIZE) + 1}.xml`;
+    await fs.writeFile(
+      path.join(process.cwd(), 'public', sitemapName),
+      generateSitemapXML(chunk)
+    );
+    sitemapFiles.push(sitemapName);
   }
-
-  return sitemapFiles
+  
+  return sitemapFiles;
 }
 
 async function generateLocationSitemaps(): Promise<string[]> {
-  const regionsDir = path.join(process.cwd(), 'data', 'indexes', 'regions')
-  const files = await fs.readdir(regionsDir)
+  const companies = await readJsonFiles(path.join(process.cwd(), 'data/companies'));
   
-  const entries: SitemapEntry[] = []
+  // Get unique regions and cities
+  const locations = new Set<string>();
+  const regionCities = new Map<string, Set<string>>();
   
-  for (const file of files) {
-    const region = path.basename(file, '.json')
-    entries.push({
-      url: `${BASE_URL}/location/${region}`,
-      lastmod: new Date().toISOString().split('T')[0],
-      changefreq: 'weekly',
-      priority: '0.7'
-    })
-
-    const content = await fs.readFile(path.join(regionsDir, file), 'utf-8')
-    const companies = JSON.parse(content) as Company[]
-    const cities = new Set(companies.flatMap(c => 
-      c.locations.map(l => l.city.toLowerCase().replace(/\s+/g, '-'))
-    ))
-
-    cities.forEach(city => {
-      entries.push({
-        url: `${BASE_URL}/location/${region}/${city}`,
-        lastmod: new Date().toISOString().split('T')[0],
-        changefreq: 'weekly',
-        priority: '0.6'
-      })
-    })
-  }
-
-  const sitemapFiles: string[] = []
-  for (let i = 0; i < entries.length; i += URLS_PER_SITEMAP) {
-    const chunk = entries.slice(i, i + URLS_PER_SITEMAP)
-    const sitemapContent = generateSitemapXML(chunk)
-    const filename = `sitemap-locations-${Math.floor(i / URLS_PER_SITEMAP) + 1}.xml`
-    await fs.writeFile(path.join(process.cwd(), 'public', filename), sitemapContent)
-    sitemapFiles.push(filename)
-  }
-
-  return sitemapFiles
-}
-
-async function generateStaticPagesSitemap(): Promise<string[]> {
-  const entries: SitemapEntry[] = [
-    {
-      url: BASE_URL,
-      lastmod: new Date().toISOString().split('T')[0],
-      changefreq: 'daily',
-      priority: '1.0'
-    },
-    {
-      url: `${BASE_URL}/companies`,
-      lastmod: new Date().toISOString().split('T')[0],
-      changefreq: 'daily',
-      priority: '0.9'
-    },
-    {
-      url: `${BASE_URL}/services`,
-      lastmod: new Date().toISOString().split('T')[0],
-      changefreq: 'daily',
-      priority: '0.9'
-    },
-    {
-      url: `${BASE_URL}/locations`,
-      lastmod: new Date().toISOString().split('T')[0],
-      changefreq: 'daily',
-      priority: '0.9'
+  companies.forEach(company => {
+    if (company.region) {
+      locations.add(`/location/${company.region}`);
+      if (!regionCities.has(company.region)) {
+        regionCities.set(company.region, new Set());
+      }
+      if (company.city) {
+        regionCities.get(company.region)?.add(company.city);
+      }
     }
-  ]
-
-  const sitemapContent = generateSitemapXML(entries)
-  const filename = 'sitemap-static.xml'
-  await fs.writeFile(path.join(process.cwd(), 'public', filename), sitemapContent)
-  return [filename]
+  });
+  
+  // Add region/city combinations
+  regionCities.forEach((cities, region) => {
+    cities.forEach(city => {
+      locations.add(`/location/${region}/${city}`);
+    });
+  });
+  
+  const urls = Array.from(locations).map(path => `${BASE_URL}${path}`);
+  
+  const sitemapFiles: string[] = [];
+  for (let i = 0; i < urls.length; i += SITEMAP_SIZE) {
+    const chunk = urls.slice(i, i + SITEMAP_SIZE);
+    const sitemapName = `sitemap-locations-${Math.floor(i / SITEMAP_SIZE) + 1}.xml`;
+    await fs.writeFile(
+      path.join(process.cwd(), 'public', sitemapName),
+      generateSitemapXML(chunk)
+    );
+    sitemapFiles.push(sitemapName);
+  }
+  
+  return sitemapFiles;
 }
 
-async function generateRobotsTxt(sitemapIndex: string): Promise<void> {
-  const content = `# https://www.robotstxt.org/robotstxt.html
-User-agent: *
-Allow: /
-
-# Sitemaps
-Sitemap: ${BASE_URL}/${sitemapIndex}
-`
-  await fs.writeFile(path.join(process.cwd(), 'public', 'robots.txt'), content)
+async function generateStaticSitemap(): Promise<string[]> {
+  const staticUrls = [
+    `${BASE_URL}`,
+    `${BASE_URL}/about`,
+    `${BASE_URL}/contact`,
+  ];
+  
+  const sitemapName = 'sitemap-static.xml';
+  await fs.writeFile(
+    path.join(process.cwd(), 'public', sitemapName),
+    generateSitemapXML(staticUrls)
+  );
+  
+  return [sitemapName];
 }
 
 async function main() {
+  console.log('Generating sitemaps...');
+  
   try {
-    console.log('Generating sitemaps...')
-
-    // Create public directory if it doesn't exist
-    await fs.mkdir(path.join(process.cwd(), 'public'), { recursive: true })
-
-    // Generate all sitemaps
-    const [companySitemaps, serviceSitemaps, locationSitemaps, staticSitemaps] = await Promise.all([
+    const [companySitemaps, serviceSitemaps, locationSitemaps, staticSitemap] = await Promise.all([
       generateCompanySitemaps(),
       generateServiceSitemaps(),
       generateLocationSitemaps(),
-      generateStaticPagesSitemap()
-    ])
-
-    // Generate sitemap index
+      generateStaticSitemap(),
+    ]);
+    
     const allSitemaps = [
-      ...staticSitemaps,
       ...companySitemaps,
       ...serviceSitemaps,
-      ...locationSitemaps
-    ]
-    const sitemapIndexContent = generateSitemapIndex(allSitemaps)
-    await fs.writeFile(path.join(process.cwd(), 'public', 'sitemap.xml'), sitemapIndexContent)
-
-    // Generate robots.txt
-    await generateRobotsTxt('sitemap.xml')
-
-    console.log('Sitemap generation completed!')
-    console.log(`Generated ${allSitemaps.length} sitemap files`)
-    console.log('robots.txt file updated')
+      ...locationSitemaps,
+      ...staticSitemap,
+    ];
+    
+    await fs.writeFile(
+      path.join(process.cwd(), 'public/sitemap.xml'),
+      generateSitemapIndex(allSitemaps)
+    );
+    
+    console.log('Sitemap generation completed successfully!');
   } catch (error) {
-    console.error('Error generating sitemaps:', error)
-    process.exit(1)
+    console.error('Error generating sitemaps:', error);
+    process.exit(1);
   }
 }
 
-main()
+main();

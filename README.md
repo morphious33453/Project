@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Niagara Paint Services Directory
+
+A comprehensive directory of paint services, suppliers, and contractors in the Niagara region.
+
+## Environment Variables for Vercel Deployment
+
+When deploying to Vercel, you'll need to set up the following environment variables in your Vercel project settings:
+
+### Required Environment Variables
+
+```env
+# Site Configuration
+NEXT_PUBLIC_SITE_URL=https://your-vercel-domain.vercel.app
+NEXT_PUBLIC_SITE_NAME="Niagara Paint Services Directory"
+NEXT_PUBLIC_SITE_DESCRIPTION="Find trusted paint contractors, suppliers, and services in the Niagara region"
+
+# API Configuration
+NEXT_PUBLIC_API_BASE_URL=https://your-vercel-domain.vercel.app/api
+
+# Build Configuration
+NEXT_PUBLIC_ENABLE_ANALYTICS=true
+NEXT_PUBLIC_ENABLE_SITEMAP=true
+NEXT_PUBLIC_ENABLE_ROBOTS=true
+
+# Deployment Mode
+NODE_ENV=production
+```
+
+### Setting Up Environment Variables in Vercel
+
+1. Go to your project in the Vercel dashboard
+2. Click on "Settings"
+3. Click on "Environment Variables"
+4. Add each of the above variables
+5. Deploy your project
+
+## Local Development
+
+For local development, create a `.env.local` file in the root directory with:
+
+```env
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+NEXT_PUBLIC_API_BASE_URL=http://localhost:3000/api
+NODE_ENV=development
+```
 
 ## Getting Started
 
-First, run the development server:
-
+1. Install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Run the development server:
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Building for Production
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The project is configured for deployment on Vercel. Simply push to your GitHub repository and Vercel will automatically deploy your changes.

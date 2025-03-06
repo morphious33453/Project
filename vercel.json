@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "env": {
+    "NEXT_PUBLIC_SITE_URL": "https://niagara-paint.vercel.app",
+    "NEXT_PUBLIC_SITE_NAME": "Niagara Paint Services Directory",
+    "NEXT_PUBLIC_SITE_DESCRIPTION": "Find trusted paint contractors, suppliers, and services in the Niagara region",
+    "NEXT_PUBLIC_API_BASE_URL": "https://niagara-paint.vercel.app/api",
+    "NEXT_PUBLIC_ENABLE_ANALYTICS": "true",
+    "NEXT_PUBLIC_ENABLE_SITEMAP": "true",
+    "NEXT_PUBLIC_ENABLE_ROBOTS": "true",
+    "NODE_ENV": "production"
+  },
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_SITE_URL": "https://niagara-paint.vercel.app",
+      "NEXT_PUBLIC_SITE_NAME": "Niagara Paint Services Directory",
+      "NEXT_PUBLIC_SITE_DESCRIPTION": "Find trusted paint contractors, suppliers, and services in the Niagara region",
+      "NEXT_PUBLIC_API_BASE_URL": "https://niagara-paint.vercel.app/api",
+      "NEXT_PUBLIC_ENABLE_ANALYTICS": "true",
+      "NEXT_PUBLIC_ENABLE_SITEMAP": "true",
+      "NEXT_PUBLIC_ENABLE_ROBOTS": "true",
+      "NODE_ENV": "production"
+    }
+  }
+}

@@ -5,12 +5,21 @@ import Link from "next/link"
 import { Paintbrush } from "lucide-react"
 import { MobileNav } from "@/components/mobile-nav"
 import { navLinks } from "@/lib/utils/navigation"
+import { env } from "@/lib/utils/env"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Niagara Paint Services Directory",
-  description: "Find trusted paint contractors, suppliers, and services in the Niagara region.",
+  metadataBase: new URL(env.SITE_URL),
+  title: {
+    default: env.SITE_NAME,
+    template: `%s | ${env.SITE_NAME}`,
+  },
+  description: env.SITE_DESCRIPTION,
+  robots: {
+    index: env.ENABLE_ROBOTS,
+    follow: env.ENABLE_ROBOTS,
+  },
 }
 
 export default function RootLayout({
@@ -26,7 +35,7 @@ export default function RootLayout({
             <div className="flex items-center gap-6">
               <Link href="/" className="flex items-center space-x-2">
                 <Paintbrush className="h-6 w-6" />
-                <span className="font-bold">Niagara Paint</span>
+                <span className="font-bold">{env.SITE_NAME}</span>
               </Link>
 
               <nav className="hidden md:flex items-center space-x-6">
@@ -84,12 +93,12 @@ export default function RootLayout({
               <div>
                 <h3 className="font-semibold mb-3">Contact</h3>
                 <p className="text-sm text-muted-foreground">
-                  Find the best painting services in the Niagara region.
+                  {env.SITE_DESCRIPTION}
                 </p>
               </div>
             </div>
             <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Niagara Paint Services Directory. All rights reserved.
+              © {new Date().getFullYear()} {env.SITE_NAME}. All rights reserved.
             </div>
           </div>
         </footer>

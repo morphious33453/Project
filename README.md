@@ -34,7 +34,7 @@ NODE_ENV=production
 4. Add each of the above variables
 5. Deploy your project
 
-## Local Development
+### Local Development
 
 For local development, create a `.env.local` file in the root directory with:
 
@@ -42,28 +42,3 @@ For local development, create a `.env.local` file in the root directory with:
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 NEXT_PUBLIC_API_BASE_URL=http://localhost:3000/api
 NODE_ENV=development
-```
-
-## Getting Started
-
-1. Install dependencies:
-```bash
-npm install
-```
-
-2. Run the development server:
-```bash
-npm run dev
-```
-
-3. Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-## Building for Production
-
-```bash
-npm run build
-```
-
-## Deployment
-
-The project is configured for deployment on Vercel. Simply push to your GitHub repository and Vercel will automatically deploy your changes.

@@ -1,7 +1,7 @@
 {
   "version": 2,
   "buildCommand": "npm run build",
-  "installCommand": "npm install",
+  "installCommand": "npm install --include=dev",
   "framework": "nextjs",
   "env": {
     "NEXT_PUBLIC_SITE_URL": "https://niagara-paint.vercel.app",
@@ -11,7 +11,8 @@
     "NEXT_PUBLIC_ENABLE_ANALYTICS": "true",
     "NEXT_PUBLIC_ENABLE_SITEMAP": "true",
     "NEXT_PUBLIC_ENABLE_ROBOTS": "true",
-    "NODE_ENV": "production"
+    "NODE_ENV": "production",
+    "OPENAI_API_KEY": "@openai-api-key"
   },
   "build": {
     "env": {
@@ -22,7 +23,8 @@
       "NEXT_PUBLIC_ENABLE_ANALYTICS": "true",
       "NEXT_PUBLIC_ENABLE_SITEMAP": "true",
       "NEXT_PUBLIC_ENABLE_ROBOTS": "true",
-      "NODE_ENV": "production"
+      "NODE_ENV": "production",
+      "OPENAI_API_KEY": "@openai-api-key"
     }
   }
 }

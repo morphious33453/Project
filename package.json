@@ -7,8 +7,8 @@
     "build": "npm run generate-data && npm run generate-sitemaps && next build",
     "start": "next start",
     "lint": "next lint",
-    "generate-data": "tsx ./scripts/generate.ts",
-    "generate-sitemaps": "tsx ./scripts/generate-sitemaps.ts"
+    "generate-data": "npx tsx ./scripts/generate.ts",
+    "generate-sitemaps": "npx tsx ./scripts/generate-sitemaps.ts"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.5",
@@ -20,7 +20,9 @@
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.2.1",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "csv-parse": "^5.5.3",
+    "openai": "^4.28.0"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -32,7 +34,7 @@
     "eslint-config-next": "14.2.23",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
-    "tsx": "^4.7.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "tsx": "^4.7.1"
   }
 }

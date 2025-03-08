@@ -18,37 +18,35 @@ async function getServiceData(slug: string): Promise<{
   companies: Company[];
 } | null> {
   try {
-    // Read companies that provide this service
+    // Read service data
     const content = await fs.readFile(
       path.join(process.cwd(), 'data', 'indexes', 'services', `${slug}.json`),
       'utf-8'
     )
-    const companies = JSON.parse(content) as Company[]
+    const serviceData = JSON.parse(content)
 
-    // Create service data from the first company's service info
-    const serviceName = companies[0].services.find(s => 
-      s.toLowerCase().replace(/\s+/g, '-') === slug
-    ) || slug.replace(/-/g, ' ')
-
-    const service: ServiceType = {
-      id: slug,
-      slug,
-      name: serviceName,
-      description: `Professional ${serviceName.toLowerCase()} services in the Niagara region`,
-      commonApplications: [],
-      benefits: [],
-      considerations: [],
-      estimatedDuration: "",
-      priceRange: {
-        min: 0,
-        max: 0,
-        unit: ""
+    // Return properly structured data
+    return {
+      service: {
+        id: slug,
+        slug,
+        name: serviceData.name,
+        description: serviceData.description || `Professional ${serviceData.name.toLowerCase()} services in the Niagara region`,
+        commonApplications: [],
+        benefits: [],
+        considerations: [],
+        estimatedDuration: "",
+        priceRange: serviceData.averagePricing || {
+          min: 0,
+          max: 0,
+          unit: ""
+        },
+        relatedServices: []
       },
-      relatedServices: []
+      companies: serviceData.companies || []
     }
-
-    return { service, companies }
   } catch (error) {
+    console.error('Error loading service data:', error)
     return null
   }
 }

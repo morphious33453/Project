@@ -8,12 +8,8 @@
  * @param defaultValue Optional default value if not found
  * @returns The environment variable value
  */
-export const getEnvVar = (key: string, defaultValue?: string): string => {
-  const value = process.env[key] || defaultValue;
-  if (value === undefined) {
-    throw new Error(`Environment variable ${key} is not defined`);
-  }
-  return value;
+export const getEnvVar = (key: string, defaultValue: string): string => {
+  return process.env[key] || defaultValue;
 };
 
 /**
@@ -21,7 +17,7 @@ export const getEnvVar = (key: string, defaultValue?: string): string => {
  */
 export const env = {
   // Site Configuration
-  SITE_URL: getEnvVar('NEXT_PUBLIC_SITE_URL'),
+  SITE_URL: getEnvVar('NEXT_PUBLIC_SITE_URL', 'https://niagara-paint.vercel.app'),
   SITE_NAME: getEnvVar('NEXT_PUBLIC_SITE_NAME', 'Niagara Paint Services Directory'),
   SITE_DESCRIPTION: getEnvVar(
     'NEXT_PUBLIC_SITE_DESCRIPTION',
@@ -29,7 +25,7 @@ export const env = {
   ),
 
   // API Configuration
-  API_BASE_URL: getEnvVar('NEXT_PUBLIC_API_BASE_URL'),
+  API_BASE_URL: getEnvVar('NEXT_PUBLIC_API_BASE_URL', 'https://niagara-paint.vercel.app/api'),
 
   // Build Configuration
   ENABLE_ANALYTICS: getEnvVar('NEXT_PUBLIC_ENABLE_ANALYTICS', 'false') === 'true',

@@ -13,6 +13,15 @@ interface Props {
   }
 }
 
+interface RegionData {
+  name: string;
+  slug: string;
+  cities: string[];
+  companies: Company[];
+  totalCompanies: number;
+  popularServices: string[];
+}
+
 async function getLocationData(region: string): Promise<{
   companies: Company[];
   services: string[];
@@ -23,14 +32,18 @@ async function getLocationData(region: string): Promise<{
       path.join(process.cwd(), 'data', 'indexes', 'regions', `${region}.json`),
       'utf-8'
     )
-    const companies = JSON.parse(content) as Company[]
+    const regionData = JSON.parse(content) as RegionData
 
-    // Extract unique services and cities
-    const services = [...new Set(companies.flatMap(c => c.services))]
-    const cities = [...new Set(companies.flatMap(c => c.locations.map(l => l.city)))]
+    // Extract unique services from companies
+    const services = [...new Set(regionData.companies.flatMap(c => c.services))]
 
-    return { companies, services, cities }
+    return {
+      companies: regionData.companies,
+      services: services,
+      cities: regionData.cities
+    }
   } catch (error) {
+    console.error('Error loading location data:', error)
     return null
   }
 }

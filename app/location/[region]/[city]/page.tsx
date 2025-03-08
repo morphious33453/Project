@@ -14,6 +14,15 @@ interface Props {
   }
 }
 
+interface RegionData {
+  name: string;
+  slug: string;
+  cities: string[];
+  companies: Company[];
+  totalCompanies: number;
+  popularServices: string[];
+}
+
 async function getCityData(region: string, city: string): Promise<{
   companies: Company[];
   services: string[];
@@ -23,10 +32,10 @@ async function getCityData(region: string, city: string): Promise<{
       path.join(process.cwd(), 'data', 'indexes', 'regions', `${region}.json`),
       'utf-8'
     )
-    const allCompanies = JSON.parse(content) as Company[]
+    const regionData = JSON.parse(content) as RegionData
     
     // Filter companies that have a location in this city
-    const companies = allCompanies.filter(company =>
+    const companies = regionData.companies.filter(company =>
       company.locations.some(location => 
         location.city.toLowerCase().replace(/\s+/g, '-') === city
       )
@@ -39,6 +48,7 @@ async function getCityData(region: string, city: string): Promise<{
 
     return { companies, services }
   } catch (error) {
+    console.error('Error loading city data:', error)
     return null
   }
 }
@@ -51,14 +61,14 @@ export async function generateStaticParams() {
   
   for (const file of files) {
     const content = await fs.readFile(path.join(regionsDir, file), 'utf-8')
-    const companies = JSON.parse(content) as Company[]
-    const cities = new Set(companies.flatMap(c => 
-      c.locations.map(l => l.city.toLowerCase().replace(/\s+/g, '-'))
-    ))
-    
+    const regionData = JSON.parse(content) as RegionData
     const region = path.basename(file, '.json')
-    cities.forEach(city => {
-      params.push({ region, city })
+    
+    regionData.cities.forEach(city => {
+      params.push({
+        region,
+        city: city.toLowerCase().replace(/\s+/g, '-')
+      })
     })
   }
 
@@ -124,7 +134,7 @@ export default async function CityPage({ params }: Props) {
         <div className="md:col-span-2 space-y-8">
           {/* Contractors Section */}
           {contractors.length > 0 && (
-            <section>
+            <section id="contractors">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-semibold">Local Painting Contractors</h2>
               </div>
@@ -138,7 +148,7 @@ export default async function CityPage({ params }: Props) {
 
           {/* Paint Stores Section */}
           {retailers.length > 0 && (
-            <section>
+            <section id="stores">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-semibold">Paint Stores</h2>
               </div>
@@ -152,7 +162,7 @@ export default async function CityPage({ params }: Props) {
 
           {/* Suppliers Section */}
           {suppliers.length > 0 && (
-            <section>
+            <section id="suppliers">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-semibold">Paint Suppliers</h2>
               </div>

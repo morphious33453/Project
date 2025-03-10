@@ -143,15 +143,15 @@ export default async function CompanyPage({ params }: Props) {
           )}
 
           {/* Tips & Advice */}
-          {company.tips && (Object.values(company.tips).some(arr => arr.length > 0)) && (
+          {company.tips && (Object.values(company.tips).some(arr => arr && arr.length > 0)) && (
             <section>
               <h2 className="text-2xl font-semibold mb-4">Tips & Advice</h2>
               <div className="grid md:grid-cols-2 gap-6">
-                {company.tips.maintenance.length > 0 && (
+                {company.tips.maintenance && company.tips.maintenance.length > 0 && (
                   <div>
                     <h3 className="font-medium mb-2">Maintenance Tips</h3>
                     <ul className="space-y-2">
-                      {company.tips.maintenance.map((tip, index) => (
+                      {company.tips?.maintenance?.map((tip, index) => (
                         <li key={index} className="flex items-start">
                           <Shield className="h-5 w-5 mr-2 flex-shrink-0" />
                           <span className="text-muted-foreground">{tip}</span>
@@ -160,11 +160,11 @@ export default async function CompanyPage({ params }: Props) {
                     </ul>
                   </div>
                 )}
-                {company.tips.colorSelection.length > 0 && (
+                {company.tips.colorSelection && company.tips.colorSelection.length > 0 && (
                   <div>
                     <h3 className="font-medium mb-2">Color Selection Tips</h3>
                     <ul className="space-y-2">
-                      {company.tips.colorSelection.map((tip, index) => (
+                      {company.tips?.colorSelection?.map((tip, index) => (
                         <li key={index} className="flex items-start">
                           <Shield className="h-5 w-5 mr-2 flex-shrink-0" />
                           <span className="text-muted-foreground">{tip}</span>

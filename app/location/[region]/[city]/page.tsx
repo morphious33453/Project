@@ -2,7 +2,7 @@ import fs from "fs/promises"
 import path from "path"
 import { notFound } from "next/navigation"
 import { MapPin, Phone, Building, Brush, ArrowLeft } from "lucide-react"
-import { Company } from "@/lib/utils/types"
+import { Company, CityInfo } from "@/lib/utils/types"
 import { CompanyCard } from "@/components/company-card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
@@ -21,11 +21,13 @@ interface RegionData {
   companies: Company[];
   totalCompanies: number;
   popularServices: string[];
+  cityInfo?: { [key: string]: CityInfo };
 }
 
 async function getCityData(region: string, city: string): Promise<{
   companies: Company[];
   services: string[];
+  cityInfo?: CityInfo;
 } | null> {
   try {
     const content = await fs.readFile(
@@ -36,9 +38,11 @@ async function getCityData(region: string, city: string): Promise<{
     
     // Filter companies that have a location in this city
     const companies = regionData.companies.filter(company =>
-      company.locations.some(location => 
-        location.city.toLowerCase().replace(/\s+/g, '-') === city
-      )
+      company.locations.some(location => {
+        const normalizedLocationCity = location.city.toLowerCase().replace(/\s+/g, '-').replace(/\./g, '')
+        const normalizedCity = city.toLowerCase().replace(/\s+/g, '-').replace(/\./g, '')
+        return normalizedLocationCity === normalizedCity
+      })
     )
 
     if (companies.length === 0) return null
@@ -46,7 +50,10 @@ async function getCityData(region: string, city: string): Promise<{
     // Extract unique services
     const services = Array.from(new Set(companies.flatMap(c => c.services)))
 
-    return { companies, services }
+    // Get city info if available
+    const cityInfo = regionData.cityInfo?.[city.toLowerCase().replace(/\s+/g, '-').replace(/\./g, '')]
+
+    return { companies, services, cityInfo }
   } catch (error) {
     console.error('Error loading city data:', error)
     return null
@@ -67,7 +74,7 @@ export async function generateStaticParams() {
     regionData.cities.forEach(city => {
       params.push({
         region,
-        city: city.toLowerCase().replace(/\s+/g, '-')
+        city: city.toLowerCase().replace(/\s+/g, '-').replace(/\./g, '')
       })
     })
   }
@@ -100,7 +107,7 @@ export default async function CityPage({ params }: Props) {
   const data = await getCityData(params.region, params.city)
   if (!data) notFound()
 
-  const { companies, services } = data
+  const { companies, services, cityInfo } = data
   const cityName = params.city.charAt(0).toUpperCase() + params.city.slice(1).replace(/-/g, ' ')
   const regionName = params.region.charAt(0).toUpperCase() + params.region.slice(1).replace(/-/g, ' ')
 
@@ -128,6 +135,67 @@ export default async function CityPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* City Information Section */}
+      {cityInfo && (
+        <section className="bg-card rounded-lg border p-6">
+          <h2 className="text-2xl font-semibold mb-4">About {cityName}</h2>
+          <div className="space-y-4">
+            <p className="text-muted-foreground">{cityInfo.description}</p>
+            
+            <div className="grid sm:grid-cols-2 gap-4">
+              {/* City Details */}
+              <div className="space-y-3">
+                <div className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4 text-muted-foreground" />
+                  <span>Population: {cityInfo.population}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Building className="h-4 w-4 text-muted-foreground" />
+                  <a 
+                    href={cityInfo.cityHallWebsite}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline"
+                  >
+                    City Hall Website
+                  </a>
+                </div>
+              </div>
+
+              {/* Service Areas */}
+              <div>
+                <h3 className="font-medium mb-2">Service Areas</h3>
+                <div className="flex flex-wrap gap-2">
+                  {cityInfo.serviceAreas.map((area: string) => (
+                    <span
+                      key={area}
+                      className="inline-flex items-center rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium text-secondary-foreground"
+                    >
+                      {area}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Permit Information */}
+            <div className="mt-4">
+              <h3 className="font-medium mb-2">Permit Information</h3>
+              <p className="text-sm text-muted-foreground">{cityInfo.permitInfo}</p>
+              <Button asChild variant="outline" className="mt-2">
+                <a
+                  href={`${cityInfo.cityHallWebsite}/permits`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Permit Requirements
+                </a>
+              </Button>
+            </div>
+          </div>
+        </section>
+      )}
 
       <div className="grid md:grid-cols-3 gap-8">
         {/* Main Content */}

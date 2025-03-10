@@ -1,44 +1,8 @@
-export interface Location {
-  city: string;
-  address: string;
-  region: string;
-  postalCode?: string;
-}
-
-export interface ServiceDetails {
-  timeEstimates: string;
-  priceRange?: {
-    min: number;
-    max: number;
-    unit: string;
-  };
-  process?: string[];
-  preparation?: string[];
-  maintenance?: string[];
-  aftercare?: string[];
-  warranty?: string;
-}
-
-export interface Expertise {
-  description: string;
-  specialties: string[];
-  certifications?: string[];
-  specialProjects?: string[];
-  awards?: string[];
-}
-
-export interface CompanyTips {
-  maintenance?: string[];
-  colorSelection?: string[];
-  general?: string[];
-  applicationTips?: string[];
-}
-
 export interface Company {
   id: string;
   name: string;
   slug: string;
-  type: string;
+  type: 'contractor' | 'retailer' | 'supplier';
   services: string[];
   locations: Location[];
   phone: string;
@@ -47,26 +11,49 @@ export interface Company {
   rating: string;
   reviewCount: string;
   yearsInBusiness: string;
-  expertise?: Expertise;
-  serviceDetails?: ServiceDetails;
-  tips?: CompanyTips;
+  expertise: {
+    description: string;
+    specialties: string[];
+    certifications: string[];
+    specialProjects: string[];
+    awards: string[];
+  };
+  serviceDetails: {
+    timeEstimates: string;
+    process: string[];
+    preparation: string[];
+    maintenance: string[];
+    aftercare: string[];
+    warranty: string;
+  };
+  tips: {
+    maintenance: string[];
+    colorSelection: string[];
+    general: string[];
+    applicationTips: string[];
+  };
 }
 
-export interface ServiceType {
-  id: string;
+export interface Location {
+  city: string;
+  address: string;
+  region: string;
+  postalCode?: string;
+}
+
+export interface CityInfo {
   name: string;
-  slug: string;
-  description: string;
-  commonApplications?: string[];
-  benefits?: string[];
-  estimatedDuration?: string;
-  considerations?: string[];
-  relatedServices?: string[];
-  priceRange?: {
-    min: number;
-    max: number;
-    unit: string;
+  region: string;
+  population: string;
+  coordinates: {
+    lat: number;
+    lng: number;
   };
+  cityHallAddress: string;
+  cityHallWebsite: string;
+  permitInfo: string;
+  serviceAreas: string[];
+  description: string;
 }
 
 export interface RegionData {
@@ -76,34 +63,35 @@ export interface RegionData {
   companies: Company[];
   totalCompanies: number;
   popularServices: string[];
-}
-
-export interface ServiceData {
-  name: string;
-  slug: string;
-  companies: Company[];
-  totalCompanies: number;
-  regions: string[];
-  averagePricing?: {
-    min: number;
-    max: number;
-    unit: string;
-  };
-}
-
-export interface SitemapEntry {
-  url: string;
-  lastmod: string;
-  changefreq: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
-  priority: number;
+  cityInfo?: { [key: string]: CityInfo };
 }
 
 export interface MetaData {
   title: string;
   description: string;
   keywords?: string[];
-  canonical?: string;
-  canonicalUrl?: string; // Some components use canonicalUrl instead of canonical
+  canonicalUrl?: string;
+}
+
+export interface PriceRange {
+  min: number;
+  max: number;
+  unit: string;
+}
+
+export interface ServiceType {
+  id: string;
+  name: string;
+  slug: string;
+  description: string;
+  commonApplications: string[];
+  applications?: string[];
+  benefits: string[];
+  considerations?: string[];
+  estimatedDuration: string;
+  priceRange: PriceRange;
+  relatedServices?: string[];
+  companies?: Company[];
 }
 
 export interface PaintType {
@@ -113,15 +101,7 @@ export interface PaintType {
   description: string;
   applications: string[];
   benefits: string[];
-}
-
-export interface Brand {
-  id: string;
-  name: string;
-  slug: string;
-  description: string;
-  products: string[];
-  specialties: string[];
+  companies?: Company[];
 }
 
 export interface Surface {
@@ -131,6 +111,7 @@ export interface Surface {
   description: string;
   preparationSteps: string[];
   recommendedProducts: string[];
+  companies?: Company[];
 }
 
 export interface Finish {
@@ -140,15 +121,7 @@ export interface Finish {
   description: string;
   characteristics: string[];
   bestUsedFor: string[];
-}
-
-export interface Supply {
-  id: string;
-  name: string;
-  slug: string;
-  description: string;
-  category: string;
-  useCases: string[];
+  companies?: Company[];
 }
 
 export interface Specialty {
@@ -158,4 +131,14 @@ export interface Specialty {
   description: string;
   techniques: string[];
   requiredSkills: string[];
+  companies?: Company[];
+}
+
+export interface ServiceData {
+  id: string;
+  name: string;
+  slug: string;
+  description: string;
+  companies?: Company[];
+  averagePricing?: PriceRange;
 }

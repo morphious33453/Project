@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap>
-    <loc>https://yourwebsite.com/sitemap-static.xml</loc>
-    <lastmod>2025-03-04</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://yourwebsite.com/sitemap-companies-1.xml</loc>
-    <lastmod>2025-03-04</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://yourwebsite.com/sitemap-services-1.xml</loc>
-    <lastmod>2025-03-04</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://yourwebsite.com/sitemap-locations-1.xml</loc>
-    <lastmod>2025-03-04</lastmod>
-  </sitemap>
-</sitemapindex>
+    <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      
+    <sitemap>
+      <loc>https://niagara-paint.vercel.app/sitemap-companies-1.xml</loc>
+    </sitemap>
+  
+    <sitemap>
+      <loc>https://niagara-paint.vercel.app/sitemap-services-1.xml</loc>
+    </sitemap>
+  
+    <sitemap>
+      <loc>https://niagara-paint.vercel.app/sitemap-static.xml</loc>
+    </sitemap>
+  
+    </sitemapindex>

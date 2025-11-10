@@ -128,12 +128,23 @@ export default async function LeaderboardPage({ params }: PageProps) {
             <span className="mx-2">/</span>
             <span>{verticalName}</span>
           </div>
-          <h1 className="text-4xl font-bold mb-3 text-gray-900">
-            {cityName} {verticalName}
-          </h1>
-          <p className="text-gray-600">
-            Trust leaderboard showing {businesses.length} businesses ranked by verified evidence and online presence.
-          </p>
+          <div className="flex items-start justify-between">
+            <div>
+              <h1 className="text-4xl font-bold mb-3 text-gray-900">
+                {cityName} {verticalName}
+              </h1>
+              <p className="text-gray-600">
+                Trust leaderboard showing {businesses.length} businesses ranked by verified evidence and online presence.
+              </p>
+            </div>
+            <a
+              href={`/api/export/leaderboard/${city}/${vertical}`}
+              download
+              className="ml-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium whitespace-nowrap"
+            >
+              Download CSV
+            </a>
+          </div>
         </div>
 
         {/* Leaderboard Table */}

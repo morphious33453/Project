@@ -8,13 +8,16 @@
     "start": "next start",
     "lint": "next lint",
     "generate-data": "npx tsx ./scripts/generate.ts",
-    "generate-sitemaps": "npx tsx ./scripts/generate-sitemaps.ts"
+    "generate-sitemaps": "npx tsx ./scripts/generate-sitemaps.ts",
+    "seed": "npx tsx ./scripts/seed.ts",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "dotenv": "^16.3.1",
     "lucide-react": "^0.344.0",
     "next": "14.2.23",
     "react": "^18",
@@ -22,10 +25,13 @@
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
     "csv-parse": "^5.5.3",
-    "openai": "^4.28.0"
+    "openai": "^4.28.0",
+    "pg": "^8.11.3",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/pg": "^8.10.9",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",

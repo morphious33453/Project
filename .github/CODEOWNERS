@@ -1,0 +1,12 @@
+# Code owners for NSO Trust Index
+# All changes to src/ require review from the maintainer
+
+/src/** @morphious33453
+*.ts @morphious33453
+*.tsx @morphious33453
+
+# Database and infrastructure changes require extra scrutiny
+/scripts/schema.sql @morphious33453
+/scripts/seed.ts @morphious33453
+/.github/ @morphious33453
+/vercel.json @morphious33453

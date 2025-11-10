@@ -1,0 +1,140 @@
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "../app/globals.css";
+import Link from "next/link";
+
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: {
+    default: "NSO Trust Index | Niagara Stands Out",
+    template: "%s | NSO Trust Index",
+  },
+  description: "Track and improve your business trust score in the Niagara region. Leaderboards for local businesses across cities and verticals.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://trust.niagarastandsout.com'),
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" className="h-full">
+      <body className={`${inter.className} min-h-full flex flex-col bg-gray-50`}>
+        <header className="sticky top-0 z-40 w-full border-b bg-white shadow-sm">
+          <div className="container mx-auto px-4 flex h-16 items-center justify-between max-w-7xl">
+            <div className="flex items-center gap-8">
+              <Link href="/" className="flex items-center space-x-2">
+                <div className="bg-blue-600 text-white font-bold px-3 py-1 rounded">NSO</div>
+                <span className="font-bold text-lg hidden sm:inline">Trust Index</span>
+              </Link>
+            </div>
+
+            <nav className="flex items-center space-x-6">
+              <Link
+                href="https://niagarastandsout.ca/collections?utm_source=trust"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+              >
+                Shop Print & Labels
+              </Link>
+              <Link
+                href="/dashboard"
+                className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+              >
+                Dashboard
+              </Link>
+            </nav>
+          </div>
+        </header>
+
+        <main className="flex-grow container mx-auto px-4 py-8 max-w-7xl">
+          {children}
+        </main>
+
+        <footer className="border-t py-12 bg-white">
+          <div className="container mx-auto px-4 max-w-7xl">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+              <div>
+                <h3 className="font-semibold mb-4 text-lg">Tools to Fix This</h3>
+                <ul className="space-y-3">
+                  <li>
+                    <a
+                      href="https://niagarastandsout.ca/collections/custom-labels-canada?utm_source=trust"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      Custom Labels & Stickers
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://niagarastandsout.ca/collections/eyes-strip-truck-window-decals?utm_source=trust"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      Eyes Strip Truck Decals
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://niagarastandsout.ca/products/complete-bathroom-marketing-kit?utm_source=trust"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      DIY Bathroom Marketing Kit
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-semibold mb-4 text-lg">About Trust Index</h3>
+                <p className="text-gray-600 text-sm">
+                  The NSO Trust Index helps businesses track and improve their online presence
+                  across multiple platforms. Build trust with your community through verified
+                  evidence and transparent scoring.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-semibold mb-4 text-lg">Asset Tags & More</h3>
+                <ul className="space-y-3">
+                  <li>
+                    <a
+                      href="https://niagarastandsout.ca/collections/asset-tags?utm_source=trust"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      Asset Tags
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://niagarastandsout.ca/collections?utm_source=trust"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      All Products
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="pt-8 border-t text-center text-sm text-gray-500">
+              © {new Date().getFullYear()} Niagara Stands Out Trust Index. All rights reserved.
+            </div>
+          </div>
+        </footer>
+      </body>
+    </html>
+  );
+}

@@ -1,7 +1,14 @@
 import Link from "next/link";
 import { JsonLd } from "./components/JsonLd";
+import { q } from "@/src/lib/db";
 
-export default function HomePage() {
+export default async function HomePage() {
+  // Get real stats from database
+  const stats = await q<{ count: number }>(`
+    SELECT COUNT(*) as count FROM businesses
+  `).catch(() => [{ count: 30 }]);
+
+  const businessCount = stats[0]?.count || 30;
   const cities = [
     { slug: 'st-catharines', name: 'St. Catharines' },
     { slug: 'niagara-falls', name: 'Niagara Falls' },
@@ -47,16 +54,16 @@ export default function HomePage() {
         {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           <div className="bg-white rounded-lg shadow-md p-6 text-center">
-            <div className="text-3xl font-bold text-blue-600 mb-2">15+</div>
+            <div className="text-3xl font-bold text-blue-600 mb-2">{businessCount}+</div>
             <div className="text-gray-600">Businesses Tracked</div>
           </div>
           <div className="bg-white rounded-lg shadow-md p-6 text-center">
             <div className="text-3xl font-bold text-blue-600 mb-2">3</div>
-            <div className="text-gray-600">Cities</div>
+            <div className="text-gray-600">Cities Covered</div>
           </div>
           <div className="bg-white rounded-lg shadow-md p-6 text-center">
-            <div className="text-3xl font-bold text-blue-600 mb-2">4</div>
-            <div className="text-gray-600">Verticals</div>
+            <div className="text-3xl font-bold text-blue-600 mb-2">Daily</div>
+            <div className="text-gray-600">Score Updates</div>
           </div>
         </div>
 
@@ -115,18 +122,47 @@ export default function HomePage() {
           </div>
         </div>
 
+        {/* Learn More Section */}
+        <div className="bg-white rounded-lg shadow-md p-8 mb-12">
+          <h2 className="text-2xl font-bold mb-4 text-gray-900">Why Trust Scores Matter</h2>
+          <div className="space-y-4 text-gray-700">
+            <p>
+              In today's digital world, your online reputation is everything. The NSO Trust Index
+              helps you understand how customers see your business across multiple platforms.
+            </p>
+            <p>
+              Our transparent scoring system tracks your presence on Google, Facebook, Yelp, and
+              more. Get actionable insights to improve your ranking and stand out from competitors.
+            </p>
+            <Link
+              href="/methodology"
+              className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
+            >
+              Learn about our methodology →
+            </Link>
+          </div>
+        </div>
+
         {/* CTA */}
         <div className="text-center bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-lg p-8">
           <h2 className="text-2xl font-bold mb-3">Ready to Stand Out?</h2>
           <p className="mb-6 text-blue-100">
-            Choose a leaderboard above to see where your business ranks.
+            See where your business ranks and discover opportunities to improve.
           </p>
-          <Link
-            href="/st-catharines/restaurants"
-            className="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
-          >
-            View St. Catharines Restaurants
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/st-catharines/restaurants"
+              className="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+            >
+              View Leaderboards
+            </Link>
+            <Link
+              href="/methodology"
+              className="inline-block bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors border-2 border-white"
+            >
+              How It Works
+            </Link>
+          </div>
         </div>
       </div>
     </>

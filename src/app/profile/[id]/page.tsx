@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { q, qOne } from "@/src/lib/db";
 import { JsonLd } from "@/src/app/components/JsonLd";
 import { EvidenceList } from "@/src/app/components/EvidenceList";
+import { ScoreChart } from "@/src/app/components/ScoreChart";
 
 interface PageProps {
   params: {
@@ -70,6 +71,20 @@ export default async function ProfilePage({ params }: PageProps) {
     ORDER BY taken_at DESC
     LIMIT 1
   `, [params.id]);
+
+  // Get historical snapshots for chart (last 30 days)
+  const historicalSnapshots = await q<{ score: number; taken_at: string }>(`
+    SELECT score, taken_at
+    FROM snapshots
+    WHERE business_id = $1
+      AND taken_at > NOW() - INTERVAL '30 days'
+    ORDER BY taken_at ASC
+  `, [params.id]);
+
+  const chartData = historicalSnapshots.map(s => ({
+    date: new Date(s.taken_at),
+    score: s.score
+  }));
 
   // Get ranking in city/vertical
   const rankResult = await qOne<{ rank: number; total: number }>(`
@@ -231,6 +246,24 @@ export default async function ProfilePage({ params }: PageProps) {
             <div className="text-gray-500 italic">No score data available yet</div>
           )}
         </div>
+
+        {/* Score History Chart */}
+        {chartData.length > 0 && (
+          <div className="bg-white rounded-lg shadow-md p-8 mb-6">
+            <h2 className="text-2xl font-bold mb-6 text-gray-900">Score History (Last 30 Days)</h2>
+            <ScoreChart data={chartData} width={700} height={250} />
+            <div className="mt-4 text-sm text-gray-600 flex items-center gap-4">
+              <span>📈 {chartData.length} data points collected</span>
+              {chartData.length >= 2 && (
+                <span>
+                  {chartData[chartData.length - 1].score - chartData[0].score > 0 ? '↗' : '↘'}
+                  {' '}
+                  {Math.abs(chartData[chartData.length - 1].score - chartData[0].score)} point change
+                </span>
+              )}
+            </div>
+          </div>
+        )}
 
         {/* Evidence Section */}
         <div className="bg-white rounded-lg shadow-md p-8 mb-6">

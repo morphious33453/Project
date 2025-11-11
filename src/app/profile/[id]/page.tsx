@@ -5,6 +5,7 @@ import { q, qOne } from "@/src/lib/db";
 import { JsonLd } from "@/src/app/components/JsonLd";
 import { EvidenceList } from "@/src/app/components/EvidenceList";
 import { ScoreChart } from "@/src/app/components/ScoreChart";
+import { ShareButtons } from "@/src/app/components/ShareButtons";
 
 interface PageProps {
   params: {
@@ -180,19 +181,26 @@ export default async function ProfilePage({ params }: PageProps) {
             </Link>
           </div>
 
-          {business.website && (
-            <a
-              href={business.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:underline inline-flex items-center gap-1"
-            >
-              {business.website}
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
-          )}
+          <div className="flex items-center justify-between mt-4 pt-4 border-t">
+            {business.website && (
+              <a
+                href={business.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:underline inline-flex items-center gap-1"
+              >
+                {business.website}
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            )}
+            <ShareButtons
+              url={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://trust.niagarastandsout.com'}/profile/${business.id}`}
+              title={`${business.name} - Trust Profile | NSO Trust Index`}
+              description={`View trust score and verified evidence for ${business.name} in ${cityName}. Ranked #${rankResult?.rank || 'N/A'} in ${verticalName}.`}
+            />
+          </div>
         </div>
 
         {/* Trust Score Card */}

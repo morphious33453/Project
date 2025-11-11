@@ -1,0 +1,101 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Design {
+  id            String    @id @default(cuid())
+  slug          String    @unique
+  prompt        String
+  promptHash    String    @map("prompt_hash")
+  provider      String    @default("placeholder")
+  model         String?
+  seed          Int?
+  status        DesignStatus @default(GENERATED)
+  previewUrl    String?   @map("preview_url")
+  printPngUrl   String?   @map("print_png_url")
+  cutlineSvgUrl String?   @map("cutline_svg_url")
+  widthMm       Float?    @map("width_mm")
+  tags          String[]
+  flagged       Boolean   @default(false)
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  licenses      License[]
+
+  @@index([slug])
+  @@index([promptHash])
+  @@index([status])
+  @@index([createdAt])
+  @@map("designs")
+}
+
+enum DesignStatus {
+  GENERATED
+  PROCESSED
+  LISTED
+  FLAGGED
+}
+
+model License {
+  id           String       @id @default(cuid())
+  designId     String       @map("design_id")
+  design       Design       @relation(fields: [designId], references: [id])
+  type         LicenseType
+  buyerEmail   String       @map("buyer_email")
+  orderId      String?      @map("order_id")
+  invoiceUrl   String?      @map("invoice_url")
+  termsVersion String       @default("1.0") @map("terms_version")
+  createdAt    DateTime     @default(now()) @map("created_at")
+
+  @@index([designId])
+  @@index([orderId])
+  @@map("licenses")
+}
+
+enum LicenseType {
+  STANDARD
+  EXTENDED
+  EXCLUSIVE
+}
+
+model Template {
+  id          String   @id @default(cuid())
+  key         String   @unique
+  name        String
+  svgMaskUrl  String   @map("svg_mask_url")
+  previewUrl  String?  @map("preview_url")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@map("templates")
+}
+
+model Product {
+  id                String      @id @default(cuid())
+  title             String
+  description       String?
+  price             Float
+  type              ProductType
+  shopifyProductId  String?     @unique @map("shopify_product_id")
+  featured          Boolean     @default(false)
+  active            Boolean     @default(true)
+  createdAt         DateTime    @default(now()) @map("created_at")
+  updatedAt         DateTime    @updatedAt @map("updated_at")
+
+  @@index([type])
+  @@index([featured])
+  @@map("products")
+}
+
+enum ProductType {
+  PHYSICAL
+  DIGITAL
+  LICENSE
+}

@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     SELECT id, name, city, vertical, website
     FROM businesses
     WHERE id = $1
-  `, [params.id]);
+  `, [params.id]).catch(() => null);
 
   if (!business) {
     return {
@@ -47,9 +47,35 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
+  const cityName = business.city.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+  const verticalName = business.vertical.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+  const title = `${business.name} - Trust Profile`;
+  const description = `View trust score, verified evidence, and rankings for ${business.name} in ${cityName}. ${verticalName} business with transparent reputation data.`;
+
   return {
-    title: `${business.name} - Trust Profile`,
-    description: `View trust score, verified evidence, and rankings for ${business.name} in ${business.city}.`,
+    title,
+    description,
+    keywords: [business.name, cityName, verticalName.toLowerCase(), 'trust score', 'business profile', 'reputation'],
+    openGraph: {
+      title,
+      description,
+      type: 'profile',
+      url: `/profile/${params.id}`,
+      images: [
+        {
+          url: '/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: `${business.name} Trust Profile`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['/og-image.png'],
+    },
   };
 }
 
@@ -58,7 +84,7 @@ export default async function ProfilePage({ params }: PageProps) {
     SELECT id, name, city, vertical, website, gbp_cid
     FROM businesses
     WHERE id = $1
-  `, [params.id]);
+  `, [params.id]).catch(() => null);
 
   if (!business) {
     notFound();
@@ -71,7 +97,7 @@ export default async function ProfilePage({ params }: PageProps) {
     WHERE business_id = $1
     ORDER BY taken_at DESC
     LIMIT 1
-  `, [params.id]);
+  `, [params.id]).catch(() => null);
 
   // Get historical snapshots for chart (last 30 days)
   const historicalSnapshots = await q<{ score: number; taken_at: string }>(`
@@ -80,7 +106,7 @@ export default async function ProfilePage({ params }: PageProps) {
     WHERE business_id = $1
       AND taken_at > NOW() - INTERVAL '30 days'
     ORDER BY taken_at ASC
-  `, [params.id]);
+  `, [params.id]).catch(() => []);
 
   const chartData = historicalSnapshots.map(s => ({
     date: new Date(s.taken_at),
@@ -107,7 +133,7 @@ export default async function ProfilePage({ params }: PageProps) {
     SELECT rank::int, total::int
     FROM ranked
     WHERE id = $3
-  `, [business.city, business.vertical, business.id]);
+  `, [business.city, business.vertical, business.id]).catch(() => null);
 
   const cityName = business.city.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
   const verticalName = business.vertical.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());

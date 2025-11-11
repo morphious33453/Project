@@ -52,8 +52,8 @@ async function seed() {
     const businesses = [];
 
     for (const city of cities) {
-      for (const vertical of ['restaurants', 'auto-repair']) {
-        const names = businessNames[vertical];
+      for (const vertical of ['restaurants', 'auto-repair'] as const) {
+        const names = businessNames[vertical as keyof typeof businessNames];
 
         for (let i = 0; i < 5; i++) {
           const name = `${names[i % names.length]} - ${city}`;

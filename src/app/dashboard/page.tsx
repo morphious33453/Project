@@ -45,7 +45,7 @@ export default async function DashboardPage() {
     WHERE business_id = $1
     ORDER BY taken_at DESC
     LIMIT 2
-  `, [sampleBusiness.id]);
+  `, [sampleBusiness.id]).catch(() => []);
 
   const currentScore = scores[0]?.score || 0;
   const previousScore = scores[1]?.score || currentScore;
@@ -75,7 +75,7 @@ export default async function DashboardPage() {
       (SELECT COUNT(*)::int FROM businesses WHERE city = $1 AND vertical = $2) as total
     FROM ranked r
     WHERE r.id = $3
-  `, [sampleBusiness.city, sampleBusiness.vertical, sampleBusiness.id]);
+  `, [sampleBusiness.city, sampleBusiness.vertical, sampleBusiness.id]).catch(() => []);
 
   const rank = rankData[0]?.rank || 1;
   const totalBusinesses = rankData[0]?.total || 1;
@@ -99,7 +99,7 @@ export default async function DashboardPage() {
     WHERE b.city = $1 AND b.vertical = $2 AND b.id != $3
     ORDER BY COALESCE(s.score, 0) DESC
     LIMIT 3
-  `, [sampleBusiness.city, sampleBusiness.vertical, sampleBusiness.id]);
+  `, [sampleBusiness.city, sampleBusiness.vertical, sampleBusiness.id]).catch(() => []);
 
   // Get recent evidence for recommendations
   const recentEvidence = await q<{
@@ -160,7 +160,7 @@ export default async function DashboardPage() {
     WHERE business_id = $1
     ORDER BY taken_at DESC
     LIMIT 5
-  `, [sampleBusiness.id]);
+  `, [sampleBusiness.id]).catch(() => []);
 
   return (
     <div className="max-w-6xl mx-auto">

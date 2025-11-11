@@ -62,7 +62,7 @@ export default async function MonthlyReportPage({ params }: PageProps) {
     WHERE b.city = $1 AND b.vertical = 'restaurants'
     ORDER BY COALESCE(s.score, 0) DESC, b.name ASC
     LIMIT 25
-  `, [city]);
+  `, [city]).catch(() => []);
 
   if (leaderboard.length === 0) {
     notFound();
@@ -80,7 +80,7 @@ export default async function MonthlyReportPage({ params }: PageProps) {
     WHERE business_id = ANY($1)
       AND taken_at < NOW() - INTERVAL '7 days'
     ORDER BY business_id, taken_at DESC
-  `, [leaderboard.map(b => b.id)]);
+  `, [leaderboard.map(b => b.id)]).catch(() => []);
 
   const previousScoreMap = new Map(
     previousScores.map(s => [s.business_id, s.score])

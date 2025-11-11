@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
@@ -12,6 +9,47 @@ export const metadata: Metadata = {
   },
   description: "Track and improve your business trust score in the Niagara region. Leaderboards for local businesses across cities and verticals.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://trust.niagarastandsout.com'),
+  keywords: ['trust score', 'business ranking', 'Niagara businesses', 'local leaderboard', 'business reputation', 'online reviews', 'business trust'],
+  authors: [{ name: 'Niagara Stands Out' }],
+  creator: 'Niagara Stands Out',
+  publisher: 'Niagara Stands Out',
+  openGraph: {
+    type: 'website',
+    locale: 'en_CA',
+    url: '/',
+    siteName: 'NSO Trust Index',
+    title: 'NSO Trust Index | Niagara Stands Out',
+    description: 'Track and improve your business trust score in the Niagara region. Leaderboards for local businesses across cities and verticals.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'NSO Trust Index - Track Your Business Trust Score',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'NSO Trust Index | Niagara Stands Out',
+    description: 'Track and improve your business trust score in the Niagara region.',
+    images: ['/og-image.png'],
+    creator: '@NiagaraStandsOut',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code',
+  },
 };
 
 export default function RootLayout({
@@ -21,7 +59,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full">
-      <body className={`${inter.className} min-h-full flex flex-col bg-gray-50`}>
+      <body className="min-h-full flex flex-col bg-gray-50 font-sans">
         <header className="sticky top-0 z-40 w-full border-b bg-white shadow-sm">
           <div className="container mx-auto px-4 flex h-16 items-center justify-between max-w-7xl">
             <div className="flex items-center gap-8">

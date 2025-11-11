@@ -43,7 +43,7 @@ export default async function SearchPage({ searchParams }: PageProps) {
       WHERE LOWER(b.name) LIKE LOWER($1)
       ORDER BY COALESCE(s.score, 0) DESC, b.name ASC
       LIMIT 50
-    `, [`%${query}%`]);
+    `, [`%${query}%`]).catch(() => []);
   }
 
   return (

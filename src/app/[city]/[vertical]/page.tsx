@@ -25,10 +25,33 @@ interface LeaderboardRow {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const cityName = params.city.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
   const verticalName = params.vertical.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+  const title = `${cityName} ${verticalName} Trust Leaderboard`;
+  const description = `Top-ranked ${verticalName.toLowerCase()} in ${cityName} by trust score. See verified evidence and claim your business.`;
 
   return {
-    title: `${cityName} ${verticalName} Trust Leaderboard`,
-    description: `Top-ranked ${verticalName.toLowerCase()} in ${cityName} by trust score. See verified evidence and claim your business.`,
+    title,
+    description,
+    keywords: [`${verticalName.toLowerCase()} ${cityName}`, 'trust score', 'business ranking', 'local businesses', cityName, verticalName.toLowerCase()],
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+      url: `/${params.city}/${params.vertical}`,
+      images: [
+        {
+          url: '/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['/og-image.png'],
+    },
   };
 }
 
@@ -43,7 +66,7 @@ export default async function LeaderboardPage({ params, searchParams }: PageProp
     SELECT COUNT(*)::int as count
     FROM businesses
     WHERE city = $1 AND vertical = $2
-  `, [city, vertical]);
+  `, [city, vertical]).catch(() => [{ count: 0 }]);
 
   const totalBusinesses = countResult[0]?.count || 0;
   const totalPages = Math.ceil(totalBusinesses / perPage);
@@ -69,7 +92,7 @@ export default async function LeaderboardPage({ params, searchParams }: PageProp
     WHERE b.city = $1 AND b.vertical = $2
     ORDER BY COALESCE(s.score, 0) DESC, b.name ASC
     LIMIT $3 OFFSET $4
-  `, [city, vertical, perPage, offset]);
+  `, [city, vertical, perPage, offset]).catch(() => []);
 
   if (businesses.length === 0) {
     notFound();

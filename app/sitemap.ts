@@ -49,6 +49,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly',
       priority: 0.7,
     },
+    {
+      url: `${baseUrl}/printers`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/for`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/categories`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
   ]
 
   // Dynamic design pages
@@ -79,5 +97,41 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }))
 
-  return [...routes, ...designRoutes]
+  // Dynamic printer pages
+  const printers = await safeDbOperation(
+    async () => await prisma.printerModel.findMany({ select: { slug: true, createdAt: true } }),
+    []
+  )
+  const printerRoutes: MetadataRoute.Sitemap = printers.map((printer) => ({
+    url: `${baseUrl}/printers/${printer.slug}`,
+    lastModified: printer.createdAt,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  // Dynamic use case pages
+  const useCases = await safeDbOperation(
+    async () => await prisma.useCase.findMany({ select: { slug: true, createdAt: true } }),
+    []
+  )
+  const useCaseRoutes: MetadataRoute.Sitemap = useCases.map((useCase) => ({
+    url: `${baseUrl}/for/${useCase.slug}`,
+    lastModified: useCase.createdAt,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  // Dynamic category pages
+  const categories = await safeDbOperation(
+    async () => await prisma.category.findMany({ select: { slug: true, createdAt: true } }),
+    []
+  )
+  const categoryRoutes: MetadataRoute.Sitemap = categories.map((category) => ({
+    url: `${baseUrl}/categories/${category.slug}`,
+    lastModified: category.createdAt,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  return [...routes, ...printerRoutes, ...useCaseRoutes, ...categoryRoutes, ...designRoutes]
 }

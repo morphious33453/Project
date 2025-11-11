@@ -68,23 +68,27 @@ model VerificationToken {
 }
 
 model Design {
-  id            String    @id @default(cuid())
-  slug          String    @unique
-  prompt        String
-  promptHash    String    @map("prompt_hash")
-  provider      String    @default("placeholder")
-  model         String?
-  seed          Int?
-  status        DesignStatus @default(GENERATED)
-  previewUrl    String?   @map("preview_url")
-  printPngUrl   String?   @map("print_png_url")
-  cutlineSvgUrl String?   @map("cutline_svg_url")
-  widthMm       Float?    @map("width_mm")
-  tags          String[]
-  flagged       Boolean   @default(false)
-  userId        String?   @map("user_id")
-  createdAt     DateTime  @default(now()) @map("created_at")
-  updatedAt     DateTime  @updatedAt @map("updated_at")
+  id                 String    @id @default(cuid())
+  slug               String    @unique
+  prompt             String
+  promptHash         String    @map("prompt_hash")
+  provider           String    @default("placeholder")
+  model              String?
+  seed               Int?
+  status             DesignStatus @default(GENERATED)
+  previewUrl         String?   @map("preview_url")
+  printPngUrl        String?   @map("print_png_url")
+  cutlineSvgUrl      String?   @map("cutline_svg_url")
+  widthMm            Float?    @map("width_mm")
+  heightMm           Float?    @map("height_mm")
+  tags               String[]
+  compatiblePrinters String[]  @map("compatible_printers")
+  useCases           String[]  @map("use_cases")
+  categories         String[]
+  flagged            Boolean   @default(false)
+  userId             String?   @map("user_id")
+  createdAt          DateTime  @default(now()) @map("created_at")
+  updatedAt          DateTime  @updatedAt @map("updated_at")
 
   user          User?     @relation(fields: [userId], references: [id])
   licenses      License[]
@@ -95,6 +99,9 @@ model Design {
   @@index([status])
   @@index([userId])
   @@index([createdAt])
+  @@index([compatiblePrinters])
+  @@index([useCases])
+  @@index([categories])
   @@map("designs")
 }
 
@@ -180,4 +187,64 @@ enum ProductType {
   PHYSICAL
   DIGITAL
   LICENSE
+}
+
+model PrinterModel {
+  id                    String   @id @default(cuid())
+  slug                  String   @unique
+  name                  String
+  manufacturer          String
+  maxWidthMm            Float    @map("max_width_mm")
+  maxHeightMm           Float?   @map("max_height_mm")
+  supportsContourCutting Boolean @default(false) @map("supports_contour_cutting")
+  description           String?
+  setupGuide            String?  @map("setup_guide")
+  recommendedMaterials  String[] @map("recommended_materials")
+  specs                 Json?
+  popular               Boolean  @default(false)
+  createdAt             DateTime @default(now()) @map("created_at")
+
+  @@index([slug])
+  @@index([manufacturer])
+  @@index([popular])
+  @@map("printer_models")
+}
+
+model UseCase {
+  id              String   @id @default(cuid())
+  slug            String   @unique
+  name            String
+  title           String
+  description     String
+  targetAudience  String   @map("target_audience")
+  painPoints      String[] @map("pain_points")
+  solutions       String[]
+  keywords        String[]
+  metaTitle       String?  @map("meta_title")
+  metaDescription String?  @map("meta_description")
+  content         String?
+  featured        Boolean  @default(false)
+  createdAt       DateTime @default(now()) @map("created_at")
+
+  @@index([slug])
+  @@index([featured])
+  @@map("use_cases")
+}
+
+model Category {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        String
+  description String?
+  parentId    String?  @map("parent_id")
+  imageUrl    String?  @map("image_url")
+  featured    Boolean  @default(false)
+  sortOrder   Int      @default(0) @map("sort_order")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@index([slug])
+  @@index([parentId])
+  @@index([featured])
+  @@index([sortOrder])
+  @@map("categories")
 }

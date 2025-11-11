@@ -9,6 +9,7 @@ interface PageProps {
     city: string;
     vertical: string;
   };
+  searchParams: { page?: string };
 }
 
 interface LeaderboardRow {
@@ -31,8 +32,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function LeaderboardPage({ params }: PageProps) {
+export default async function LeaderboardPage({ params, searchParams }: PageProps) {
   const { city, vertical } = params;
+  const page = parseInt(searchParams.page || '1', 10);
+  const perPage = 50;
+  const offset = (page - 1) * perPage;
+
+  // Get total count for pagination
+  const countResult = await q<{ count: number }>(`
+    SELECT COUNT(*)::int as count
+    FROM businesses
+    WHERE city = $1 AND vertical = $2
+  `, [city, vertical]);
+
+  const totalBusinesses = countResult[0]?.count || 0;
+  const totalPages = Math.ceil(totalBusinesses / perPage);
 
   // Fetch businesses with latest scores
   const businesses = await q<LeaderboardRow>(`
@@ -54,7 +68,8 @@ export default async function LeaderboardPage({ params }: PageProps) {
     ) s ON true
     WHERE b.city = $1 AND b.vertical = $2
     ORDER BY COALESCE(s.score, 0) DESC, b.name ASC
-  `, [city, vertical]);
+    LIMIT $3 OFFSET $4
+  `, [city, vertical, perPage, offset]);
 
   if (businesses.length === 0) {
     notFound();
@@ -134,7 +149,8 @@ export default async function LeaderboardPage({ params }: PageProps) {
                 {cityName} {verticalName}
               </h1>
               <p className="text-gray-600">
-                Trust leaderboard showing {businesses.length} businesses ranked by verified evidence and online presence.
+                Trust leaderboard showing {totalBusinesses} businesses ranked by verified evidence and online presence.
+                {totalPages > 1 && ` (Page ${page} of ${totalPages})`}
               </p>
             </div>
             <a
@@ -176,12 +192,12 @@ export default async function LeaderboardPage({ params }: PageProps) {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
                         <span className={`font-bold text-lg ${
-                          idx === 0 ? 'text-yellow-600' :
-                          idx === 1 ? 'text-gray-400' :
-                          idx === 2 ? 'text-orange-600' :
+                          offset + idx === 0 ? 'text-yellow-600' :
+                          offset + idx === 1 ? 'text-gray-400' :
+                          offset + idx === 2 ? 'text-orange-600' :
                           'text-gray-600'
                         }`}>
-                          #{idx + 1}
+                          #{offset + idx + 1}
                         </span>
                       </div>
                     </td>
@@ -237,6 +253,70 @@ export default async function LeaderboardPage({ params }: PageProps) {
               </tbody>
             </table>
           </div>
+        </div>
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="flex justify-center items-center gap-2 mb-8">
+            {page > 1 && (
+              <Link
+                href={`/${city}/${vertical}?page=${page - 1}`}
+                className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+              >
+                ← Previous
+              </Link>
+            )}
+
+            <div className="flex items-center gap-2">
+              {Array.from({ length: totalPages }, (_, i) => i + 1)
+                .filter(p => {
+                  // Show first, last, current, and pages around current
+                  return p === 1 || p === totalPages || Math.abs(p - page) <= 2;
+                })
+                .map((p, idx, arr) => {
+                  // Add ellipsis
+                  if (idx > 0 && p - arr[idx - 1] > 1) {
+                    return (
+                      <span key={`ellipsis-${p}`} className="px-2">
+                        ...
+                      </span>
+                    );
+                  }
+                  return null;
+                })
+                .filter(Boolean)}
+
+              {Array.from({ length: totalPages }, (_, i) => i + 1)
+                .filter(p => p === 1 || p === totalPages || Math.abs(p - page) <= 2)
+                .map(p => (
+                  <Link
+                    key={p}
+                    href={`/${city}/${vertical}?page=${p}`}
+                    className={`px-4 py-2 rounded-lg transition-colors ${
+                      p === page
+                        ? 'bg-blue-600 text-white font-semibold'
+                        : 'border border-gray-300 hover:bg-gray-50'
+                    }`}
+                  >
+                    {p}
+                  </Link>
+                ))}
+            </div>
+
+            {page < totalPages && (
+              <Link
+                href={`/${city}/${vertical}?page=${page + 1}`}
+                className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+              >
+                Next →
+              </Link>
+            )}
+          </div>
+        )}
+
+        {/* Showing info */}
+        <div className="text-center text-sm text-gray-600 mb-8">
+          Showing {offset + 1}-{Math.min(offset + perPage, totalBusinesses)} of {totalBusinesses} businesses
         </div>
 
         {/* FAQ Section */}

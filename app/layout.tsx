@@ -88,6 +88,7 @@ export default function RootLayout({
                   <li><Link href="/surface/wood" className="text-muted-foreground hover:text-primary">Surface Guide</Link></li>
                   <li><Link href="/finish/matte" className="text-muted-foreground hover:text-primary">Finish Types</Link></li>
                   <li><Link href="/color/neutral" className="text-muted-foreground hover:text-primary">Color Guide</Link></li>
+                  <li><Link href="/blog" className="text-muted-foreground hover:text-primary">Blog & Guides</Link></li>
                 </ul>
               </div>
               <div>

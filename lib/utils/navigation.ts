@@ -1,4 +1,4 @@
-import { MapPin, Brush, Paintbrush, Palette, Box, Droplets, Star } from "lucide-react"
+import { MapPin, Brush, Paintbrush, Palette, Box, Droplets, Star, BookOpen } from "lucide-react"
 
 export const navLinks = [
   { href: "/location/niagara", label: "Locations", icon: MapPin },
@@ -8,4 +8,5 @@ export const navLinks = [
   { href: "/surface/wood", label: "Surfaces", icon: Box },
   { href: "/color/neutral", label: "Colors", icon: Droplets },
   { href: "/specialty/faux-finishes", label: "Specialties", icon: Star },
+  { href: "/blog", label: "Blog", icon: BookOpen },
 ]

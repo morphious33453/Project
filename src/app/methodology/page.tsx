@@ -239,7 +239,7 @@ export default function MethodologyPage() {
           <h2 className="text-2xl font-bold mb-6 text-gray-900">Frequently Asked Questions</h2>
           <div className="space-y-6">
             <div>
-              <h3 className="font-semibold text-lg mb-2">Can I improve my business's score?</h3>
+              <h3 className="font-semibold text-lg mb-2">Can I improve my business&apos;s score?</h3>
               <p className="text-gray-700">
                 Yes! Claim your profile to get insights and recommendations. Focus on responding to
                 reviews, keeping information up-to-date, and building your online presence across

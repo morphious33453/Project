@@ -127,7 +127,7 @@ export default async function HomePage() {
           <h2 className="text-2xl font-bold mb-4 text-gray-900">Why Trust Scores Matter</h2>
           <div className="space-y-4 text-gray-700">
             <p>
-              In today's digital world, your online reputation is everything. The NSO Trust Index
+              In today&apos;s digital world, your online reputation is everything. The NSO Trust Index
               helps you understand how customers see your business across multiple platforms.
             </p>
             <p>

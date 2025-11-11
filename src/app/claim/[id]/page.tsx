@@ -190,8 +190,8 @@ export default async function ClaimPage({ params }: PageProps) {
           <div>
             <h3 className="font-semibold mb-2">How does claiming work?</h3>
             <p className="text-gray-600 text-sm">
-              After selecting a plan, you'll receive a verification email to confirm business ownership.
-              Once verified, you'll get immediate access to your dashboard and premium features.
+              After selecting a plan, you&apos;ll receive a verification email to confirm business ownership.
+              Once verified, you&apos;ll get immediate access to your dashboard and premium features.
             </p>
           </div>
           <div>

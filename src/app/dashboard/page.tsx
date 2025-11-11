@@ -175,14 +175,14 @@ export default async function DashboardPage() {
       <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8">
         <h2 className="font-semibold text-blue-900 mb-2">Preview Dashboard</h2>
         <p className="text-blue-800 text-sm mb-2">
-          You're viewing a preview dashboard with real data from <strong>{sampleBusiness.name}</strong>.
+          You&apos;re viewing a preview dashboard with real data from <strong>{sampleBusiness.name}</strong>.
           Full authentication and personalized data will be available after claiming your business profile.
         </p>
         <Link
           href={`/profile/${sampleBusiness.id}`}
           className="text-sm text-blue-600 hover:underline font-medium"
         >
-          View {sampleBusiness.name}'s profile →
+          View {sampleBusiness.name}&apos;s profile →
         </Link>
       </div>
 

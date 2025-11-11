@@ -33,18 +33,30 @@ export default function RootLayout({
 
             <nav className="flex items-center space-x-6">
               <Link
-                href="https://niagarastandsout.ca/collections?utm_source=trust"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/search"
                 className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
               >
-                Shop Print & Labels
+                Search
+              </Link>
+              <Link
+                href="/methodology"
+                className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+              >
+                Methodology
               </Link>
               <Link
                 href="/dashboard"
                 className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
               >
                 Dashboard
+              </Link>
+              <Link
+                href="https://niagarastandsout.ca/collections?utm_source=trust"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                Shop
               </Link>
             </nav>
           </div>
@@ -95,11 +107,28 @@ export default function RootLayout({
 
               <div>
                 <h3 className="font-semibold mb-4 text-lg">About Trust Index</h3>
-                <p className="text-gray-600 text-sm">
-                  The NSO Trust Index helps businesses track and improve their online presence
-                  across multiple platforms. Build trust with your community through verified
-                  evidence and transparent scoring.
-                </p>
+                <ul className="space-y-3">
+                  <li>
+                    <Link href="/about" className="text-blue-600 hover:underline text-sm">
+                      About Us
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/methodology" className="text-blue-600 hover:underline text-sm">
+                      How It Works
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/faq" className="text-blue-600 hover:underline text-sm">
+                      FAQ
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/contact" className="text-blue-600 hover:underline text-sm">
+                      Contact Us
+                    </Link>
+                  </li>
+                </ul>
               </div>
 
               <div>
@@ -129,8 +158,20 @@ export default function RootLayout({
               </div>
             </div>
 
-            <div className="pt-8 border-t text-center text-sm text-gray-500">
-              © {new Date().getFullYear()} Niagara Stands Out Trust Index. All rights reserved.
+            <div className="pt-8 border-t">
+              <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div className="text-sm text-gray-500">
+                  © {new Date().getFullYear()} Niagara Stands Out Trust Index. All rights reserved.
+                </div>
+                <div className="flex items-center gap-6 text-sm">
+                  <Link href="/terms" className="text-gray-600 hover:text-blue-600">
+                    Terms of Service
+                  </Link>
+                  <Link href="/privacy" className="text-gray-600 hover:text-blue-600">
+                    Privacy Policy
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </footer>

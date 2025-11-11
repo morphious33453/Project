@@ -8,14 +8,15 @@ interface BusinessScore {
 
 export async function GET(request: NextRequest) {
   try {
-    // Get profile ID from query params or default
+    // Get profile ID and style from query params
     const { searchParams } = new URL(request.url);
     const profileId = searchParams.get('id');
+    const style = searchParams.get('style') || 'default';
 
     if (!profileId) {
       // Return default badge script
       return new NextResponse(
-        generateBadgeScript(null),
+        generateBadgeScript(null, style),
         {
           headers: {
             'Content-Type': 'application/javascript',
@@ -42,7 +43,7 @@ export async function GET(request: NextRequest) {
     `, [profileId]);
 
     return new NextResponse(
-      generateBadgeScript(business),
+      generateBadgeScript(business, style),
       {
         headers: {
           'Content-Type': 'application/javascript',
@@ -53,7 +54,7 @@ export async function GET(request: NextRequest) {
   } catch (error) {
     console.error('Badge embed error:', error);
     return new NextResponse(
-      generateBadgeScript(null),
+      generateBadgeScript(null, 'default'),
       {
         headers: {
           'Content-Type': 'application/javascript',
@@ -64,13 +65,48 @@ export async function GET(request: NextRequest) {
   }
 }
 
-function generateBadgeScript(business: BusinessScore | null): string {
+function getBadgeSVG(score: number, style: string): string {
+  const styles: Record<string, string> = {
+    default: `<svg width="200" height="80" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+      </linearGradient></defs>
+      <rect width="200" height="80" rx="8" fill="url(#grad)"/>
+      <text x="100" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">NSO Trust Score</text>
+      <text x="100" y="55" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">${score}/100</text>
+    </svg>`,
+
+    minimal: `<svg width="120" height="40" xmlns="http://www.w3.org/2000/svg">
+      <rect width="120" height="40" rx="5" fill="#f3f4f6"/>
+      <text x="60" y="25" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2937" text-anchor="middle">${score}/100</text>
+    </svg>`,
+
+    badge: `<svg width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="40" cy="40" r="38" fill="#2563eb" stroke="#1e40af" stroke-width="2"/>
+      <text x="40" y="30" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">TRUST</text>
+      <text x="40" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">${score}</text>
+    </svg>`,
+
+    shield: `<svg width="100" height="120" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 10 L90 30 L90 60 Q90 90 50 110 Q10 90 10 60 L10 30 Z" fill="#2563eb" stroke="#1e40af" stroke-width="2"/>
+      <text x="50" y="50" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">NSO</text>
+      <text x="50" y="75" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">${score}</text>
+      <text x="50" y="95" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">/100</text>
+    </svg>`,
+  };
+
+  return styles[style] || styles.default;
+}
+
+function generateBadgeScript(business: BusinessScore | null, style: string): string {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://trust.niagarastandsout.com';
 
   // Check if profile ID is set via window variable
   const script = `
 (function() {
   var profileId = window.__nso_badge_profile;
+  var style = window.__nso_badge_style || '${style}';
   var business = ${business ? JSON.stringify(business) : 'null'};
 
   if (!profileId && !business) {
@@ -84,23 +120,13 @@ function generateBadgeScript(business: BusinessScore | null): string {
   // If profile ID but no business data, reload with ID param
   if (profileId && !business) {
     var script = document.createElement('script');
-    script.src = '${siteUrl}/embed/badge?id=' + profileId;
+    script.src = '${siteUrl}/embed/badge?id=' + profileId + '&style=' + style;
     document.head.appendChild(script);
     return;
   }
 
-  // Generate badge SVG
-  var svg = '<svg width="200" height="80" xmlns="http://www.w3.org/2000/svg">' +
-    '<defs>' +
-    '<linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">' +
-    '<stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />' +
-    '<stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />' +
-    '</linearGradient>' +
-    '</defs>' +
-    '<rect width="200" height="80" rx="8" fill="url(#grad)"/>' +
-    '<text x="100" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">NSO Trust Score</text>' +
-    '<text x="100" y="55" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">' + score + '/100</text>' +
-    '</svg>';
+  // Generate badge SVG based on style
+  var svg = ${JSON.stringify(business ? getBadgeSVG(business.score, style) : '')};
 
   // Create badge container
   var container = document.createElement('div');

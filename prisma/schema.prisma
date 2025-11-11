@@ -248,3 +248,142 @@ model Category {
   @@index([sortOrder])
   @@map("categories")
 }
+
+// SEO Playbook Models
+
+model GlossaryTerm {
+  id              String   @id @default(cuid())
+  slug            String   @unique
+  term            String
+  definition      String
+  longDescription String?  @map("long_description")
+  relatedTerms    String[] @map("related_terms")
+  category        String?
+  metaTitle       String?  @map("meta_title")
+  metaDescription String?  @map("meta_description")
+  featured        Boolean  @default(false)
+  views           Int      @default(0)
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  @@index([slug])
+  @@index([category])
+  @@index([featured])
+  @@index([views])
+  @@map("glossary_terms")
+}
+
+model FAQ {
+  id              String   @id @default(cuid())
+  slug            String   @unique
+  question        String
+  answer          String
+  category        String?
+  relatedPages    String[] @map("related_pages")
+  keywords        String[]
+  searchVolume    Int?     @map("search_volume")
+  difficulty      Int?
+  pageRank        Int      @default(0) @map("page_rank")
+  metaTitle       String?  @map("meta_title")
+  metaDescription String?  @map("meta_description")
+  featured        Boolean  @default(false)
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  @@index([slug])
+  @@index([category])
+  @@index([pageRank])
+  @@index([featured])
+  @@map("faqs")
+}
+
+model BlogPost {
+  id               String   @id @default(cuid())
+  slug             String   @unique
+  title            String
+  excerpt          String?
+  content          String
+  author           String?
+  coverImage       String?  @map("cover_image")
+  category         String?
+  tags             String[]
+  isCornerstone    Boolean  @default(false) @map("is_cornerstone")
+  cornerstoneOrder Int?     @map("cornerstone_order")
+  parentPostId     String?  @map("parent_post_id")
+  relatedPosts     String[] @map("related_posts")
+  internalLinks    String[] @map("internal_links")
+  metaTitle        String?  @map("meta_title")
+  metaDescription  String?  @map("meta_description")
+  published        Boolean  @default(false)
+  publishedAt      DateTime? @map("published_at")
+  views            Int      @default(0)
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+
+  @@index([slug])
+  @@index([category])
+  @@index([isCornerstone])
+  @@index([published])
+  @@index([publishedAt])
+  @@map("blog_posts")
+}
+
+model Material {
+  id              String   @id @default(cuid())
+  slug            String   @unique
+  name            String
+  description     String
+  useCases        String[] @map("use_cases")
+  printers        String[]
+  finishes        String[]
+  properties      Json?
+  priceRange      String?  @map("price_range")
+  metaTitle       String?  @map("meta_title")
+  metaDescription String?  @map("meta_description")
+  featured        Boolean  @default(false)
+  createdAt       DateTime @default(now()) @map("created_at")
+
+  @@index([slug])
+  @@index([featured])
+  @@map("materials")
+}
+
+model Software {
+  id              String   @id @default(cuid())
+  slug            String   @unique
+  name            String
+  vendor          String
+  description     String
+  compatibility   String[]
+  fileFormats     String[] @map("file_formats")
+  priceModel      String?  @map("price_model")
+  tutorials       Json?
+  metaTitle       String?  @map("meta_title")
+  metaDescription String?  @map("meta_description")
+  featured        Boolean  @default(false)
+  createdAt       DateTime @default(now()) @map("created_at")
+
+  @@index([slug])
+  @@index([featured])
+  @@map("software")
+}
+
+model PrintMethod {
+  id              String   @id @default(cuid())
+  slug            String   @unique
+  name            String
+  description     String
+  bestFor         String[] @map("best_for")
+  materials       String[]
+  equipment       String[]
+  processSteps    Json?    @map("process_steps")
+  metaTitle       String?  @map("meta_title")
+  metaDescription String?  @map("meta_description")
+  featured        Boolean  @default(false)
+  createdAt       DateTime @default(now()) @map("created_at")
+
+  @@index([slug])
+  @@index([featured])
+  @@map("print_methods")
+}
+

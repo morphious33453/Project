@@ -67,6 +67,31 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
+    // SEO Playbook Pages
+    {
+      url: `${baseUrl}/glossary`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/materials`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/software`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/methods`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
   ]
 
   // Dynamic design pages
@@ -133,5 +158,63 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }))
 
-  return [...routes, ...printerRoutes, ...useCaseRoutes, ...categoryRoutes, ...designRoutes]
+  // SEO Playbook: Glossary pages
+  const glossaryTerms = await safeDbOperation(
+    async () => await prisma.glossaryTerm.findMany({ select: { slug: true, updatedAt: true } }),
+    []
+  )
+  const glossaryRoutes: MetadataRoute.Sitemap = glossaryTerms.map((term) => ({
+    url: `${baseUrl}/glossary/${term.slug}`,
+    lastModified: term.updatedAt,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  // SEO Playbook: Material pages
+  const materials = await safeDbOperation(
+    async () => await prisma.material.findMany({ select: { slug: true, createdAt: true } }),
+    []
+  )
+  const materialRoutes: MetadataRoute.Sitemap = materials.map((material) => ({
+    url: `${baseUrl}/materials/${material.slug}`,
+    lastModified: material.createdAt,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  // SEO Playbook: Software pages
+  const software = await safeDbOperation(
+    async () => await prisma.software.findMany({ select: { slug: true, createdAt: true } }),
+    []
+  )
+  const softwareRoutes: MetadataRoute.Sitemap = software.map((soft) => ({
+    url: `${baseUrl}/software/${soft.slug}`,
+    lastModified: soft.createdAt,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  // SEO Playbook: Print method pages
+  const methods = await safeDbOperation(
+    async () => await prisma.printMethod.findMany({ select: { slug: true, createdAt: true } }),
+    []
+  )
+  const methodRoutes: MetadataRoute.Sitemap = methods.map((method) => ({
+    url: `${baseUrl}/methods/${method.slug}`,
+    lastModified: method.createdAt,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  return [
+    ...routes,
+    ...printerRoutes,
+    ...useCaseRoutes,
+    ...categoryRoutes,
+    ...glossaryRoutes,
+    ...materialRoutes,
+    ...softwareRoutes,
+    ...methodRoutes,
+    ...designRoutes,
+  ]
 }

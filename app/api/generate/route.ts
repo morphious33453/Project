@@ -1,8 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { prisma, safeDbOperation } from '@/lib/db'
-import { generateImage } from '@/lib/image-gen'
+import { generateImage, downloadImage } from '@/lib/image-gen'
 import { generateSlug, hashPrompt, generateTags } from '@/lib/seo'
+import { uploadDesignFiles } from '@/lib/storage'
+import { checkRateLimit, generationLimiter } from '@/lib/rate-limit'
 
 const generateSchema = z.object({
   prompt: z.string().min(3).max(500),
@@ -13,6 +15,17 @@ const generateSchema = z.object({
 
 export async function POST(request: NextRequest) {
   try {
+    // Rate limiting
+    const ip = request.headers.get('x-forwarded-for') || 'anonymous'
+    const { success: rateLimitOk, remaining } = await checkRateLimit(generationLimiter, ip)
+
+    if (!rateLimitOk) {
+      return NextResponse.json(
+        { error: 'Rate limit exceeded. Please wait before generating again.' },
+        { status: 429 }
+      )
+    }
+
     const body = await request.json()
     const { prompt, style, seed, shape } = generateSchema.parse(body)
 
@@ -33,7 +46,7 @@ export async function POST(request: NextRequest) {
     console.log('Generating image:', { prompt, style, seed })
     const result = await generateImage({ prompt, style, seed })
 
-    // Create design record
+    // Create design record (initial)
     const promptHashValue = hashPrompt(prompt)
     const slug = generateSlug(prompt)
     const tags = generateTags(prompt)
@@ -69,21 +82,64 @@ export async function POST(request: NextRequest) {
         widthMm: null,
         tags,
         flagged: false,
+        userId: null,
         createdAt: new Date(),
         updatedAt: new Date(),
       }
     )
 
-    return NextResponse.json({
-      success: true,
-      design: {
-        id: design.id,
-        slug: design.slug,
-        previewUrl: design.previewUrl,
-        prompt: design.prompt,
-        provider: design.provider,
-      },
-    })
+    // Download image and upload to storage with processing
+    try {
+      const imageBuffer = await downloadImage(result.url)
+      const files = await uploadDesignFiles(design.id, imageBuffer, shape)
+
+      // Update design with processed files
+      const updatedDesign = await safeDbOperation(
+        async () => {
+          return await prisma.design.update({
+            where: { id: design.id },
+            data: {
+              previewUrl: files.previewUrl,
+              printPngUrl: files.printPngUrl,
+              cutlineSvgUrl: files.cutlineSvgUrl,
+              widthMm: files.widthMm,
+              status: 'PROCESSED',
+            },
+          })
+        },
+        { ...design, ...files, status: 'PROCESSED' as const }
+      )
+
+      return NextResponse.json({
+        success: true,
+        design: {
+          id: updatedDesign.id,
+          slug: updatedDesign.slug,
+          previewUrl: updatedDesign.previewUrl,
+          prompt: updatedDesign.prompt,
+          provider: updatedDesign.provider,
+          status: updatedDesign.status,
+          widthMm: updatedDesign.widthMm,
+        },
+        rateLimitRemaining: remaining,
+      })
+    } catch (uploadError) {
+      console.error('Failed to process files:', uploadError)
+      // Return design with original URL if upload fails
+      return NextResponse.json({
+        success: true,
+        design: {
+          id: design.id,
+          slug: design.slug,
+          previewUrl: design.previewUrl,
+          prompt: design.prompt,
+          provider: design.provider,
+          status: design.status,
+        },
+        rateLimitRemaining: remaining,
+        warning: 'Files processing may be delayed',
+      })
+    }
   } catch (error) {
     console.error('Generate error:', error)
 

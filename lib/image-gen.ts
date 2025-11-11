@@ -1,6 +1,7 @@
 import OpenAI from 'openai'
+import Replicate from 'replicate'
 
-export type ImageGenProvider = 'openai' | 'nanobanana' | 'placeholder'
+export type ImageGenProvider = 'openai' | 'replicate' | 'nanobanana' | 'placeholder'
 
 export interface ImageGenRequest {
   prompt: string
@@ -72,6 +73,49 @@ async function generateWithOpenAI(request: ImageGenRequest): Promise<ImageGenRes
 }
 
 /**
+ * Generate image using Replicate (Free tier with credits)
+ */
+async function generateWithReplicate(request: ImageGenRequest): Promise<ImageGenResult> {
+  const apiKey = process.env.REPLICATE_API_TOKEN
+
+  if (!apiKey || apiKey === 'your-key-here') {
+    throw new Error('Replicate API token not configured')
+  }
+
+  const replicate = new Replicate({ auth: apiKey })
+
+  // Enhance prompt for sticker generation
+  const enhancedPrompt = `${request.prompt}, sticker design, die-cut ready, white background, clean edges, high contrast, vibrant colors, professional quality`
+
+  try {
+    // Use SDXL (stable-diffusion-xl) - fast and cheap
+    const output = await replicate.run(
+      "stability-ai/sdxl:39ed52f2a78e934b3ba6e2a89f5b1c712de7dfea535525255b1aa35c5565e08b",
+      {
+        input: {
+          prompt: enhancedPrompt,
+          negative_prompt: "blurry, low quality, distorted, text, watermark, signature",
+          width: request.width || 1024,
+          height: request.height || 1024,
+          num_outputs: 1,
+        }
+      }
+    )
+
+    const imageUrl = Array.isArray(output) ? output[0] : output
+
+    return {
+      url: imageUrl as string,
+      provider: 'replicate',
+      model: 'sdxl',
+    }
+  } catch (error) {
+    console.error('Replicate generation error:', error)
+    throw error
+  }
+}
+
+/**
  * Generate image using Nano Banana
  * Note: This is a stub - implement based on actual Nano Banana API
  */
@@ -116,7 +160,17 @@ async function generateWithNanoBanana(request: ImageGenRequest): Promise<ImageGe
  * Main image generation function with provider selection and fallback
  */
 export async function generateImage(request: ImageGenRequest): Promise<ImageGenResult> {
-  // Try OpenAI first if available
+  // Try Replicate first (has free credits)
+  if (process.env.REPLICATE_API_TOKEN && process.env.REPLICATE_API_TOKEN !== 'your-key-here') {
+    try {
+      return await generateWithReplicate(request)
+    } catch (error) {
+      console.error('Replicate generation failed:', error)
+      // Fall through to next provider
+    }
+  }
+
+  // Try OpenAI if available
   if (process.env.OPENAI_API_KEY && process.env.OPENAI_API_KEY !== 'your-key-here') {
     try {
       return await generateWithOpenAI(request)

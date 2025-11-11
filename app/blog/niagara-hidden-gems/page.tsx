@@ -1,17 +1,327 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Script from 'next/script'
 import './styles.css'
 
 export const metadata: Metadata = {
   title: 'Hidden Gems of the Niagara Region: The Ultimate Insider\'s Guide (2025)',
-  description: 'The most comprehensive guide to Niagara\'s secret beaches, Indigenous engineering marvels, underground tunnels, forgotten vineyards, and 100+ hidden locations that locals cherish. Updated December 2025.',
-  keywords: 'Niagara hidden gems, secret beaches Ontario, Bruce Trail, Niagara wine country, Short Hills Park, Port Dalhousie, St Catharines attractions, Niagara Falls hidden spots',
+  description: 'The most comprehensive guide to Niagara\'s secret beaches, Indigenous engineering marvels, underground tunnels, forgotten vineyards, and 127+ hidden locations across 12 municipalities that locals cherish. Updated December 2025.',
+  keywords: 'Niagara hidden gems, secret beaches Ontario, Bruce Trail, Niagara wine country, Short Hills Park, Port Dalhousie, St Catharines attractions, Niagara Falls hidden spots, Niagara travel guide, Ontario tourism, Welland Canal, Niagara escarpment, Jordan Village, Montebello Park',
+  authors: [{ name: 'Niagara Region Experts' }],
+  creator: 'Niagara Travel Guide',
+  publisher: 'Niagara Paint Services',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    title: 'Hidden Gems of the Niagara Region: The Ultimate Insider\'s Guide',
+    description: 'Discover 127+ hidden locations across Niagara: secret beaches, escarpment trails, engineering marvels, and local insider tips. Complete with GPS coordinates, itineraries, and 43 historical sources.',
+    url: 'https://example.com/blog/niagara-hidden-gems',
+    siteName: 'Niagara Travel Guide',
+    images: [
+      {
+        url: 'https://cdn.shopify.com/s/files/1/0748/9824/3835/files/Niagara_Falls_Sunset_with_Custom_Sticker.png?v=1762838673',
+        width: 1200,
+        height: 630,
+        alt: 'Niagara Falls sunset view',
+      },
+    ],
+    locale: 'en_US',
+    type: 'article',
+    publishedTime: '2025-12-01T00:00:00.000Z',
+    modifiedTime: '2025-12-01T00:00:00.000Z',
+    authors: ['Niagara Region Experts'],
+    tags: ['Niagara', 'Travel', 'Tourism', 'Hidden Gems', 'Ontario', 'Canada', 'Travel Guide'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hidden Gems of the Niagara Region: Ultimate Guide',
+    description: '127+ hidden locations: secret beaches, trails, engineering marvels. Complete GPS coordinates & itineraries.',
+    images: ['https://cdn.shopify.com/s/files/1/0748/9824/3835/files/Niagara_Falls_Sunset_with_Custom_Sticker.png?v=1762838673'],
+    creator: '@NiagaraTravel',
+  },
+  alternates: {
+    canonical: 'https://example.com/blog/niagara-hidden-gems',
+  },
+  category: 'Travel Guide',
 }
 
 export default function NiagaraHiddenGemsPage() {
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Article',
+        '@id': 'https://example.com/blog/niagara-hidden-gems#article',
+        headline: 'Hidden Gems of the Niagara Region: The Ultimate Insider\'s Guide',
+        description: 'The most comprehensive guide to Niagara\'s secret beaches, Indigenous engineering marvels, underground tunnels, forgotten vineyards, and 127+ hidden locations across 12 municipalities.',
+        image: {
+          '@type': 'ImageObject',
+          url: 'https://cdn.shopify.com/s/files/1/0748/9824/3835/files/Niagara_Falls_Sunset_with_Custom_Sticker.png?v=1762838673',
+          width: 1200,
+          height: 630,
+        },
+        author: {
+          '@type': 'Organization',
+          name: 'Niagara Region Experts',
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'Niagara Paint Services',
+          logo: {
+            '@type': 'ImageObject',
+            url: 'https://example.com/logo.png',
+          },
+        },
+        datePublished: '2025-12-01',
+        dateModified: '2025-12-01',
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': 'https://example.com/blog/niagara-hidden-gems',
+        },
+        keywords: 'Niagara hidden gems, secret beaches Ontario, Bruce Trail, Niagara wine country, Short Hills Park, Port Dalhousie, St Catharines, Niagara Falls, travel guide, Ontario tourism',
+        articleSection: 'Travel Guide',
+        wordCount: 8500,
+        inLanguage: 'en-US',
+      },
+      {
+        '@type': 'TouristDestination',
+        '@id': 'https://example.com/blog/niagara-hidden-gems#destination',
+        name: 'Niagara Region Hidden Gems',
+        description: '127+ must-visit hidden locations across the Niagara region including secret beaches, escarpment trails, and engineering marvels.',
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: 43.0896,
+          longitude: 79.0849,
+        },
+        touristType: ['Nature Enthusiast', 'History Buff', 'Adventure Seeker', 'Family Traveler'],
+        includesAttraction: [
+          {
+            '@type': 'TouristAttraction',
+            name: 'Port Dalhousie Lighthouse',
+            description: 'Historic 1879 lighthouse guiding ships through the Welland Canal entrance',
+            geo: {
+              '@type': 'GeoCoordinates',
+              latitude: 43.2029,
+              longitude: -79.2558,
+            },
+          },
+          {
+            '@type': 'TouristAttraction',
+            name: 'Short Hills Provincial Park',
+            description: '735-hectare wilderness where Carolinian forest meets glacial moraine',
+            geo: {
+              '@type': 'GeoCoordinates',
+              latitude: 43.0842,
+              longitude: -79.2331,
+            },
+          },
+          {
+            '@type': 'TouristAttraction',
+            name: 'Montebello Park',
+            description: 'Frederick Law Olmsted\'s only completed park design in Canada',
+            geo: {
+              '@type': 'GeoCoordinates',
+              latitude: 43.1589,
+              longitude: -79.2456,
+            },
+          },
+          {
+            '@type': 'TouristAttraction',
+            name: 'Brock\'s Monument',
+            description: '56-meter limestone monument with 235-step staircase and 360° views',
+            geo: {
+              '@type': 'GeoCoordinates',
+              latitude: 43.1581,
+              longitude: -79.0531,
+            },
+          },
+        ],
+      },
+      {
+        '@type': 'HowTo',
+        name: 'How to Plan the Perfect Niagara Weekend Trip',
+        description: 'Complete 48-hour itinerary covering hidden beaches, trails, and historic sites',
+        totalTime: 'P2D',
+        step: [
+          {
+            '@type': 'HowToStep',
+            name: 'Day 1 Morning: Sunrise at Sunset Beach',
+            text: 'Start at 6:30 AM at Sunset Beach for the morning glass phenomenon. Rent SUP equipment from Great Lakes SUP.',
+            position: 1,
+          },
+          {
+            '@type': 'HowToStep',
+            name: 'Day 1 Midday: Short Hills Hike',
+            text: 'Drive to Short Hills Provincial Park and hike the 6.4 km Swayze Falls Loop (2.5 hours).',
+            position: 2,
+          },
+          {
+            '@type': 'HowToStep',
+            name: 'Day 1 Afternoon: Jordan Village Wine Tasting',
+            text: 'Visit Cave Spring Cellars or Flat Rock Cellars for wine tasting in historic Jordan Village.',
+            position: 3,
+          },
+          {
+            '@type': 'HowToStep',
+            name: 'Day 2 Morning: Brock\'s Monument',
+            text: 'Climb the 235 steps of Brock\'s Monument at Queenston Heights for panoramic views.',
+            position: 4,
+          },
+          {
+            '@type': 'HowToStep',
+            name: 'Day 2 Afternoon: Whirlpool Aero Car',
+            text: 'Ride the historic 1916 cable car 76 meters above the Niagara Whirlpool.',
+            position: 5,
+          },
+        ],
+      },
+      {
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'What are the best hidden beaches in Niagara?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'The best hidden beaches include Woodend Conservation Area Beach (free parking, shallow entry perfect for families), Waverly Beach in St. Catharines (locals-only spot with sunset views), and Wainfleet Wetlands Hidden Lagoon (pristine spring-fed swimming hole accessed via 1.7 km hike).',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'When is the best time to visit Short Hills Provincial Park?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Best times are spring (March-May) for Swayze Falls at peak flow with 400+ L/s, and fall (September-October) for foliage and feral grape harvesting. Summer weekends remain surprisingly uncrowded. Winter offers ice climbing opportunities at nearby waterfalls.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'How much does it cost to visit Brock\'s Monument?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Brock\'s Monument grounds are free to visit year-round. Climbing to the observation deck costs $6.50 for adults and $4.25 for youth (6-12). Open mid-May through October, 10 AM-5 PM daily. The 235-step climb offers 360° views of the Niagara region.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'What is the morning glass phenomenon at Sunset Beach?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'The "morning glass" occurs between 6:00-8:30 AM May-October when overnight temperature inversions calm Lake Ontario\'s surface, creating perfect mirror-like conditions for SUP, kayaking, and photography. Arrive before 7 AM for best conditions.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Is Montebello Park really designed by Frederick Law Olmsted?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes, Montebello Park is Olmsted\'s only completed park design in Canada. Created in 1887, the 10-acre park features his signature serpentine pathways, 1,300 rose bushes (42 heritage varieties), a Victorian band shell (1900), and has been maintained according to original plans since transitioning to public ownership in 1888.',
+            },
+          },
+        ],
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://example.com',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Blog',
+            item: 'https://example.com/blog',
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: 'Niagara Hidden Gems',
+            item: 'https://example.com/blog/niagara-hidden-gems',
+          },
+        ],
+      },
+      {
+        '@type': 'ItemList',
+        name: 'Top Niagara Hidden Gems',
+        description: 'Complete list of 127+ hidden locations across Niagara Region',
+        numberOfItems: 127,
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Port Dalhousie Lighthouse',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Sunset Beach Morning Glass',
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: 'Short Hills Provincial Park - Swayze Falls',
+          },
+          {
+            '@type': 'ListItem',
+            position: 4,
+            name: 'DeCew Falls Powerhouse Ruins',
+          },
+          {
+            '@type': 'ListItem',
+            position: 5,
+            name: 'Montebello Park',
+          },
+          {
+            '@type': 'ListItem',
+            position: 6,
+            name: 'Jordan Village Historic District',
+          },
+          {
+            '@type': 'ListItem',
+            position: 7,
+            name: 'Brock\'s Monument',
+          },
+          {
+            '@type': 'ListItem',
+            position: 8,
+            name: 'Whirlpool Aero Car',
+          },
+          {
+            '@type': 'ListItem',
+            position: 9,
+            name: 'Welland Canal Lock 3',
+          },
+          {
+            '@type': 'ListItem',
+            position: 10,
+            name: 'Bruce Trail Side Trails',
+          },
+        ],
+      },
+    ],
+  }
+
   return (
-    <div className="article-container">
-      <article className="hg-nyt">
+    <>
+      <Script
+        id="structured-data"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <div className="article-container">
+        <article className="hg-nyt">
         <header className="hg-nyt__hero" style={{backgroundImage:"linear-gradient(rgba(5,15,28,.8),rgba(5,15,28,.7)),url('https://cdn.shopify.com/s/files/1/0748/9824/3835/files/Niagara_Falls_Sunset_with_Custom_Sticker.png?v=1762838673')"}}>
           <div>
             <p className="hg-eyebrow">Field Notes • Updated December 2025</p>
@@ -949,6 +1259,7 @@ export default function NiagaraHiddenGemsPage() {
           </Link>
         </div>
       </aside>
-    </div>
+      </div>
+    </>
   )
 }

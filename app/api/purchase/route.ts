@@ -3,6 +3,7 @@ import { z } from 'zod'
 import { prisma, safeDbOperation } from '@/lib/db'
 import { sendLicenseEmail } from '@/lib/email'
 import { checkRateLimit, apiLimiter } from '@/lib/rate-limit'
+import { createDesignCheckout, isShopifyConfigured } from '@/lib/shopify'
 
 const purchaseSchema = z.object({
   designId: z.string(),
@@ -58,6 +59,31 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       )
     }
+
+    // If Shopify is configured, create checkout and redirect
+    if (isShopifyConfigured()) {
+      try {
+        const checkout = await createDesignCheckout(
+          design.id,
+          design.prompt,
+          licenseType.toLowerCase() as 'standard' | 'extended' | 'exclusive',
+          email
+        )
+
+        return NextResponse.json({
+          success: true,
+          checkout: true,
+          checkoutUrl: checkout.invoiceUrl,
+          message: 'Redirecting to checkout...',
+        })
+      } catch (shopifyError) {
+        console.error('Shopify checkout error:', shopifyError)
+        // Fall back to direct purchase if Shopify fails
+      }
+    }
+
+    // Fallback: Direct purchase (no payment processing)
+    // This is used when Shopify is not configured or fails
 
     // Find or create user by email
     const user = await safeDbOperation(

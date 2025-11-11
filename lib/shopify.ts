@@ -238,3 +238,202 @@ export async function createDesignCheckout(
 
   return createDraftOrder(lineItems, customerEmail)
 }
+
+/**
+ * Verify Shopify webhook HMAC signature
+ */
+export function verifyWebhookSignature(body: string, hmacHeader: string): boolean {
+  if (!process.env.SHOPIFY_WEBHOOK_SECRET) {
+    console.warn('SHOPIFY_WEBHOOK_SECRET not configured')
+    return false
+  }
+
+  const crypto = require('crypto')
+  const hash = crypto
+    .createHmac('sha256', process.env.SHOPIFY_WEBHOOK_SECRET)
+    .update(body, 'utf8')
+    .digest('base64')
+
+  return hash === hmacHeader
+}
+
+/**
+ * Get customer orders from Shopify
+ */
+export interface ShopifyOrder {
+  id: string
+  orderNumber: number
+  createdAt: string
+  financialStatus: string
+  fulfillmentStatus: string | null
+  totalPrice: string
+  currencyCode: string
+  lineItems: Array<{
+    title: string
+    quantity: number
+    variantTitle: string | null
+    customAttributes: Array<{
+      key: string
+      value: string
+    }>
+  }>
+}
+
+export async function getCustomerOrdersByEmail(email: string): Promise<ShopifyOrder[]> {
+  const shopifyDomain = process.env.NEXT_PUBLIC_SHOPIFY_DOMAIN
+  const apiKey = process.env.SHOPIFY_API_KEY
+  const apiSecret = process.env.SHOPIFY_API_SECRET
+
+  if (!shopifyDomain || !apiKey || !apiSecret) {
+    console.warn('Shopify Admin API not configured')
+    return []
+  }
+
+  try {
+    const auth = Buffer.from(`${apiKey}:${apiSecret}`).toString('base64')
+    const response = await fetch(
+      `https://${shopifyDomain}/admin/api/2024-01/orders.json?email=${encodeURIComponent(
+        email
+      )}&status=any`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Basic ${auth}`,
+        },
+      }
+    )
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch orders: ${response.statusText}`)
+    }
+
+    const { orders } = (await response.json()) as { orders: any[] }
+
+    return orders.map((order) => ({
+      id: order.id.toString(),
+      orderNumber: order.order_number,
+      createdAt: order.created_at,
+      financialStatus: order.financial_status,
+      fulfillmentStatus: order.fulfillment_status,
+      totalPrice: order.total_price,
+      currencyCode: order.currency,
+      lineItems: order.line_items.map((item: any) => ({
+        title: item.title,
+        quantity: item.quantity,
+        variantTitle: item.variant_title,
+        customAttributes: item.properties || [],
+      })),
+    }))
+  } catch (error) {
+    console.error('Failed to get customer orders:', error)
+    return []
+  }
+}
+
+/**
+ * Sync design as Shopify product
+ */
+export async function syncDesignToShopify(design: {
+  id: string
+  slug: string
+  prompt: string
+  previewUrl: string | null
+  widthMm: number | null
+}) {
+  const shopifyDomain = process.env.NEXT_PUBLIC_SHOPIFY_DOMAIN
+  const apiKey = process.env.SHOPIFY_API_KEY
+  const apiSecret = process.env.SHOPIFY_API_SECRET
+
+  if (!shopifyDomain || !apiKey || !apiSecret) {
+    console.warn('Shopify Admin API not configured, skipping product sync')
+    return null
+  }
+
+  const auth = Buffer.from(`${apiKey}:${apiSecret}`).toString('base64')
+
+  const sizeInfo = design.widthMm ? ` (${(design.widthMm / 25.4).toFixed(1)}" wide)` : ''
+
+  const product = {
+    product: {
+      title: design.prompt,
+      body_html: `
+        <p>AI-generated sticker design: ${design.prompt}</p>
+        <p>Print-ready files included:</p>
+        <ul>
+          <li>300 DPI PNG for printing</li>
+          <li>SVG cutline for die-cutting</li>
+          <li>White halo for die-cut perfection</li>
+        </ul>
+        ${sizeInfo ? `<p>Dimensions: ${sizeInfo}</p>` : ''}
+      `,
+      vendor: 'DecalForge',
+      product_type: 'Digital Downloads',
+      tags: ['sticker', 'digital-download', 'print-ready', 'ai-generated'],
+      published: true,
+      images: design.previewUrl
+        ? [
+            {
+              src: design.previewUrl,
+              alt: design.prompt,
+            },
+          ]
+        : [],
+      variants: [
+        {
+          option1: 'Standard',
+          price: '9.99',
+          sku: `${design.slug}-standard`,
+          inventory_management: null,
+          requires_shipping: false,
+          taxable: false,
+        },
+        {
+          option1: 'Extended',
+          price: '29.99',
+          sku: `${design.slug}-extended`,
+          inventory_management: null,
+          requires_shipping: false,
+          taxable: false,
+        },
+      ],
+      options: [
+        {
+          name: 'License',
+          values: ['Standard', 'Extended'],
+        },
+      ],
+    },
+  }
+
+  try {
+    const response = await fetch(
+      `https://${shopifyDomain}/admin/api/2024-01/products.json`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Basic ${auth}`,
+        },
+        body: JSON.stringify(product),
+      }
+    )
+
+    if (!response.ok) {
+      const error = await response.text()
+      throw new Error(`Failed to create Shopify product: ${error}`)
+    }
+
+    const { product: createdProduct } = (await response.json()) as { product: any }
+
+    console.log(`✓ Synced design ${design.id} to Shopify product ${createdProduct.id}`)
+
+    return {
+      shopifyProductId: createdProduct.id.toString(),
+      shopifyHandle: createdProduct.handle,
+    }
+  } catch (error) {
+    console.error('Failed to sync design to Shopify:', error)
+    return null
+  }
+}

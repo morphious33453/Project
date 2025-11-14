@@ -1,0 +1,365 @@
+/* ===============================================
+   ENHANCED COLLECTION HERO COMPONENT
+   Features: Responsive design, accessibility, performance optimization
+   =============================================== */
+
+.collection-hero-enhanced {
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+}
+
+/* Background Image Optimization */
+.collection-hero__background-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Overlay for Better Text Readability */
+.collection-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Content Container */
+.collection-hero__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.collection-hero__content {
+  width: 100%;
+  margin: 0 auto;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Typography */
+.collection-hero__title {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  letter-spacing: -0.02em;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.collection-hero__description {
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.collection-hero__description p {
+  margin-bottom: 1rem;
+}
+
+.collection-hero__description p:last-child {
+  margin-bottom: 0;
+}
+
+/* Breadcrumbs */
+.collection-hero__breadcrumbs {
+  opacity: 0.95;
+}
+
+.collection-hero__breadcrumbs a {
+  transition: opacity 0.2s ease;
+}
+
+.collection-hero__breadcrumbs a:hover {
+  opacity: 0.8;
+}
+
+/* CTA Buttons */
+.collection-hero__cta {
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.collection-hero__cta::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.collection-hero__cta:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.collection-hero__cta svg {
+  transition: transform 0.3s ease;
+}
+
+.collection-hero__cta:hover svg {
+  transform: translateX(4px);
+}
+
+.collection-hero__cta:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+.collection-hero__cta:active {
+  transform: translateY(0);
+}
+
+/* Stats Section */
+.collection-hero__stats {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.5rem 0;
+}
+
+.collection-hero--with-image .collection-hero__stats {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.collection-hero__stat {
+  min-width: 120px;
+}
+
+.collection-hero__stat-number {
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+/* Trust Badges */
+.collection-hero__trust-badges {
+  opacity: 0.95;
+}
+
+.collection-hero__trust-badge {
+  transition: transform 0.2s ease;
+}
+
+.collection-hero__trust-badge:hover {
+  transform: translateY(-2px);
+}
+
+.collection-hero__trust-badge svg {
+  flex-shrink: 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 989px) {
+  .collection-hero__inner {
+    padding: 0 1.5rem;
+  }
+
+  .collection-hero__title {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .collection-hero__cta-wrapper {
+    gap: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .collection-hero-enhanced {
+    min-height: 400px !important;
+  }
+
+  .collection-hero__inner {
+    padding: 0 1rem;
+  }
+
+  .collection-hero__title {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .collection-hero__description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .collection-hero__cta {
+    width: 100%;
+    justify-content: center;
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+
+  .collection-hero__stats {
+    gap: 1rem;
+  }
+
+  .collection-hero__stat {
+    min-width: auto;
+    flex: 1;
+  }
+
+  .collection-hero__stat-number {
+    font-size: 1.5rem;
+  }
+
+  .collection-hero__stat-label {
+    font-size: 0.75rem;
+  }
+
+  .collection-hero__trust-badges {
+    gap: 1rem;
+    font-size: 0.8rem;
+  }
+
+  .collection-hero__trust-badge svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .collection-hero__breadcrumbs {
+    font-size: 0.8rem;
+  }
+}
+
+/* Small Mobile Devices */
+@media screen and (max-width: 480px) {
+  .collection-hero-enhanced {
+    min-height: 350px !important;
+  }
+
+  .collection-hero__title {
+    font-size: 1.75rem;
+  }
+
+  .collection-hero__cta-wrapper {
+    flex-direction: column;
+  }
+
+  .collection-hero__cta {
+    width: 100%;
+  }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  .collection-hero__content {
+    animation: none;
+  }
+
+  .collection-hero__cta,
+  .collection-hero__trust-badge {
+    transition: none;
+  }
+
+  .collection-hero__cta:hover {
+    transform: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .collection-hero__overlay {
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .collection-hero__cta {
+    border-width: 3px;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .collection-hero-enhanced:not(.collection-hero--with-image) {
+    background-color: #1a1a1a;
+  }
+}
+
+/* Print Styles - Optimized for Print Sites */
+@media print {
+  .collection-hero-enhanced {
+    page-break-inside: avoid;
+    min-height: auto !important;
+    padding: 2rem 0 !important;
+  }
+
+  .collection-hero__background-image,
+  .collection-hero__overlay {
+    display: none;
+  }
+
+  .collection-hero__title,
+  .collection-hero__description,
+  .collection-hero__stat-number,
+  .collection-hero__stat-label {
+    color: #000 !important;
+    text-shadow: none !important;
+  }
+
+  .collection-hero__cta {
+    border: 2px solid #000;
+    color: #000;
+    background: transparent;
+  }
+
+  .collection-hero__trust-badges {
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
+    margin-top: 1rem;
+  }
+}
+
+/* Performance Optimizations */
+.collection-hero-enhanced * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Loading States */
+.collection-hero__background-image[loading="eager"] {
+  content-visibility: auto;
+}
+
+/* Focus Visible for Keyboard Navigation */
+.collection-hero__breadcrumbs a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Safari-specific fixes */
+@supports (-webkit-touch-callout: none) {
+  .collection-hero__background-image {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+/* Ensure proper stacking context */
+.collection-hero-enhanced {
+  transform: translateZ(0);
+}

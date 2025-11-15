@@ -1,0 +1,702 @@
+<!-- ==========================================
+     LED SIGNS COLLECTION DESCRIPTION - NO FAKE REVIEWS
+     Paste this ENTIRE block into Shopify collection description
+     Admin → Collections → LED Signs → Description → Show HTML
+
+     UPDATE BEFORE PASTING:
+     1. Search for YOUR_PHONE_HERE and replace with your phone
+     2. Search for YOUR_REVIEW_COUNT and replace with real Google review count
+     3. Search for YOUR_RATING and replace with real Google rating
+     4. Optionally add YOUR OWN real customer testimonials in the reviews section
+     ========================================== -->
+
+<style>
+/* LED Signs Collection Styles - Inline for Description Field */
+.led-collection-wrapper {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.led-hero-banner {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #fff;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.led-hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  color: #FFD700;
+}
+
+.led-hero-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.led-trust-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.led-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.led-stars {
+  color: #FFD700;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+.led-cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.led-btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.led-btn-primary {
+  background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.led-btn-primary:hover {
+  background: linear-gradient(135deg, #FF8C42 0%, #FFA45C 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+}
+
+.led-btn-secondary {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.led-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px);
+}
+
+.led-section {
+  margin: 3rem 0;
+}
+
+.led-section-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.led-section-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.led-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.led-benefit-card {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.led-benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-color: #FF6B35;
+}
+
+.led-benefit-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.led-benefit-card h3 {
+  font-size: 1.3rem;
+  color: #1a1a2e;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.led-benefit-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+.led-sign-types-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.led-sign-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+  border: 2px solid #f0f0f0;
+}
+
+.led-sign-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+  border-color: #FF6B35;
+}
+
+.led-sign-card.featured {
+  border-color: #FF6B35;
+  background: linear-gradient(135deg, #fff5f0 0%, #ffffff 100%);
+  position: relative;
+}
+
+.led-badge {
+  background: #FF6B35;
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.led-sign-card h3 {
+  font-size: 1.4rem;
+  color: #1a1a2e;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.led-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  text-align: left;
+}
+
+.led-feature-list li {
+  padding: 0.4rem 0;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.led-reviews-section {
+  background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
+  color: #fff;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.led-reviews-section h2 {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.led-reviews-section p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.led-google-review-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #fff;
+  color: #FF6B35;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.led-google-review-btn:hover {
+  background: #f8f9fa;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.led-faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.led-faq-item {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid #FF6B35;
+}
+
+.led-faq-question {
+  font-size: 1.2rem;
+  color: #1a1a2e;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.led-faq-answer {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+.led-cta-box {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #fff;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.led-cta-box h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  color: #FFD700;
+}
+
+.led-cta-box p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.led-guarantee {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  font-size: 1rem;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .led-hero-title {
+    font-size: 1.75rem;
+  }
+
+  .led-hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .led-trust-bar {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .led-cta-buttons {
+    flex-direction: column;
+  }
+
+  .led-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .led-section-title {
+    font-size: 1.5rem;
+  }
+
+  .led-benefits-grid,
+  .led-sign-types-grid,
+  .led-faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .led-hero-banner {
+    padding: 2rem 1.5rem;
+  }
+
+  .led-hero-title {
+    font-size: 1.5rem;
+  }
+
+  .led-btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+</style>
+
+<!-- Main Content Container -->
+<div class="led-collection-wrapper">
+
+  <!-- Hero Banner -->
+  <div class="led-hero-banner">
+    <h1 class="led-hero-title">Custom LED Signs That Get Your Business Noticed</h1>
+    <p class="led-hero-subtitle">Bright, Eye-Catching Signs for Niagara Businesses | Fast Service & Professional Quality</p>
+
+    <!-- Trust Bar - UPDATE YOUR REAL DATA HERE -->
+    <div class="led-trust-bar">
+      <div class="led-trust-item">
+        <span class="led-stars">★★★★★</span>
+        <span><strong>YOUR_RATING</strong> (YOUR_REVIEW_COUNT Reviews)</span>
+      </div>
+      <div class="led-trust-item">
+        <span>✓</span>
+        <span>100% Quality Guarantee</span>
+      </div>
+      <div class="led-trust-item">
+        <span>⚡</span>
+        <span>Fast Turnaround</span>
+      </div>
+      <div class="led-trust-item">
+        <span>📍</span>
+        <span>Proudly Serving Niagara</span>
+      </div>
+    </div>
+
+    <!-- CTA Buttons - UPDATE YOUR PHONE NUMBER -->
+    <div class="led-cta-buttons">
+      <a href="tel:YOUR_PHONE_HERE" class="led-btn led-btn-primary">Call Us Now</a>
+      <a href="#products" class="led-btn led-btn-secondary">Shop LED Signs</a>
+    </div>
+  </div>
+
+  <!-- Why Choose Us Section -->
+  <div class="led-section">
+    <h2 class="led-section-title">Why Niagara Businesses Choose Our LED Signs</h2>
+    <p class="led-section-subtitle">Looking for LED signs that actually bring in customers? You're in the right place. Our custom LED signs are built to grab attention, work 24/7, and pay for themselves fast.</p>
+
+    <div class="led-benefits-grid">
+
+      <div class="led-benefit-card">
+        <div class="led-benefit-icon">💡</div>
+        <h3>Super Bright & Energy Efficient</h3>
+        <p>See your sign from down the street. Our LED signs use 80% less power than old neon signs. That means lower electric bills and a brighter business.</p>
+      </div>
+
+      <div class="led-benefit-card">
+        <div class="led-benefit-icon">🎨</div>
+        <h3>Custom Designs for Your Business</h3>
+        <p>Get exactly what you want. Pick your colors, size, and message. We make signs for restaurants, retail stores, offices, and more across Niagara.</p>
+      </div>
+
+      <div class="led-benefit-card">
+        <div class="led-benefit-icon">💰</div>
+        <h3>Affordable Prices, No Hidden Fees</h3>
+        <p>Quality LED signs shouldn't break the bank. We offer competitive pricing with clear quotes. What we say is what you pay. Free quotes available.</p>
+      </div>
+
+      <div class="led-benefit-card">
+        <div class="led-benefit-icon">⚡</div>
+        <h3>Fast Turnaround Times</h3>
+        <p>Need it quick? We've got you covered. Many signs ship in 3-5 days. Rush service available for urgent orders.</p>
+      </div>
+
+      <div class="led-benefit-card">
+        <div class="led-benefit-icon">🛡️</div>
+        <h3>Built to Last</h3>
+        <p>Weather-resistant and durable. Our LED signs work in rain, snow, and extreme temperatures. Plus, they come with a solid warranty you can trust.</p>
+      </div>
+
+      <div class="led-benefit-card">
+        <div class="led-benefit-icon">🏆</div>
+        <h3>Local Niagara Service</h3>
+        <p>We're right here in the Niagara region. Fast delivery to St. Catharines, Niagara Falls, Welland, Fort Erie, and Niagara-on-the-Lake. Support local!</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Popular LED Sign Types -->
+  <div class="led-section">
+    <h2 class="led-section-title">Popular LED Sign Types We Make</h2>
+
+    <div class="led-sign-types-grid">
+
+      <div class="led-sign-card">
+        <h3>Open Signs</h3>
+        <p>Let customers know you're ready for business. Bright, simple, and effective for any storefront.</p>
+        <ul class="led-feature-list">
+          <li>✓ Standard or custom sizes</li>
+          <li>✓ Multiple colors available</li>
+          <li>✓ Indoor or outdoor use</li>
+          <li>✓ Energy efficient</li>
+        </ul>
+      </div>
+
+      <div class="led-sign-card featured">
+        <span class="led-badge">Most Popular</span>
+        <h3>Custom Business Signs</h3>
+        <p>Your logo, your colors, your message. Make your brand shine day and night.</p>
+        <ul class="led-feature-list">
+          <li>✓ Fully customizable design</li>
+          <li>✓ Any size up to 6ft wide</li>
+          <li>✓ Free design consultation</li>
+          <li>✓ Professional quality</li>
+        </ul>
+      </div>
+
+      <div class="led-sign-card">
+        <h3>Neon-Style LED Signs</h3>
+        <p>Get the classic neon look without the high cost, fragility, or maintenance hassles.</p>
+        <ul class="led-feature-list">
+          <li>✓ Cool retro aesthetic</li>
+          <li>✓ Safe & energy-efficient</li>
+          <li>✓ Perfect for bars & cafes</li>
+          <li>✓ Long-lasting durability</li>
+        </ul>
+      </div>
+
+      <div class="led-sign-card">
+        <h3>Window Signs</h3>
+        <p>Hang in your storefront window. Attract foot traffic on busy Niagara streets day and night.</p>
+        <ul class="led-feature-list">
+          <li>✓ Easy to install</li>
+          <li>✓ Double-sided options</li>
+          <li>✓ Remote control included</li>
+          <li>✓ Weather-resistant</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Google Reviews CTA Section - NO FAKE REVIEWS, JUST CTA -->
+  <div class="led-reviews-section">
+    <h2 class="led-section-title">Trusted by Niagara Businesses</h2>
+    <p>See what our customers are saying on Google and leave your own review!</p>
+    <a href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK_HERE/review" target="_blank" rel="noopener" class="led-google-review-btn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+      </svg>
+      Read & Write Google Reviews
+    </a>
+  </div>
+
+  <!-- FAQ Section -->
+  <div class="led-section">
+    <h2 class="led-section-title">Common Questions About LED Signs</h2>
+
+    <div class="led-faq-grid">
+
+      <div class="led-faq-item">
+        <h3 class="led-faq-question">How long do LED signs last?</h3>
+        <p class="led-faq-answer">Our LED signs last 50,000-100,000 hours. That's about 10-15 years if you run them 8 hours a day. They're built tough and come with a warranty for peace of mind.</p>
+      </div>
+
+      <div class="led-faq-item">
+        <h3 class="led-faq-question">Can I use LED signs outdoors?</h3>
+        <p class="led-faq-answer">Yes! Many of our LED signs are weather-resistant and perfect for outdoor use. They handle rain, snow, and temperature changes like a champ. Just look for "outdoor rated" in the description.</p>
+      </div>
+
+      <div class="led-faq-item">
+        <h3 class="led-faq-question">How much do custom LED signs cost?</h3>
+        <p class="led-faq-answer">Prices vary based on size and design, but most custom LED signs range from $150 to $800. Simple open signs start around $50. Contact us for a free quote on your specific needs.</p>
+      </div>
+
+      <div class="led-faq-item">
+        <h3 class="led-faq-question">Do you deliver to my area in Niagara?</h3>
+        <p class="led-faq-answer">Absolutely! We deliver throughout the Niagara region including St. Catharines, Niagara Falls, Welland, Fort Erie, and Niagara-on-the-Lake. Free delivery on orders over $200.</p>
+      </div>
+
+      <div class="led-faq-item">
+        <h3 class="led-faq-question">Are LED signs easy to install?</h3>
+        <p class="led-faq-answer">Very easy! Most LED signs plug into a regular outlet and come with mounting hardware. Hang it, plug it in, and you're done. Installation guide included with every order.</p>
+      </div>
+
+      <div class="led-faq-item">
+        <h3 class="led-faq-question">What if I need a sign urgently?</h3>
+        <p class="led-faq-answer">We offer rush service! Contact us and we'll do everything we can to meet your deadline with fast turnaround options.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Final CTA Box -->
+  <div class="led-cta-box">
+    <h3>Ready to Get Your Business Noticed?</h3>
+    <p>Browse our LED signs below or contact us for a free custom quote today!</p>
+    <div class="led-cta-buttons">
+      <a href="tel:YOUR_PHONE_HERE" class="led-btn led-btn-primary">Call Us Now</a>
+      <a href="/pages/contact" class="led-btn led-btn-secondary">Contact Us</a>
+    </div>
+    <div class="led-guarantee">
+      <span>✓</span>
+      <span>100% Satisfaction Guarantee | Free Quotes | Local Niagara Service</span>
+    </div>
+  </div>
+
+  <!-- SEO Content Section -->
+  <div class="led-section" style="background: #f8f9fa; padding: 2rem; border-radius: 12px;">
+    <h2 class="led-section-title">LED Signs for Every Niagara Business</h2>
+    <p style="font-size: 1rem; line-height: 1.8; color: #555; margin-bottom: 1rem;">
+      Whether you run a restaurant in St. Catharines, a retail shop in Niagara Falls, a bar in Niagara-on-the-Lake, or any business in the Niagara region, custom LED signs are one of the smartest investments you can make. LED business signs work around the clock to attract customers, increase visibility, and boost your brand recognition.
+    </p>
+    <p style="font-size: 1rem; line-height: 1.8; color: #555; margin-bottom: 1rem;">
+      Our energy-efficient LED signs use up to 80% less electricity than traditional neon signs, saving you money every month. They're brighter, last longer (10-15 years on average), and require almost no maintenance. From simple "OPEN" signs to fully custom logo signs, we have options for every budget and business type.
+    </p>
+    <p style="font-size: 1rem; line-height: 1.8; color: #555; margin-bottom: 1rem;">
+      <strong>Why choose LED signs over traditional signs?</strong> LED signs are visible day and night, work in all weather conditions, and give your business a modern, professional look. They're perfect for storefronts, windows, outdoor displays, trade shows, and special events. Plus, with our fast turnaround service, you can get your sign quickly when you need it most.
+    </p>
+    <p style="font-size: 1rem; line-height: 1.8; color: #555;">
+      Serving all of Niagara including St. Catharines, Niagara Falls, Welland, Fort Erie, Thorold, Port Colborne, Grimsby, and Niagara-on-the-Lake. Free delivery on orders over $200. Contact us today to find the perfect LED sign for your business.
+    </p>
+  </div>
+
+</div>
+
+<!-- Schema Markup for SEO - UPDATE WITH YOUR REAL DATA -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": "Niagara Stands Out",
+      "image": "https://niagarastandsout.ca/cdn/shop/files/logo.png",
+      "telephone": "YOUR_PHONE_HERE",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Niagara",
+        "addressRegion": "ON",
+        "addressCountry": "CA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "43.0896",
+        "longitude": "-79.0849"
+      },
+      "url": "https://niagarastandsout.ca",
+      "priceRange": "$$",
+      "areaServed": [
+        {"@type": "City", "name": "St. Catharines"},
+        {"@type": "City", "name": "Niagara Falls"},
+        {"@type": "City", "name": "Welland"},
+        {"@type": "City", "name": "Fort Erie"},
+        {"@type": "City", "name": "Niagara-on-the-Lake"},
+        {"@type": "City", "name": "Thorold"},
+        {"@type": "City", "name": "Port Colborne"},
+        {"@type": "City", "name": "Grimsby"}
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long do LED signs last?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our LED signs last 50,000-100,000 hours. That's about 10-15 years if you run them 8 hours a day. They're built tough and come with a warranty for peace of mind."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use LED signs outdoors?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Many of our LED signs are weather-resistant and perfect for outdoor use. They handle rain, snow, and temperature changes. Just look for outdoor rated in the description."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much do custom LED signs cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prices vary based on size and design, but most custom LED signs range from $150 to $800. Simple open signs start around $50. Contact us for a free quote."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you deliver to my area in Niagara?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely! We deliver throughout the Niagara region including St. Catharines, Niagara Falls, Welland, Fort Erie, and Niagara-on-the-Lake. Free delivery on orders over $200."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are LED signs easy to install?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Very easy! Most LED signs plug into a regular outlet and come with mounting hardware. Hang it, plug it in, and you're done. Installation guide included with every order."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Custom LED Signs",
+      "description": "Energy-efficient LED business signs for Niagara storefronts. Custom designs, fast service, weather-resistant. Perfect for restaurants, retail, bars, and offices.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Niagara Stands Out"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "CAD",
+        "lowPrice": "50",
+        "highPrice": "800",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+  ]
+}
+</script>
+
+<!-- END OF LED SIGNS COLLECTION DESCRIPTION -->

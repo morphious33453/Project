@@ -1,0 +1,1167 @@
+<style>
+/* Plant Lover Stickers Collection - SERP-Optimized Styles */
+.plant-collection-optimized {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #2c3e50;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.plant-hero {
+  background: linear-gradient(135deg, #5cb85c 0%, #4caf50 25%, #8bc34a 50%, #4caf50 75%, #5cb85c 100%);
+  padding: 60px 30px;
+  text-align: center;
+  color: white;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 40px rgba(76, 175, 80, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.plant-hero::before {
+  content: '🌱🌿🪴🍃🌾🌵🌻🌺🌸🌼';
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  font-size: 48px;
+  opacity: 0.12;
+  animation: grow 25s infinite linear;
+}
+
+@keyframes grow {
+  0% { transform: translateX(-50%) scale(0.9); }
+  50% { transform: translateX(0%) scale(1.1); }
+  100% { transform: translateX(50%) scale(0.9); }
+}
+
+.plant-hero h1 {
+  font-size: 2.8em;
+  margin: 0 0 20px 0;
+  font-weight: 800;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.plant-hero-subtitle {
+  font-size: 1.3em;
+  margin: 0 0 30px 0;
+  font-weight: 400;
+  opacity: 0.95;
+  position: relative;
+  z-index: 1;
+}
+
+.trust-badges {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+  position: relative;
+  z-index: 1;
+}
+
+.trust-badge {
+  background: rgba(255,255,255,0.25);
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 0.95em;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255,255,255,0.4);
+}
+
+.section {
+  background: white;
+  padding: 40px 30px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.section-title {
+  font-size: 2em;
+  color: #4caf50;
+  margin: 0 0 25px 0;
+  font-weight: 700;
+  border-left: 5px solid #8bc34a;
+  padding-left: 20px;
+}
+
+.section-intro {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+
+.specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.specs-table thead {
+  background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+  color: white;
+}
+
+.specs-table th {
+  padding: 18px 15px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 1.05em;
+  letter-spacing: 0.5px;
+}
+
+.specs-table td {
+  padding: 16px 15px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.specs-table tr:hover {
+  background: #f1f8f4;
+  transition: background 0.3s ease;
+}
+
+.specs-table tr:last-child td {
+  border-bottom: none;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin: 30px 0;
+}
+
+.feature-card {
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+  padding: 30px;
+  border-radius: 10px;
+  border: 2px solid #8bc34a;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(76, 175, 80, 0.2);
+}
+
+.feature-icon {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.feature-title {
+  font-size: 1.3em;
+  color: #4caf50;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+}
+
+.feature-description {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.applications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.application-card {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  border-left: 4px solid #8bc34a;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.application-card:hover {
+  border-left-color: #4caf50;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.application-title {
+  font-size: 1.2em;
+  color: #4caf50;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.application-description {
+  color: #666;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.faq-section {
+  background: #f8f9fa;
+  padding: 40px 30px;
+  border-radius: 8px;
+  margin: 30px 0;
+}
+
+.faq-item {
+  background: white;
+  padding: 25px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #4caf50;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.faq-question {
+  font-size: 1.2em;
+  color: #4caf50;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.faq-answer {
+  color: #555;
+  line-height: 1.8;
+  margin: 0;
+  padding-left: 30px;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.comparison-table thead {
+  background: linear-gradient(135deg, #8bc34a 0%, #7cb342 100%);
+  color: white;
+}
+
+.comparison-table th {
+  padding: 18px 15px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 1.05em;
+}
+
+.comparison-table td {
+  padding: 16px 15px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.comparison-table tr:hover {
+  background: #f1f8f4;
+}
+
+.checkmark {
+  color: #28a745;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.crossmark {
+  color: #dc3545;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.installation-steps {
+  counter-reset: step-counter;
+  list-style: none;
+  padding: 0;
+  margin: 25px 0;
+}
+
+.installation-steps li {
+  counter-increment: step-counter;
+  padding: 20px;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+  border-radius: 8px;
+  border-left: 5px solid #4caf50;
+  position: relative;
+  padding-left: 70px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.installation-steps li::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+.installation-steps strong {
+  color: #4caf50;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.1em;
+}
+
+.cta-box {
+  background: linear-gradient(135deg, #4caf50 0%, #8bc34a 100%);
+  color: white;
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  margin: 40px 0;
+  box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+}
+
+.cta-box h3 {
+  font-size: 2em;
+  margin: 0 0 15px 0;
+  font-weight: 700;
+}
+
+.cta-box p {
+  font-size: 1.2em;
+  margin: 0 0 25px 0;
+  opacity: 0.95;
+}
+
+.cta-button {
+  display: inline-block;
+  background: white;
+  color: #4caf50;
+  padding: 15px 40px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1em;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.highlight-box {
+  background: linear-gradient(135deg, #f1f8f4 0%, #e8f5e9 100%);
+  padding: 25px;
+  border-radius: 8px;
+  border-left: 5px solid #8bc34a;
+  margin: 25px 0;
+}
+
+.highlight-box strong {
+  color: #4caf50;
+  font-size: 1.1em;
+}
+
+.plant-types-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.plant-badge {
+  background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  color: #4caf50;
+  border: 2px solid #8bc34a;
+  transition: all 0.3s ease;
+}
+
+.plant-badge:hover {
+  background: linear-gradient(135deg, #4caf50 0%, #8bc34a 100%);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .plant-hero h1 {
+    font-size: 2em;
+  }
+
+  .plant-hero-subtitle {
+    font-size: 1.1em;
+  }
+
+  .trust-badges {
+    gap: 15px;
+  }
+
+  .trust-badge {
+    font-size: 0.85em;
+    padding: 10px 18px;
+  }
+
+  .section {
+    padding: 25px 20px;
+  }
+
+  .section-title {
+    font-size: 1.6em;
+  }
+
+  .feature-grid,
+  .applications-grid,
+  .plant-types-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .specs-table,
+  .comparison-table {
+    font-size: 0.9em;
+  }
+
+  .specs-table th,
+  .specs-table td,
+  .comparison-table th,
+  .comparison-table td {
+    padding: 12px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .plant-hero {
+    padding: 40px 20px;
+  }
+
+  .plant-hero h1 {
+    font-size: 1.6em;
+  }
+
+  .installation-steps li {
+    padding-left: 60px;
+  }
+
+  .installation-steps li::before {
+    width: 30px;
+    height: 30px;
+    font-size: 1em;
+    left: 15px;
+  }
+
+  .plant-types-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+</style>
+
+<div class="plant-collection-optimized">
+
+  <!-- Hero Section -->
+  <div class="plant-hero">
+    <h1>🌱 Plant Lover Stickers | Plant Mom & Plant Dad Pride 🪴</h1>
+    <p class="plant-hero-subtitle">Celebrate Your Green Thumb | Botanical Illustrations | Monstera, Pothos, Succulents & More | Waterproof for Water Bottles</p>
+    <div class="trust-badges">
+      <span class="trust-badge">🌿 For Plant Parents</span>
+      <span class="trust-badge">🇨🇦 Made in Canada</span>
+      <span class="trust-badge">🚚 Free Ship $100+</span>
+      <span class="trust-badge">💧 100% Waterproof</span>
+    </div>
+  </div>
+
+  <!-- Enhanced Product Description -->
+  <div class="section">
+    <h2 class="section-title">Show Off Your Plant Parent Pride</h2>
+    <p class="section-intro">
+      Discover our curated collection of plant lover stickers celebrating the joy of indoor gardening, houseplant care, and botanical obsession. Featuring popular houseplants like Monstera deliciosa, Pothos (Devil's Ivy), Snake Plants (Sansevieria), Fiddle Leaf Fig, succulents, cacti, and more, plus hilarious plant mom/plant dad messaging like "Plant Lady," "Propagation Station," and "Don't Talk to Me Until I've Watered My Plants."
+    </p>
+    <p class="section-intro">
+      Perfect for decorating water bottles (waterproof!), laptop stickers for plant enthusiasts, planters and pots, gardening journals, greenhouse windows, plant shelves, and gifts for fellow plant parents, each sticker is precision-cut from premium weather-resistant vinyl that lasts 3-10 years outdoors and indefinitely indoors. Made in Canada's Niagara Region by Niagara Stands Out Custom Signs, these botanical stickers combine accurate plant illustrations with humor and pride. Whether you're a succulent hoarder, Monstera collector, propagation enthusiast, or simply love bringing nature indoors, our stickers let you wear your green thumb with pride.
+    </p>
+  </div>
+
+  <!-- Popular Houseplants Featured -->
+  <div class="section">
+    <h2 class="section-title">Popular Houseplants in Our Collection</h2>
+    <p class="section-intro">
+      Our designs feature botanically-inspired illustrations of the most beloved houseplants in the plant parent community:
+    </p>
+
+    <div class="plant-types-grid">
+      <div class="plant-badge">🌿 Monstera Deliciosa</div>
+      <div class="plant-badge">🍃 Pothos / Devil's Ivy</div>
+      <div class="plant-badge">🌵 Succulents & Cacti</div>
+      <div class="plant-badge">🪴 Snake Plant</div>
+      <div class="plant-badge">🌱 Fiddle Leaf Fig</div>
+      <div class="plant-badge">💚 Philodendron</div>
+      <div class="plant-badge">🌾 Spider Plant</div>
+      <div class="plant-badge">🍀 Peace Lily</div>
+      <div class="plant-badge">🌸 African Violet</div>
+      <div class="plant-badge">🌿 ZZ Plant</div>
+      <div class="plant-badge">🪴 Rubber Plant</div>
+      <div class="plant-badge">🌱 Calathea</div>
+    </div>
+
+    <div class="highlight-box">
+      <strong>Plant Parent Tip:</strong> Collect stickers of plants you already own, plants on your wishlist, or plants you've successfully propagated! Many plant enthusiasts use our stickers to document their collection journey on water bottles, plant journals, and greenhouse windows.
+    </div>
+  </div>
+
+  <!-- Complete Technical Specifications -->
+  <div class="section">
+    <h2 class="section-title">Technical Specifications: Premium Plant Lover Vinyl Stickers</h2>
+    <table class="specs-table">
+      <thead>
+        <tr>
+          <th>Specification</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Design Themes</strong></td>
+          <td>Botanical illustrations, popular houseplants (Monstera, Pothos, Snake Plant, succulents), plant parent humor, gardening quotes, propagation pride, "Plant Mom/Dad" messaging</td>
+        </tr>
+        <tr>
+          <td><strong>Botanical Accuracy</strong></td>
+          <td>Designs feature realistic plant leaf patterns, accurate species representations, and botanically-correct illustrations loved by serious plant collectors</td>
+        </tr>
+        <tr>
+          <td><strong>Size Options</strong></td>
+          <td>3 inch ($5.99 CAD), 4 inch ($7.99 CAD), 5 inch ($9.99 CAD) - measured at widest point</td>
+        </tr>
+        <tr>
+          <td><strong>Material Type</strong></td>
+          <td>Premium calendered vinyl with UV-resistant properties - perfect for water bottles, planters, and outdoor garden use</td>
+        </tr>
+        <tr>
+          <td><strong>Waterproof Rating</strong></td>
+          <td>100% waterproof - survives watering can splashes, garden hose spray, dishwashers, rain, humidity, greenhouse condensation</td>
+        </tr>
+        <tr>
+          <td><strong>Outdoor Durability</strong></td>
+          <td>3-10 years on planters, garden signs, greenhouse windows, outdoor pots - withstands sun, rain, and temperature changes</td>
+        </tr>
+        <tr>
+          <td><strong>Indoor Durability</strong></td>
+          <td>Indefinite on laptops, water bottles, plant journals, indoor planters - will never fade or deteriorate</td>
+        </tr>
+        <tr>
+          <td><strong>Weather Resistance</strong></td>
+          <td>UV-resistant, fade-resistant, moisture-resistant - designed for humid greenhouse and garden environments</td>
+        </tr>
+        <tr>
+          <td><strong>Surface Compatibility</strong></td>
+          <td>Water bottles, Hydro Flasks, laptops, MacBooks, ceramic pots, plastic planters, terracotta, watering cans, garden tools, greenhouse glass, car windows, plant shelves, journals, notebooks</td>
+        </tr>
+        <tr>
+          <td><strong>Adhesive Type</strong></td>
+          <td>Permanent acrylic adhesive - strong bond to porous and non-porous surfaces but removable without residue from smooth surfaces</td>
+        </tr>
+        <tr>
+          <td><strong>Color Quality</strong></td>
+          <td>Vibrant greens, natural earth tones, botanical accuracy - colors stay vivid through watering cycles and greenhouse humidity</td>
+        </tr>
+        <tr>
+          <td><strong>Thickness</strong></td>
+          <td>3.4 mil (86 microns) - durable yet flexible for curved surfaces like water bottles and round pots</td>
+        </tr>
+        <tr>
+          <td><strong>Finish Options</strong></td>
+          <td>Glossy finish for maximum botanical color vibrancy and leaf detail visibility</td>
+        </tr>
+        <tr>
+          <td><strong>Production Time</strong></td>
+          <td>Same-day or next-day production available - perfect for last-minute plant parent gifts</td>
+        </tr>
+        <tr>
+          <td><strong>Manufacturing Location</strong></td>
+          <td>Made in Niagara Region, Ontario, Canada - supporting local green businesses</td>
+        </tr>
+        <tr>
+          <td><strong>Shipping Coverage</strong></td>
+          <td>Ships across Canada and internationally - free shipping on orders $100+ (perfect for plant club bulk orders)</td>
+        </tr>
+        <tr>
+          <td><strong>Bulk Discounts</strong></td>
+          <td>Save 20-40% on bulk orders - ideal for plant clubs, garden centers, nurseries, botanical gardens, plant swap events</td>
+        </tr>
+        <tr>
+          <td><strong>Plant Community Appeal</strong></td>
+          <td>Designs resonate with houseplant enthusiasts, indoor gardeners, propagation hobbyists, rare plant collectors, and botanical illustration lovers</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Material & Feature Comparison -->
+  <div class="section">
+    <h2 class="section-title">Why Choose Premium Vinyl Plant Stickers?</h2>
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Premium Vinyl Stickers (Ours)</th>
+          <th>Paper Stickers</th>
+          <th>Print-on-Demand</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Waterproof (Greenhouse/Garden)</strong></td>
+          <td><span class="checkmark">✓</span> 100% waterproof</td>
+          <td><span class="crossmark">✗</span> Ruined by water</td>
+          <td><span class="checkmark">~</span> Water-resistant only</td>
+        </tr>
+        <tr>
+          <td><strong>Water Bottle Safe</strong></td>
+          <td><span class="checkmark">✓</span> Dishwasher safe</td>
+          <td><span class="crossmark">✗</span> Not suitable</td>
+          <td><span class="checkmark">~</span> Hand-wash only</td>
+        </tr>
+        <tr>
+          <td><strong>Outdoor Planter Use</strong></td>
+          <td><span class="checkmark">✓</span> 3-10 years outdoors</td>
+          <td><span class="crossmark">✗</span> Days only</td>
+          <td><span class="checkmark">~</span> 6-12 months</td>
+        </tr>
+        <tr>
+          <td><strong>UV Resistance (Sun Exposure)</strong></td>
+          <td><span class="checkmark">✓</span> Won't fade in sun</td>
+          <td><span class="crossmark">✗</span> Fades immediately</td>
+          <td><span class="checkmark">~</span> Fades over time</td>
+        </tr>
+        <tr>
+          <td><strong>Botanical Accuracy</strong></td>
+          <td><span class="checkmark">✓</span> Detailed plant illustrations</td>
+          <td><span class="checkmark">~</span> Generic plant art</td>
+          <td><span class="checkmark">~</span> Variable quality</td>
+        </tr>
+        <tr>
+          <td><strong>Color Vibrancy</strong></td>
+          <td><span class="checkmark">✓</span> Vivid greens, natural tones</td>
+          <td><span class="checkmark">~</span> Decent initially</td>
+          <td><span class="checkmark">~</span> Dull colors</td>
+        </tr>
+        <tr>
+          <td><strong>Greenhouse Humidity Survival</strong></td>
+          <td><span class="checkmark">✓</span> Designed for humidity</td>
+          <td><span class="crossmark">✗</span> Peels in moisture</td>
+          <td><span class="checkmark">~</span> Moderate resistance</td>
+        </tr>
+        <tr>
+          <td><strong>Removability</strong></td>
+          <td><span class="checkmark">✓</span> No residue on water bottles</td>
+          <td><span class="crossmark">✗</span> Tears when removed</td>
+          <td><span class="crossmark">✗</span> Leaves residue</td>
+        </tr>
+        <tr>
+          <td><strong>Made in Canada</strong></td>
+          <td><span class="checkmark">✓</span> Yes - Niagara Region</td>
+          <td><span class="crossmark">✗</span> Usually imported</td>
+          <td><span class="crossmark">✗</span> Usually imported</td>
+        </tr>
+        <tr>
+          <td><strong>Same-Day Production</strong></td>
+          <td><span class="checkmark">✓</span> Available</td>
+          <td><span class="crossmark">✗</span> Not available</td>
+          <td><span class="crossmark">✗</span> 1-2 weeks shipping</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 8 Creative Applications -->
+  <div class="section">
+    <h2 class="section-title">8 Ways to Use Plant Lover Stickers</h2>
+    <div class="applications-grid">
+
+      <div class="application-card">
+        <h3 class="application-title">💧 Water Bottles & Hydration</h3>
+        <p class="application-description">
+          The #1 use! Plant parents decorate their Hydro Flasks, Nalgenes, and reusable water bottles with botanical stickers representing favorite plants. Waterproof vinyl survives dishwashers, watering day splashes, and greenhouse humidity. Creates instant plant parent recognition at garden centers, plant swaps, and coffee shops. Show your green thumb wherever you hydrate!
+        </p>
+      </div>
+
+      <div class="application-card">
+        <h3 class="application-title">🪴 Planters & Pot Labels</h3>
+        <p class="application-description">
+          Label and decorate ceramic pots, plastic planters, terracotta containers, and propagation stations with waterproof plant stickers. Use for plant identification, decoration, or creating a cohesive aesthetic across your plant collection. Survives watering, soil moisture, and outdoor weather. Popular for nursery organization and plant shelf styling.
+        </p>
+      </div>
+
+      <div class="application-card">
+        <h3 class="application-title">💻 Laptop & Device Decoration</h3>
+        <p class="application-description">
+          Plant enthusiasts customize laptops, tablets, and phones with botanical illustration stickers. Creates nature-inspired workspace aesthetics perfect for garden bloggers, plant influencers, horticulture students, and remote workers who bring their plant collection to every Zoom call. Signals "plant person" identity in coworking spaces and cafes.
+        </p>
+      </div>
+
+      <div class="application-card">
+        <h3 class="application-title">📖 Plant Journals & Care Logs</h3>
+        <p class="application-description">
+          Decorate plant care journals, propagation logs, watering schedules, and garden planners with botanical stickers. Track which plants you own, document propagation successes, mark fertilizing schedules, and create beautiful plant collection records. Popular with serious collectors who maintain detailed care logs for rare plants.
+        </p>
+      </div>
+
+      <div class="application-card">
+        <h3 class="application-title">🏡 Greenhouse & Garden Spaces</h3>
+        <p class="application-description">
+          Apply waterproof stickers to greenhouse windows, garden tool boxes, watering cans, spray bottles, seed storage containers, and potting benches. Weather-resistant vinyl survives outdoor gardens, greenhouse humidity, and full sun exposure. Creates cohesive botanical aesthetic in your growing spaces.
+        </p>
+      </div>
+
+      <div class="application-card">
+        <h3 class="application-title">🎁 Perfect Gifts for Plant Parents</h3>
+        <p class="application-description">
+          Ideal gifts for houseplant enthusiasts, indoor gardeners, succulent collectors, and anyone with a green thumb. Popular for plant swap favors, housewarming gifts (especially for plant-filled homes), birthday presents for plant lovers, Mother's Day for plant moms, and encouraging new plant parents. Affordable yet thoughtful!
+        </p>
+      </div>
+
+      <div class="application-card">
+        <h3 class="application-title">🚗 Car Windows & Bumpers</h3>
+        <p class="application-description">
+          Plant enthusiasts display botanical pride on car rear windows and bumpers with "Plant Lady," "Plant Dad," or favorite plant species stickers. Weather-resistant vinyl survives highway driving, car washes, and outdoor parking. Popular for driving to garden centers, plant shops, and botanical gardens.
+        </p>
+      </div>
+
+      <div class="application-card">
+        <h3 class="application-title">🌿 Plant Shop & Nursery Branding</h3>
+        <p class="application-description">
+          Garden centers, plant shops, nurseries, and botanical stores use plant stickers for branding, customer gifts, purchase incentives, and merchandise. Apply to shop windows, packaging, plant care instruction cards, and loyalty program materials. Bulk discounts available for business orders. Creates memorable customer experience.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Installation Guide -->
+  <div class="section">
+    <h2 class="section-title">How to Apply Plant Stickers: Garden-Proof Installation Guide</h2>
+    <p class="section-intro">
+      Proper application ensures your botanical stickers survive watering days, greenhouse humidity, and outdoor garden conditions for years. Follow these steps for perfect, long-lasting results.
+    </p>
+
+    <ol class="installation-steps">
+      <li>
+        <strong>Clean the Surface Thoroughly</strong>
+        Use isopropyl alcohol or glass cleaner to remove all dirt, dust, water spots, fertilizer residue, and oils from your water bottle, planter, laptop, or chosen surface. Dry completely with lint-free cloth. Clean surfaces = maximum sticker longevity.
+      </li>
+
+      <li>
+        <strong>Ensure Surface is Dry</strong>
+        Critical for planters and water bottles! Make sure surface is 100% dry - no moisture, no condensation, no recent watering splashes. Wait 24 hours after washing planters before applying stickers. Moisture prevents adhesive bonding.
+      </li>
+
+      <li>
+        <strong>Choose Strategic Placement</strong>
+        For water bottles: flat sides work best. For planters: avoid areas where you grip when watering. For outdoor pots: place away from direct soil contact. For laptops: any location works. Plan placement before removing backing.
+      </li>
+
+      <li>
+        <strong>Peel the Backing Paper</strong>
+        Carefully peel away paper backing from vinyl sticker, exposing adhesive side. For plant designs with intricate leaf details, peel slowly to prevent vinyl from sticking to itself. Keep backing in case repositioning needed.
+      </li>
+
+      <li>
+        <strong>Position and Apply</strong>
+        Starting from one edge or center, carefully position sticker on clean, dry surface. Press down gently with fingers, working from center outward. For curved surfaces (water bottles, round pots), apply slowly to prevent air bubbles.
+      </li>
+
+      <li>
+        <strong>Smooth Out Air Bubbles</strong>
+        Use credit card, squeegee, or soft cloth to firmly press sticker from center toward edges. This pushes out trapped air and ensures complete adhesion. Apply firm pressure, especially for outdoor planters. Small bubbles disappear within 24-48 hours.
+      </li>
+
+      <li>
+        <strong>Press Edges Extra Firm</strong>
+        For waterproof applications (water bottles, planters), press edges and corners extra firmly to prevent water infiltration. This is crucial for dishwasher survival and greenhouse humidity resistance.
+      </li>
+
+      <li>
+        <strong>Allow Adhesive to Cure</strong>
+        Wait 24-48 hours before exposing sticker to water, dishwashers, watering routines, or outdoor weather. This allows adhesive to fully bond with surface. For planters: wait before watering. For water bottles: wait before washing.
+      </li>
+
+      <li>
+        <strong>Enjoy for Years!</strong>
+        Your plant sticker is now garden-proof! It will last indefinitely indoors (laptops, journals) or 3-10 years outdoors (planters, greenhouse windows). Clean gently with damp cloth when needed. Survives watering, humidity, and plant parent life!
+      </li>
+    </ol>
+
+    <div class="highlight-box">
+      <strong>Plant Parent Pro Tip:</strong> Apply stickers to water bottles on "watering day" so you remember not to wash the bottle for 24 hours while adhesive cures. Or mark your calendar - plant parents love schedules anyway! 🌱📅
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+  <div class="faq-section">
+    <h2 class="section-title">Frequently Asked Questions About Plant Lover Stickers</h2>
+
+    <div class="faq-item">
+      <h3 class="faq-question">❓ Will these stickers survive on water bottles through dishwashers?</h3>
+      <p class="faq-answer">
+        Yes! Our premium vinyl plant stickers are 100% waterproof and dishwasher safe (top rack recommended). They survive daily dishwasher cycles, hand washing, watering day splashes, greenhouse humidity, and all the moisture plant parents encounter. Expected water bottle lifespan: indefinite with proper care. Thousands of plant enthusiasts have tested our stickers through years of dishwasher use with zero peeling or fading. Just wait 24-48 hours after application before first wash to allow adhesive to fully cure.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-question">❓ Can I apply these to outdoor planters and pots?</h3>
+      <p class="faq-answer">
+        Absolutely! Our weather-resistant vinyl stickers are designed for outdoor garden use including ceramic pots, plastic planters, terracotta containers, and greenhouse windows. They withstand rain, sun exposure (UV-resistant), temperature changes, and outdoor humidity for 3-10 years depending on conditions. Perfect for labeling outdoor plants, decorating garden containers, and creating cohesive outdoor plant aesthetics. Pro tip: Apply to areas that don't get direct soil contact or constant watering spray for longest life.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-question">❓ Are the plant illustrations botanically accurate?</h3>
+      <p class="faq-answer">
+        Yes! We take botanical accuracy seriously for serious plant collectors. Our Monstera deliciosa stickers feature authentic fenestration (leaf holes), Pothos designs show correct heart-shaped leaves and vining patterns, Snake Plant stickers display accurate vertical striping, and succulent designs represent real species characteristics. While some designs are stylized for aesthetic purposes, we ensure plant enthusiasts recognize their beloved species. Many customers collect stickers matching their actual plant collections!
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-question">❓ Do you have stickers for rare or uncommon plants?</h3>
+      <p class="faq-answer">
+        We're continuously expanding our collection based on plant community requests! Currently featuring popular houseplants like Monstera, Pothos, Snake Plants, Fiddle Leaf Fig, and succulents. Looking for rare plants like Variegated Monstera albo, Pink Princess Philodendron, or specific species? Contact us about custom sticker design - we can create personalized plant stickers featuring your rare plant collection, special cultivars, or favorite uncommon species with same-day/next-day production. Perfect for serious collectors!
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-question">❓ What's the best size for water bottles vs planters?</h3>
+      <p class="faq-answer">
+        Size guide: **3 inch ($5.99)** - Perfect for small water bottles, phone cases, small pots (4-6 inch planters), propagation jars, and subtle laptop decoration. **4 inch ($7.99)** - Ideal for standard water bottles (Hydro Flask size), medium planters (6-10 inch pots), car windows, and prominent laptop placement. **5 inch ($9.99)** - Best for large water bottles, big planters (10+ inch pots), greenhouse windows, watering cans, and making botanical statements. Most water bottle users choose 3-4 inch for balanced visibility.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-question">❓ Can I remove plant stickers from pots when I repot?</h3>
+      <p class="faq-answer">
+        Yes, from non-porous surfaces like ceramic, plastic, and glazed terracotta pots! Stickers can be removed slowly without leaving residue. However, once removed, adhesive loses strength and cannot be reliably reapplied to a new pot. Solution: Order multiple stickers of favorite plants so you can decorate new pots after repotting without removing old stickers. Many plant parents keep sticker collections specifically for new pot purchases. For unglazed terracotta (porous), stickers may leave slight residue - test on inconspicuous area first.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-question">❓ Do you offer "Plant Mom" and "Plant Dad" messaging?</h3>
+      <p class="faq-answer">
+        Yes! Our collection includes popular plant parent messaging like "Plant Mom," "Plant Dad," "Plant Lady," "Propagation Station," "Don't Talk to Me Until I've Watered My Plants," and other humorous botanical quotes that resonate with the houseplant community. These designs combine botanical illustrations with relatable plant parent humor. We also offer custom text options - want your name + "Plant Parent" or personalized plant collection jokes? Contact us for same-day custom sticker design!
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-question">❓ Are these appropriate gifts for plant enthusiasts?</h3>
+      <p class="faq-answer">
+        Absolutely - they're one of the most popular plant parent gifts! Perfect for: new plant parents starting their collection journey, experienced collectors with 50+ plants, succulent enthusiasts, propagation hobbyists, garden bloggers and influencers, horticulture students, housewarming gifts (especially for plant-filled homes), Mother's/Father's Day for plant moms and dads, plant swap party favors, and encouraging friends who just killed their first plant (humor helps!). Affordable ($5.99-$9.99), thoughtful, and practical for daily water bottle use.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-question">❓ How quickly can I receive my plant stickers?</h3>
+      <p class="faq-answer">
+        Production time: Same-day or next-day production for stock botanical designs. Custom plant designs: 1-2 business days. Shipping: Standard Canada Post 3-7 business days across Canada. Express shipping available for faster delivery. Local pickup: Same-day pickup available in Niagara Region, Ontario. Free shipping automatically applies on orders $100+ (approximately 13-17 stickers - perfect for decorating multiple water bottles or your entire plant shelf!). Order early for Mother's Day (May) and plant swap season (spring/summer).
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-question">❓ Can I get bulk discounts for my plant club or garden center?</h3>
+      <p class="faq-answer">
+        Yes! We offer bulk discounts of 20-40% for larger orders, perfect for: plant clubs and societies distributing to members, garden centers and nurseries offering as customer gifts or merchandise, botanical gardens and conservatories for visitor engagement, plant swap event organizers providing favors, horticulture programs and schools for student gifts, plant influencer giveaways, and greenhouse businesses for branding. Contact us for bulk pricing based on quantity needed. We love supporting the plant community!
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Before/After Scenarios -->
+  <div class="section">
+    <h2 class="section-title">From Plain to Plant Parent Pride: Before & After</h2>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3 class="feature-title">❌ Before: Generic Water Bottle</h3>
+        <p class="feature-description">Plain stainless steel water bottle that looks like everyone else's at the garden center. No personality, no plant parent pride. Easily confused with others at plant swaps and greenhouses.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3 class="feature-title">✅ After: Botanical Statement Piece</h3>
+        <p class="feature-description">Water bottle decorated with Monstera, Pothos, and "Plant Mom" stickers showing plant collection pride. Instant recognition from fellow plant enthusiasts. Starts conversations at garden centers: "I have that plant too!" Creates plant parent community!</p>
+      </div>
+
+      <div class="feature-card">
+        <h3 class="feature-title">❌ Before: Unlabeled Plant Shelf</h3>
+        <p class="feature-description">Collection of identical terra cotta pots with no visual interest or organization system. Forget which plant is which when they're not thriving. Missing opportunity for cohesive aesthetic.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3 class="feature-title">✅ After: Curated Botanical Display</h3>
+        <p class="feature-description">Each pot decorated with beautiful botanical illustration stickers matching the plant species inside. Creates Instagram-worthy plant shelf aesthetic. Easy plant identification. Guests compliment your organized, visually cohesive collection!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Final SEO Content Section -->
+  <div class="section">
+    <h2 class="section-title">Premium Plant Lover Stickers for Every Green Thumb</h2>
+    <p class="section-intro">
+      Whether you're a Monstera collector admiring those perfect fenestrations, a Pothos propagation enthusiast with jars lining every windowsill, a succulent hoarder running out of shelf space, a Snake Plant loyalist appreciating low-maintenance beauty, or simply a plant parent who talks to your green babies daily, Niagara Stands Out's botanical sticker collection celebrates the joy of indoor gardening and houseplant obsession. Our designs feature botanically-accurate illustrations of beloved species—from Fiddle Leaf Fig drama to trailing Philodendron elegance—plus relatable plant parent humor that makes fellow enthusiasts smile.
+    </p>
+    <p class="section-intro">
+      Made in Canada's Niagara Region from premium waterproof vinyl, these stickers thrive in plant parent life: dishwasher-safe water bottles, humid greenhouse windows, outdoor terracotta planters, and daily laptop use. They're 100% waterproof (survives watering day chaos), UV-resistant (won't fade in sunny plant shelves), and built for 3-10 years outdoors or indefinite indoor use. Perfect for plant enthusiasts expressing green thumb pride, indoor gardeners documenting their collections, propagation hobbyists tracking successes, rare plant collectors showing off acquisitions, garden center employees sharing botanical love, plant influencers building brand aesthetics, and gift-givers delighting fellow plant parents.
+    </p>
+    <p class="section-intro">
+      Our growing collection features popular houseplants (Monstera deliciosa, Pothos varieties, Snake Plants, succulents, cacti, Fiddle Leaf Fig, Philodendron, Spider Plants), plant parent messaging ("Plant Mom," "Plant Dad," "Plant Lady," "Propagation Station"), and botanical illustrations perfect for serious collectors. Available in 3-inch ($5.99) for subtle water bottle elegance, 4-inch ($7.99) for standard visibility, and 5-inch ($9.99) for making botanical statements on planters and greenhouse windows. With same-day production available, bulk discounts (save 20-40%) for plant clubs and garden centers, free shipping on orders $100+, and custom design options for your rare plant wishlist, we make plant parent pride affordable and accessible.
+    </p>
+    <p class="section-intro">
+      Join thousands of plant enthusiasts, indoor gardeners, propagation addicts, and botanical collectors who trust Niagara Stands Out for waterproof, botanically-accurate, humor-infused plant stickers that survive real plant parent life. Your green thumb deserves recognition. Your plant collection deserves documentation. Your water bottle deserves botanical beauty. Display that plant parent pride, find your community at garden centers, decorate your growing spaces, and celebrate the joy of keeping things alive. Order your plant lover stickers today and let your green flag fly! 🌱🪴💚
+    </p>
+  </div>
+
+  <!-- Call to Action -->
+  <div class="cta-box">
+    <h3>🌿 Ready to Show Your Plant Parent Pride? 🪴</h3>
+    <p>Shop Plant Lover Stickers | Waterproof for Water Bottles | Botanical Illustrations | Made in Canada | Free Ship $100+</p>
+    <a href="https://niagarastandsout.ca/collections/plant-lover-stickers" class="cta-button">Browse Collection</a>
+  </div>
+
+</div>
+
+<!-- JSON-LD Schema Markup: Quadruple Threat for SERP Domination -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://niagarastandsout.ca/collections/plant-lover-stickers",
+      "name": "Plant Lover Stickers Collection",
+      "description": "Premium plant lover and botanical stickers featuring Monstera, Pothos, succulents, Snake Plants, and plant parent humor. 100% waterproof for water bottles, dishwasher safe. Perfect for plant enthusiasts, indoor gardeners, and green thumbs. Made in Canada.",
+      "url": "https://niagarastandsout.ca/collections/plant-lover-stickers",
+      "image": "https://niagarastandsout.ca/cdn/shop/collections/plant-lover-collection.jpg",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://niagarastandsout.ca"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Collections",
+            "item": "https://niagarastandsout.ca/collections"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Plant Lover Stickers",
+            "item": "https://niagarastandsout.ca/collections/plant-lover-stickers"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Will these stickers survive on water bottles through dishwashers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Our premium vinyl plant stickers are 100% waterproof and dishwasher safe. They survive daily dishwasher cycles, hand washing, watering day splashes, and greenhouse humidity. Expected water bottle lifespan: indefinite with proper care. Wait 24-48 hours after application before first wash."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I apply these to outdoor planters and pots?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely! Our weather-resistant vinyl stickers are designed for outdoor garden use including ceramic pots, plastic planters, and terracotta containers. They withstand rain, sun exposure (UV-resistant), and temperature changes for 3-10 years. Perfect for labeling outdoor plants."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are the plant illustrations botanically accurate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! We take botanical accuracy seriously. Our Monstera stickers feature authentic fenestration, Pothos designs show correct heart-shaped leaves, Snake Plant stickers display accurate vertical striping, and succulent designs represent real species characteristics."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you have stickers for rare or uncommon plants?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We're continuously expanding our collection! Contact us about custom sticker design for rare plants like Variegated Monstera albo, Pink Princess Philodendron, or specific species. Same-day/next-day production available."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the best size for water bottles vs planters?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "3 inch - Perfect for small water bottles and 4-6 inch planters. 4 inch - Ideal for standard water bottles and 6-10 inch pots. 5 inch - Best for large water bottles, 10+ inch planters, and greenhouse windows."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I remove plant stickers from pots when I repot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, from non-porous surfaces like ceramic and plastic pots. Stickers can be removed without leaving residue. However, once removed, adhesive loses strength and cannot be reliably reapplied. Order multiples for new pots after repotting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer Plant Mom and Plant Dad messaging?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Our collection includes 'Plant Mom,' 'Plant Dad,' 'Plant Lady,' 'Propagation Station,' and other plant parent humor. We also offer custom text options with same-day design."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are these appropriate gifts for plant enthusiasts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely! Perfect for plant parents, collectors, propagation hobbyists, horticulture students, housewarming gifts, Mother's Day, plant swap favors, and more. Affordable ($5.99-$9.99) and practical for daily use."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How quickly can I receive my plant stickers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Production: Same-day or next-day for stock designs. Shipping: 3-7 business days Canada Post. Express available. Local pickup: Same-day in Niagara Region. Free shipping on orders $100+."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get bulk discounts for my plant club or garden center?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! We offer 20-40% bulk discounts for plant clubs, garden centers, botanical gardens, plant swap events, and greenhouse businesses. Contact us for bulk pricing."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to Apply Plant Stickers to Water Bottles and Planters",
+      "description": "Garden-proof installation guide for applying waterproof plant stickers to water bottles, planters, pots, and greenhouse surfaces",
+      "totalTime": "PT15M",
+      "tool": [
+        "Isopropyl alcohol or glass cleaner",
+        "Lint-free cloth",
+        "Credit card or squeegee"
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Clean Surface",
+          "text": "Use isopropyl alcohol to remove dirt, water spots, fertilizer residue, and oils. Dry completely with lint-free cloth."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Ensure Dryness",
+          "text": "Critical for planters! Make sure surface is 100% dry - no moisture or condensation. Wait 24 hours after washing planters."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Choose Placement",
+          "text": "For water bottles: flat sides work best. For planters: avoid areas where you grip when watering. Plan before removing backing."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Peel Backing",
+          "text": "Carefully peel paper backing. For intricate leaf details, peel slowly to prevent vinyl sticking to itself."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Position and Apply",
+          "text": "Starting from center, press down gently working outward. For curved surfaces, apply slowly to prevent bubbles."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Smooth Bubbles",
+          "text": "Use credit card to firmly press from center toward edges. Apply firm pressure, especially for outdoor planters."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Press Edges Firmly",
+          "text": "For waterproof applications, press edges extra firmly to prevent water infiltration. Crucial for dishwasher survival."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Allow to Cure",
+          "text": "Wait 24-48 hours before exposure to water, dishwashers, or watering. For planters: wait before watering."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 9,
+          "name": "Enjoy",
+          "text": "Garden-proof! Lasts indefinitely indoors or 3-10 years outdoors. Survives watering, humidity, and plant parent life!"
+        }
+      ]
+    },
+    {
+      "@type": "LocalBusiness",
+      "name": "Niagara Stands Out Custom Signs",
+      "@id": "https://niagarastandsout.ca",
+      "image": "https://niagarastandsout.ca/cdn/shop/files/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Niagara Region",
+        "addressRegion": "ON",
+        "addressCountry": "CA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 43.0896,
+        "longitude": -79.0849
+      },
+      "url": "https://niagarastandsout.ca",
+      "priceRange": "$$",
+      "areaServed": {
+        "@type": "Place",
+        "name": "Canada"
+      },
+      "slogan": "Plant Parent Pride - Custom Botanical Stickers Made in Canada"
+    }
+  ]
+}
+</script>

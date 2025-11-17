@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niagara Region Stickers - Falls, Wine Country & Local Pride | Made in Fort Erie</title>
+</head>
+<body>
+
+<style>
+.niagara-hero {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7dd3fc 100%);
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 20px rgba(30,60,114,0.3);
+}
+
+.niagara-hero h1 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    line-height: 1.2;
+}
+
+.niagara-hero .tagline {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+
+.niagara-hero .cta {
+    background: #22c55e;
+    color: white;
+    padding: 15px 35px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1em;
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(34,197,94,0.4);
+}
+
+.niagara-hero .cta:hover {
+    background: #16a34a;
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+.local-badge {
+    background: linear-gradient(135deg, #dc2626, #991b1b);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    display: inline-block;
+    font-weight: bold;
+    margin: 20px 0;
+    box-shadow: 0 4px 12px rgba(220,38,38,0.4);
+}
+
+.landmarks-section {
+    background: #f0f9ff;
+    padding: 40px 20px;
+    border-radius: 10px;
+    margin: 30px 0;
+    border-left: 5px solid #2a5298;
+}
+
+.landmarks-section h2 {
+    color: #1e3c72;
+    font-size: 2.2em;
+    margin-bottom: 25px;
+}
+
+.landmarks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.landmark-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-top: 4px solid #2a5298;
+    transition: transform 0.3s ease;
+}
+
+.landmark-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.landmark-card h3 {
+    color: #1e3c72;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.landmark-card .icon {
+    font-size: 1.8em;
+}
+
+.landmark-card .price {
+    background: #22c55e;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.sizes-section {
+    background: #fef3c7;
+    padding: 30px 20px;
+    border-radius: 10px;
+    margin: 30px 0;
+    border-left: 5px solid #f59e0b;
+}
+
+.sizes-section h3 {
+    color: #92400e;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.sizes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.size-option {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    border: 3px solid #fbbf24;
+}
+
+.size-option .size-label {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #92400e;
+}
+
+.size-option .use-case {
+    color: #78716c;
+    margin-top: 10px;
+    font-size: 0.95em;
+}
+
+.wine-country-section {
+    background: linear-gradient(135deg, #7c2d12, #991b1b, #7c2d12);
+    color: white;
+    padding: 40px 20px;
+    border-radius: 10px;
+    margin: 30px 0;
+}
+
+.wine-country-section h2 {
+    font-size: 2.3em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.wine-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.wine-fact {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #fbbf24;
+}
+
+.wine-fact strong {
+    color: #fbbf24;
+    font-size: 1.3em;
+}
+
+.tourism-stats {
+    background: #ecfdf5;
+    padding: 35px 20px;
+    border-radius: 10px;
+    margin: 30px 0;
+    border-left: 5px solid #10b981;
+}
+
+.tourism-stats h2 {
+    color: #065f46;
+    font-size: 2.2em;
+    margin-bottom: 25px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.stat-box {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.stat-box .number {
+    font-size: 2.8em;
+    font-weight: bold;
+    color: #10b981;
+    display: block;
+}
+
+.stat-box .label {
+    color: #065f46;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.applications-section {
+    background: white;
+    padding: 35px 20px;
+    border-radius: 10px;
+    margin: 30px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.applications-section h2 {
+    color: #1e3c72;
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.applications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.application-item {
+    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+    padding: 18px;
+    border-radius: 8px;
+    border-left: 4px solid #2a5298;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.application-item .emoji {
+    font-size: 2em;
+}
+
+.local-pride-section {
+    background: linear-gradient(135deg, #dc2626, #991b1b);
+    color: white;
+    padding: 40px 20px;
+    border-radius: 10px;
+    margin: 30px 0;
+    text-align: center;
+}
+
+.local-pride-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 25px;
+}
+
+.pride-points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+    text-align: left;
+}
+
+.pride-point {
+    background: rgba(255,255,255,0.15);
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 5px solid white;
+}
+
+.pride-point h3 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+}
+
+.quality-section {
+    background: #f8fafc;
+    padding: 35px 20px;
+    border-radius: 10px;
+    margin: 30px 0;
+}
+
+.quality-section h2 {
+    color: #1e293b;
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.quality-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.quality-item {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-top: 4px solid #22c55e;
+}
+
+.quality-item h3 {
+    color: #1e293b;
+    font-size: 1.4em;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.faq-section {
+    background: white;
+    padding: 40px 20px;
+    border-radius: 10px;
+    margin: 30px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.faq-section h2 {
+    color: #1e3c72;
+    font-size: 2.3em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.faq-item {
+    background: #f8fafc;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 5px solid #2a5298;
+}
+
+.faq-item h3 {
+    color: #1e3c72;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
+
+.faq-item p {
+    color: #475569;
+    line-height: 1.7;
+}
+
+.gift-section {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    padding: 35px 20px;
+    border-radius: 10px;
+    margin: 30px 0;
+    border: 3px solid #f59e0b;
+}
+
+.gift-section h2 {
+    color: #92400e;
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.gift-ideas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.gift-idea {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.gift-idea h3 {
+    color: #92400e;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+.technical-specs {
+    background: #1e293b;
+    color: white;
+    padding: 35px 20px;
+    border-radius: 10px;
+    margin: 30px 0;
+}
+
+.technical-specs h2 {
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.specs-table {
+    width: 100%;
+    margin-top: 25px;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.specs-table th {
+    background: #2a5298;
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-size: 1.1em;
+}
+
+.specs-table td {
+    padding: 15px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #1e293b;
+}
+
+.specs-table tr:last-child td {
+    border-bottom: none;
+}
+
+.specs-table tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+.contact-section {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    padding: 40px 20px;
+    border-radius: 10px;
+    margin: 30px 0;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 2.3em;
+    margin-bottom: 25px;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.contact-box {
+    background: rgba(255,255,255,0.15);
+    padding: 25px;
+    border-radius: 8px;
+}
+
+.contact-box h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.contact-box a {
+    color: #7dd3fc;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+@media (max-width: 768px) {
+    .niagara-hero h1 {
+        font-size: 2em;
+    }
+
+    .niagara-hero .tagline {
+        font-size: 1.1em;
+    }
+
+    .landmarks-grid,
+    .sizes-grid,
+    .wine-facts,
+    .stats-grid,
+    .applications-grid,
+    .pride-points,
+    .quality-grid,
+    .gift-ideas,
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+
+    .specs-table {
+        font-size: 0.9em;
+    }
+}
+</style>
+
+<div class="niagara-hero">
+    <h1>🌊 Niagara Region Stickers - Celebrate Falls, Wine Country & Local Pride</h1>
+    <p class="tagline">Vintage-Inspired Designs • Horseshoe Falls • Wine Country • Niagara Parkway</p>
+    <p class="tagline">Made Locally in Fort Erie • Weatherproof • Perfect Souvenirs & Gifts</p>
+    <div class="local-badge">🍁 DESIGNED & PRINTED IN FORT ERIE, ONTARIO</div>
+    <a href="#products" class="cta">Shop Niagara Stickers - From $5.99</a>
+</div>
+
+<div class="landmarks-section">
+    <h2>🏞️ Celebrate Iconic Niagara Landmarks</h2>
+    <p style="font-size: 1.15em; color: #475569; line-height: 1.7; margin-bottom: 20px;">
+        Our Niagara Region sticker collection showcases the natural beauty, world-famous attractions, and local culture that make this region truly special. From the thundering Horseshoe Falls to the rolling vineyards of Wine Country, each design captures the essence of what makes Niagara home—or an unforgettable destination.
+    </p>
+
+    <div class="landmarks-grid">
+        <div class="landmark-card">
+            <h3><span class="icon">🌊</span> Horseshoe Falls</h3>
+            <p>The crown jewel of Niagara Falls. Our retro and rainbow-themed designs celebrate the iconic waterfall that attracts 30+ million visitors annually. Available in both classic and vintage aesthetics.</p>
+            <p><strong>Designs:</strong> Classic Horseshoe Falls, Retro Sticker, Rainbow Variation</p>
+            <span class="price">From $5.99</span>
+        </div>
+
+        <div class="landmark-card">
+            <h3><span class="icon">🍷</span> Wine Country</h3>
+            <p>Niagara is Canada's largest wine region with 100+ wineries. Our Wine Country stickers feature vintage vineyard imagery perfect for wine enthusiasts, tasting room visitors, and local pride.</p>
+            <p><strong>Designs:</strong> Multiple Wine Country variations, Decal options</p>
+            <span class="price">From $5.99</span>
+        </div>
+
+        <div class="landmark-card">
+            <h3><span class="icon">🍂</span> Niagara Parkway in Autumn</h3>
+            <p>Winston Churchill called it "the prettiest Sunday afternoon drive in the world." Our autumn design captures the breathtaking fall colors along this scenic 56km route.</p>
+            <p><strong>Best For:</strong> RV travelers, road trip enthusiasts, autumn lovers</p>
+            <span class="price">From $5.99</span>
+        </div>
+
+        <div class="landmark-card">
+            <h3><span class="icon">🏛️</span> Old Glenridge Street</h3>
+            <p>Historic St. Catharines neighborhood featuring charming architecture and heritage homes. Perfect for locals who appreciate Niagara's architectural history and community heritage.</p>
+            <p><strong>Audience:</strong> St. Catharines residents, architecture fans, history buffs</p>
+            <span class="price">From $5.99</span>
+        </div>
+
+        <div class="landmark-card">
+            <h3><span class="icon">🍁</span> Niagara Pride Designs</h3>
+            <p>Show your love for the Niagara Region! General pride stickers celebrating everything that makes this region special—from the escarpment to the lakeshore.</p>
+            <p><strong>Perfect For:</strong> Locals, expats, former residents, regional pride</p>
+            <span class="price">From $5.99</span>
+        </div>
+    </div>
+</div>
+
+<div class="sizes-section">
+    <h3>📏 Choose Your Perfect Size</h3>
+    <p style="color: #78716c; font-size: 1.1em; margin-bottom: 15px;">
+        All Niagara Region stickers available in three versatile sizes:
+    </p>
+
+    <div class="sizes-grid">
+        <div class="size-option">
+            <div class="size-label">3"</div>
+            <p class="use-case"><strong>Laptops</strong><br>Water bottles, phone cases, small spaces</p>
+        </div>
+
+        <div class="size-option">
+            <div class="size-label">4"</div>
+            <p class="use-case"><strong>Coolers</strong><br>Notebooks, toolboxes, medium surfaces</p>
+        </div>
+
+        <div class="size-option">
+            <div class="size-label">5"</div>
+            <p class="use-case"><strong>Vehicles</strong><br>RVs, bumpers, outdoor gear, large displays</p>
+        </div>
+    </div>
+</div>
+
+<div class="wine-country-section">
+    <h2>🍇 Niagara Wine Country - Canada's Premier Wine Region</h2>
+    <p style="font-size: 1.15em; text-align: center; margin-bottom: 20px;">
+        Our Wine Country stickers celebrate one of the world's top cool-climate wine regions
+    </p>
+
+    <div class="wine-facts">
+        <div class="wine-fact">
+            <strong>100+ Wineries</strong><br>
+            Largest wine-producing region in Canada, spanning Niagara-on-the-Lake, Beamsville Bench, and Twenty Valley
+        </div>
+
+        <div class="wine-fact">
+            <strong>Icewine Capital</strong><br>
+            World-renowned for premium icewine production, a uniquely Canadian specialty attracting international collectors
+        </div>
+
+        <div class="wine-fact">
+            <strong>Wine Route Tourism</strong><br>
+            3+ million wine tourists annually explore the scenic vineyards between Lake Ontario and the Niagara Escarpment
+        </div>
+
+        <div class="wine-fact">
+            <strong>Perfect Souvenir</strong><br>
+            Bring home a piece of wine country for your collection, gift to wine-loving friends, or remember your tasting tour
+        </div>
+    </div>
+</div>
+
+<div class="tourism-stats">
+    <h2>📊 Why Niagara Stickers Are Perfect Souvenirs</h2>
+    <p style="font-size: 1.15em; color: #065f46; margin-bottom: 20px; text-align: center;">
+        Niagara is one of Canada's top tourism destinations—and our locally-made stickers capture that magic
+    </p>
+
+    <div class="stats-grid">
+        <div class="stat-box">
+            <span class="number">30M+</span>
+            <span class="label">Annual Visitors to Niagara Falls</span>
+        </div>
+
+        <div class="stat-box">
+            <span class="number">3M+</span>
+            <span class="label">Wine Country Tourists Yearly</span>
+        </div>
+
+        <div class="stat-box">
+            <span class="number">500K+</span>
+            <span class="label">Niagara Region Residents</span>
+        </div>
+
+        <div class="stat-box">
+            <span class="number">#1</span>
+            <span class="label">Honeymoon Destination in North America</span>
+        </div>
+    </div>
+</div>
+
+<div class="applications-section">
+    <h2>🎯 Where to Use Your Niagara Stickers</h2>
+
+    <div class="applications-grid">
+        <div class="application-item">
+            <span class="emoji">🚐</span>
+            <div>
+                <strong>RVs & Campers</strong><br>
+                Show where you've traveled - Niagara is a must-visit RV destination
+            </div>
+        </div>
+
+        <div class="application-item">
+            <span class="emoji">🍷</span>
+            <div>
+                <strong>Wine Collections</strong><br>
+                Mark your wine storage, tasting journals, or cellar equipment
+            </div>
+        </div>
+
+        <div class="application-item">
+            <span class="emoji">💼</span>
+            <div>
+                <strong>Laptops & Tech</strong><br>
+                Customize your devices with local pride or travel memories
+            </div>
+        </div>
+
+        <div class="application-item">
+            <span class="emoji">🎁</span>
+            <div>
+                <strong>Gifts & Souvenirs</strong><br>
+                Perfect for tourists, expats, or anyone who loves Niagara
+            </div>
+        </div>
+
+        <div class="application-item">
+            <span class="emoji">🚗</span>
+            <div>
+                <strong>Vehicle Bumpers</strong><br>
+                Show regional pride on your car, truck, or motorcycle
+            </div>
+        </div>
+
+        <div class="application-item">
+            <span class="emoji">❄️</span>
+            <div>
+                <strong>Coolers & Drinkware</strong><br>
+                Waterproof stickers perfect for outdoor gear and beverages
+            </div>
+        </div>
+
+        <div class="application-item">
+            <span class="emoji">📓</span>
+            <div>
+                <strong>Journals & Planners</strong><br>
+                Decorate notebooks with your favorite regional landmarks
+            </div>
+        </div>
+
+        <div class="application-item">
+            <span class="emoji">🏠</span>
+            <div>
+                <strong>Home Decor</strong><br>
+                Personalize mirrors, frames, windows with Niagara pride
+            </div>
+        </div>
+
+        <div class="application-item">
+            <span class="emoji">🛠️</span>
+            <div>
+                <strong>Toolboxes & Equipment</strong><br>
+                Mark your tools with durable weatherproof stickers
+            </div>
+        </div>
+
+        <div class="application-item">
+            <span class="emoji">🎒</span>
+            <div>
+                <strong>Luggage & Backpacks</strong><br>
+                Identify your bags with distinctive Niagara designs
+            </div>
+        </div>
+
+        <div class="application-item">
+            <span class="emoji">🏪</span>
+            <div>
+                <strong>Local Business Branding</strong><br>
+                Niagara businesses can showcase local pride on packaging
+            </div>
+        </div>
+
+        <div class="application-item">
+            <span class="emoji">📸</span>
+            <div>
+                <strong>Camera Cases & Gear</strong><br>
+                Perfect for photographers capturing Niagara's beauty
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="local-pride-section">
+    <h2>🍁 Made Locally in Fort Erie - Authentic Niagara Products</h2>
+    <p style="font-size: 1.2em; margin-bottom: 25px;">
+        Unlike generic tourist merchandise imported from overseas, our Niagara stickers are designed and printed right here in Fort Erie, Ontario—by people who actually live in and love this region.
+    </p>
+
+    <div class="pride-points">
+        <div class="pride-point">
+            <h3>🏭 Fort Erie Production</h3>
+            <p>Every sticker is printed at our 301 Derby Road facility in Fort Erie. When you buy from us, you're supporting a genuine Niagara business, not a faceless corporation or dropshipper.</p>
+        </div>
+
+        <div class="pride-point">
+            <h3>🎨 Authentic Designs</h3>
+            <p>Our vintage and retro designs are created by people who know Niagara—not generic templates from stock image sites. We capture the real character of Wine Country, the Falls, and local landmarks.</p>
+        </div>
+
+        <div class="pride-point">
+            <h3>⚡ Same-Day Service Available</h3>
+            <p>Need stickers today? Local pickup available Monday-Friday, 9AM-5PM EST. Can't get that from an overseas seller or big-box retailer.</p>
+        </div>
+
+        <div class="pride-point">
+            <h3>💚 Support Local Economy</h3>
+            <p>Your purchase supports local jobs, local families, and the Niagara Region economy. We're your neighbors, not a multinational corporation.</p>
+        </div>
+    </div>
+</div>
+
+<div class="quality-section">
+    <h2>✅ Premium Quality - Built for Canadian Weather</h2>
+
+    <div class="quality-grid">
+        <div class="quality-item">
+            <h3>☔ Waterproof & Weatherproof</h3>
+            <p>Vinyl construction with waterproof laminate coating. Withstands rain, snow, ice, and extreme Canadian weather from -40°C to +80°C.</p>
+        </div>
+
+        <div class="quality-item">
+            <h3>☀️ UV Resistant Inks</h3>
+            <p>Fade-resistant inks maintain vibrant colors for 3-5+ years outdoors. Won't turn yellow or gray in harsh sunlight like cheap stickers.</p>
+        </div>
+
+        <div class="quality-item">
+            <h3>🔧 Strong Adhesive</h3>
+            <p>High-tack adhesive bonds to metal, plastic, glass, wood, and painted surfaces. Stays put through car washes, dishwashers, and outdoor use.</p>
+        </div>
+
+        <div class="quality-item">
+            <h3>❄️ Winter Tested</h3>
+            <p>Tested in real Niagara winter conditions—freezing rain, road salt, snow, and sub-zero temperatures. Survives what other stickers can't.</p>
+        </div>
+
+        <div class="quality-item">
+            <h3>🚗 Car Wash Safe</h3>
+            <p>Safe for automatic and touchless car washes. Won't peel, curl, or lift from bumpers and vehicle surfaces when properly applied.</p>
+        </div>
+
+        <div class="quality-item">
+            <h3>🌈 Vibrant Colors</h3>
+            <p>Digital printing delivers rich, accurate colors that capture the beauty of Horseshoe Falls, Wine Country vineyards, and autumn foliage.</p>
+        </div>
+    </div>
+</div>
+
+<div class="gift-section">
+    <h2>🎁 Perfect Gifts for Niagara Lovers</h2>
+    <p style="text-align: center; color: #78716c; font-size: 1.15em; margin-bottom: 20px;">
+        Looking for the perfect gift? Niagara stickers are affordable, meaningful, and loved by locals and tourists alike.
+    </p>
+
+    <div class="gift-ideas">
+        <div class="gift-idea">
+            <h3>🌍 For Travelers & Expats</h3>
+            <p>Former Niagara residents now living elsewhere love reminders of home. Perfect for care packages, holiday gifts, or "thinking of you" surprises.</p>
+        </div>
+
+        <div class="gift-idea">
+            <h3>🍷 Wine Enthusiast Gifts</h3>
+            <p>Pair with a bottle of Niagara wine for the ultimate local gift. Wine Country stickers are perfect for sommeliers, collectors, and tasting room regulars.</p>
+        </div>
+
+        <div class="gift-idea">
+            <h3>👴 Nostalgia Gifts</h3>
+            <p>Vintage and retro designs appeal to long-time residents who remember Niagara before mass tourism. Great for parents, grandparents, and history buffs.</p>
+        </div>
+
+        <div class="gift-idea">
+            <h3>🎒 Student & Youth Gifts</h3>
+            <p>Brock University students, Niagara College grads, and local youth love decorating laptops and water bottles with regional pride stickers.</p>
+        </div>
+
+        <div class="gift-idea">
+            <h3>💍 Wedding & Honeymoon Favors</h3>
+            <p>Niagara Falls is the #1 honeymoon destination. Wedding favors or anniversary reminders featuring the Falls are uniquely meaningful.</p>
+        </div>
+
+        <div class="gift-idea">
+            <h3>🏪 Local Business Swag</h3>
+            <p>Niagara hotels, wineries, tour operators, and gift shops can offer authentic locally-made stickers instead of generic imported merchandise.</p>
+        </div>
+
+        <div class="gift-idea">
+            <h3>🎄 Stocking Stuffers</h3>
+            <p>At $5.99-$7.99, these make perfect stocking stuffers for anyone with Niagara connections. Affordable, thoughtful, and genuinely useful.</p>
+        </div>
+
+        <div class="gift-idea">
+            <h3>🎉 Event Giveaways</h3>
+            <p>Community events, festivals, business conferences, and tourism expos can feature authentic Niagara pride stickers as memorable giveaways.</p>
+        </div>
+    </div>
+</div>
+
+<div class="technical-specs">
+    <h2>🔬 Technical Specifications</h2>
+
+    <table class="specs-table">
+        <tr>
+            <th>Specification</th>
+            <th>Details</th>
+        </tr>
+        <tr>
+            <td><strong>Material</strong></td>
+            <td>Premium vinyl with waterproof laminate coating</td>
+        </tr>
+        <tr>
+            <td><strong>Available Sizes</strong></td>
+            <td>3" (laptops), 4" (coolers), 5" (vehicles)</td>
+        </tr>
+        <tr>
+            <td><strong>Printing Method</strong></td>
+            <td>Digital printing with UV-resistant inks</td>
+        </tr>
+        <tr>
+            <td><strong>Adhesive Type</strong></td>
+            <td>High-tack permanent adhesive</td>
+        </tr>
+        <tr>
+            <td><strong>Waterproof Rating</strong></td>
+            <td>100% waterproof - safe for dishwashers and car washes</td>
+        </tr>
+        <tr>
+            <td><strong>Temperature Range</strong></td>
+            <td>-40°C to +80°C (-40°F to +176°F)</td>
+        </tr>
+        <tr>
+            <td><strong>Outdoor Durability</strong></td>
+            <td>3-5+ years in outdoor conditions without fading</td>
+        </tr>
+        <tr>
+            <td><strong>UV Resistance</strong></td>
+            <td>Fade-resistant inks rated for prolonged sun exposure</td>
+        </tr>
+        <tr>
+            <td><strong>Surface Compatibility</strong></td>
+            <td>Metal, plastic, glass, wood, painted surfaces, vehicles</td>
+        </tr>
+        <tr>
+            <td><strong>Application Temperature</strong></td>
+            <td>Best applied between 10°C to 30°C (50°F to 86°F)</td>
+        </tr>
+        <tr>
+            <td><strong>Thickness</strong></td>
+            <td>3.2 mil vinyl + 1.2 mil laminate = 4.4 mil total</td>
+        </tr>
+        <tr>
+            <td><strong>Finish</strong></td>
+            <td>Glossy laminate for vibrant color and protection</td>
+        </tr>
+        <tr>
+            <td><strong>Design Types</strong></td>
+            <td>Vintage, retro, classic, rainbow, wine country, pride</td>
+        </tr>
+        <tr>
+            <td><strong>Production Location</strong></td>
+            <td>Fort Erie, Ontario, Canada</td>
+        </tr>
+        <tr>
+            <td><strong>Production Time</strong></td>
+            <td>Same-day available, typically shipped within 1-2 business days</td>
+        </tr>
+        <tr>
+            <td><strong>Shipping</strong></td>
+            <td>Free shipping on orders $100+ across Canada</td>
+        </tr>
+        <tr>
+            <td><strong>Removal</strong></td>
+            <td>Can be removed with heat (hair dryer), minimal residue</td>
+        </tr>
+        <tr>
+            <td><strong>Environmental</strong></td>
+            <td>No VOC emissions, safe for indoor and outdoor use</td>
+        </tr>
+    </table>
+</div>
+
+<div class="faq-section">
+    <h2>❓ Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+        <h3>Are these stickers actually made in Niagara?</h3>
+        <p>Yes! Every sticker is designed and printed at our Fort Erie facility at 301 Derby Road. We're a genuine Niagara Region business, not a dropshipper or overseas manufacturer. When you buy from us, you're supporting local jobs and the regional economy.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Will these stickers survive Canadian winters?</h3>
+        <p>Absolutely. We test our stickers in real Niagara winter conditions—freezing rain, road salt, snow, and temperatures down to -40°C. They're designed specifically for Canadian weather, unlike imported stickers that crack and peel in cold temperatures.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>What size should I choose for my vehicle?</h3>
+        <p>For car/truck bumpers, we recommend the 5" size for good visibility. For smaller spaces like side windows or toolboxes, the 4" works well. The 3" size is better for water bottles, laptops, and smaller applications.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Can I use these stickers on my water bottle or cooler?</h3>
+        <p>Yes! Our stickers are 100% waterproof and dishwasher-safe (top rack recommended). They're perfect for water bottles, coolers, drinkware, and any surface that gets wet regularly.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Do you offer bulk pricing for gift shops or wineries?</h3>
+        <p>Yes! Local businesses, wineries, hotels, and gift shops can contact us at 289-228-7021 for wholesale pricing. We offer 20-40% discounts on bulk orders and can create custom designs featuring your winery or business.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>How do the Wine Country stickers differ from each other?</h3>
+        <p>We offer multiple Wine Country design variations—some feature vintage vineyard imagery, others showcase grape clusters, wine bottles, or rolling hills. Each has a slightly different aesthetic to match different preferences (classic vs retro vs modern).</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Are these suitable as wedding favors for Niagara Falls weddings?</h3>
+        <p>Perfect for that! Niagara Falls is North America's #1 honeymoon destination. Our Horseshoe Falls and Wine Country stickers make unique, locally-made wedding favors that guests will actually use. We offer bulk discounts for events.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Can I pick these up locally instead of shipping?</h3>
+        <p>Yes! Local pickup is available at our Fort Erie showroom (301 Derby Road) Monday-Friday, 9AM-5PM EST. Call ahead at 289-228-7021 to confirm your order is ready for same-day pickup.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>How long will the colors stay vibrant outdoors?</h3>
+        <p>Our UV-resistant inks maintain vibrant colors for 3-5+ years in outdoor conditions. Unlike cheap stickers that fade to yellow or gray within months, ours are rated for prolonged sun exposure without significant color degradation.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Will these damage my car's paint when removed?</h3>
+        <p>When properly applied to clean, cured paint and removed carefully (using a hair dryer to warm the adhesive), our stickers leave minimal to no residue. Any remaining adhesive can be cleaned with rubbing alcohol or adhesive remover.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Do you ship to the United States?</h3>
+        <p>Yes! We ship across North America. Many Buffalo and Western New York residents order from us since we're right across the border in Fort Erie. International shipping rates apply for US orders.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Can I get a custom Niagara design made?</h3>
+        <p>Absolutely! We offer custom design services for businesses, events, or personal projects. Want a sticker featuring your favorite Niagara landmark, winery, or local business? Contact us at 289-228-7021 to discuss custom options.</p>
+    </div>
+</div>
+
+<div class="contact-section">
+    <h2>📍 Visit Us in Fort Erie</h2>
+    <p style="font-size: 1.15em; margin-bottom: 20px;">
+        Located in the heart of the Niagara Region - serving locals and shipping Canada-wide
+    </p>
+
+    <div class="contact-info">
+        <div class="contact-box">
+            <h3>📍 Address</h3>
+            <p>301 Derby Road<br>Fort Erie, ON L0S 1B0</p>
+        </div>
+
+        <div class="contact-box">
+            <h3>📞 Phone</h3>
+            <p><a href="tel:289-228-7021">289-228-7021</a></p>
+        </div>
+
+        <div class="contact-box">
+            <h3>🕒 Hours</h3>
+            <p>Monday - Friday<br>9:00 AM - 5:00 PM EST</p>
+        </div>
+
+        <div class="contact-box">
+            <h3>🚚 Shipping</h3>
+            <p>Free shipping on orders $100+<br>Canada-wide delivery</p>
+        </div>
+    </div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "name": "Niagara Region Stickers - Falls, Wine Country & Local Pride",
+      "description": "Authentic Niagara Region stickers featuring Horseshoe Falls, Wine Country, Niagara Parkway, and local landmarks. Vintage-inspired designs. Made in Fort Erie, Ontario. Weatherproof. Perfect souvenirs and gifts.",
+      "url": "https://niagarastandsout.ca/collections/niagara-region-stickers",
+      "image": "https://niagarastandsout.ca/cdn/shop/collections/niagara-region-stickers.jpg",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Niagara Stands Out",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "301 Derby Road",
+          "addressLocality": "Fort Erie",
+          "addressRegion": "ON",
+          "postalCode": "L0S 1B0",
+          "addressCountry": "CA"
+        },
+        "telephone": "+1-289-228-7021",
+        "openingHours": "Mo-Fr 09:00-17:00"
+      },
+      "numberOfItems": 9,
+      "about": {
+        "@type": "Place",
+        "name": "Niagara Region",
+        "description": "Home to Niagara Falls, Wine Country, and the Niagara Escarpment"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Niagara Region Stickers Collection",
+      "description": "Vintage-inspired stickers featuring Horseshoe Falls, Wine Country, Niagara Parkway, and local landmarks. Available in 3\", 4\", and 5\" sizes. Waterproof and weatherproof.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Niagara Stands Out"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "CAD",
+        "lowPrice": "5.99",
+        "highPrice": "7.99",
+        "availability": "https://schema.org/InStock",
+        "url": "https://niagarastandsout.ca/collections/niagara-region-stickers"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "147"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Material",
+          "value": "Premium vinyl with waterproof laminate"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Made In",
+          "value": "Fort Erie, Ontario, Canada"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Sizes Available",
+          "value": "3\", 4\", 5\""
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Are these stickers actually made in Niagara?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Every sticker is designed and printed at our Fort Erie facility at 301 Derby Road. We're a genuine Niagara Region business, not a dropshipper or overseas manufacturer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will these stickers survive Canadian winters?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. We test our stickers in real Niagara winter conditions—freezing rain, road salt, snow, and temperatures down to -40°C. They're designed specifically for Canadian weather."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What size should I choose for my vehicle?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For car/truck bumpers, we recommend the 5\" size for good visibility. For smaller spaces like side windows or toolboxes, the 4\" works well. The 3\" size is better for water bottles, laptops, and smaller applications."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use these stickers on my water bottle or cooler?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Our stickers are 100% waterproof and dishwasher-safe (top rack recommended). They're perfect for water bottles, coolers, drinkware, and any surface that gets wet regularly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer bulk pricing for gift shops or wineries?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Local businesses, wineries, hotels, and gift shops can contact us at 289-228-7021 for wholesale pricing. We offer 20-40% discounts on bulk orders."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are these suitable as wedding favors for Niagara Falls weddings?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Perfect for that! Niagara Falls is North America's #1 honeymoon destination. Our Horseshoe Falls and Wine Country stickers make unique, locally-made wedding favors."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I pick these up locally instead of shipping?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Local pickup is available at our Fort Erie showroom (301 Derby Road) Monday-Friday, 9AM-5PM EST. Call ahead at 289-228-7021 to confirm your order is ready."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long will the colors stay vibrant outdoors?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our UV-resistant inks maintain vibrant colors for 3-5+ years in outdoor conditions. Unlike cheap stickers that fade to yellow or gray within months, ours are rated for prolonged sun exposure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you ship to the United States?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! We ship across North America. Many Buffalo and Western New York residents order from us since we're right across the border in Fort Erie."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get a custom Niagara design made?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely! We offer custom design services for businesses, events, or personal projects. Contact us at 289-228-7021 to discuss custom options."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "LocalBusiness",
+      "name": "Niagara Stands Out",
+      "image": "https://niagarastandsout.ca/cdn/shop/files/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "301 Derby Road",
+        "addressLocality": "Fort Erie",
+        "addressRegion": "ON",
+        "postalCode": "L0S 1B0",
+        "addressCountry": "CA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 42.9098,
+        "longitude": -78.9329
+      },
+      "telephone": "+1-289-228-7021",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "17:00"
+      },
+      "priceRange": "$$",
+      "servesCuisine": "Custom Stickers & Decals",
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 42.9098,
+          "longitude": -78.9329
+        },
+        "geoRadius": "100000"
+      }
+    }
+  ]
+}
+</script>
+
+</body>
+</html>

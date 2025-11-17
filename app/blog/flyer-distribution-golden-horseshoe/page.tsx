@@ -2,12 +2,13 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Complete Guide to Flyer Distribution in the Golden Horseshoe | Professional Print Marketing Services',
-  description: 'Discover how to maximize your business reach with strategic flyer distribution across Toronto, Hamilton, Niagara, and all major Golden Horseshoe cities. Expert tips for print marketing success.',
-  keywords: 'flyer distribution, Golden Horseshoe, Toronto flyer distribution, Hamilton print marketing, Niagara marketing, Mississauga flyers, Burlington advertising, print business, direct mail marketing',
+  title: 'Flyer Drops Golden Horseshoe | Toronto Hamilton Niagara GTA',
+  description: 'Professional flyer drops across all Golden Horseshoe cities: Toronto, Mississauga, Hamilton, Brampton, Burlington, Niagara. 5,000-500,000+ distribution. Free quote!',
+  keywords: 'flyer drops, flyer distribution, Golden Horseshoe, Toronto flyer drops, Hamilton flyer distribution, Niagara flyers, Mississauga flyer drops, Brampton, Burlington, Oakville, Vaughan, Markham, Richmond Hill, St. Catharines, Niagara Falls, Welland, GTA flyer distribution, direct mail marketing',
   openGraph: {
-    title: 'Complete Guide to Flyer Distribution in the Golden Horseshoe',
-    description: 'Discover how to maximize your business reach with strategic flyer distribution across Toronto, Hamilton, Niagara, and all major Golden Horseshoe cities.',
+    title: 'Flyer Drops Golden Horseshoe | Toronto Hamilton Niagara GTA',
+    description: 'Professional flyer drops across all Golden Horseshoe cities: Toronto, Mississauga, Hamilton, Brampton, Burlington, Niagara. 5,000-500,000+ distribution. Free quote!',
+    url: 'https://niagarastandsout.ca/pages/flyer-drops-golden-horseshoe',
     type: 'article',
     publishedTime: '2024-11-17',
     authors: ['Niagara Stands Out'],
@@ -21,10 +22,10 @@ export default function FlyerDistributionPage() {
       <div className="bg-gradient-to-br from-primary to-primary/80 text-white py-16 px-4">
         <div className="container mx-auto max-w-6xl">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-            Complete Guide to Flyer Distribution in the Golden Horseshoe: Maximizing Your Print Marketing ROI
+            Professional Flyer Drops Across the Golden Horseshoe: Toronto to Niagara Falls
           </h1>
           <p className="text-xl opacity-95 max-w-3xl">
-            Expert strategies for successful flyer campaigns across Toronto, Hamilton, Niagara, and all major Golden Horseshoe cities
+            Expert flyer drop services for all Golden Horseshoe cities: Toronto, Mississauga, Brampton, Hamilton, Burlington, Oakville, Vaughan, Markham, Richmond Hill, Niagara Falls, St. Catharines, Welland & more
           </p>
         </div>
       </div>
@@ -35,9 +36,9 @@ export default function FlyerDistributionPage() {
           <nav className="flex items-center gap-2 text-sm flex-wrap">
             <Link href="/" className="text-primary hover:underline">Home</Link>
             <span className="text-muted-foreground">›</span>
-            <Link href="/blog" className="text-primary hover:underline">Blog</Link>
+            <Link href="/pages" className="text-primary hover:underline">Pages</Link>
             <span className="text-muted-foreground">›</span>
-            <span className="text-muted-foreground">Flyer Distribution Golden Horseshoe</span>
+            <span className="text-muted-foreground">Flyer Drops Golden Horseshoe</span>
           </nav>
         </div>
       </div>
@@ -259,8 +260,8 @@ export default function FlyerDistributionPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "Complete Guide to Flyer Distribution in the Golden Horseshoe: Maximizing Your Print Marketing ROI",
-            "description": "Comprehensive guide to effective flyer distribution strategies for businesses in Toronto, Hamilton, Niagara, and all major Golden Horseshoe cities.",
+            "headline": "Professional Flyer Drops Across the Golden Horseshoe: Toronto to Niagara Falls",
+            "description": "Professional flyer drops across all Golden Horseshoe cities: Toronto, Mississauga, Hamilton, Brampton, Burlington, Oakville, Vaughan, Markham, Richmond Hill, Niagara Falls, St. Catharines, Welland. 5,000-500,000+ distribution capacity.",
             "author": {
               "@type": "Organization",
               "name": "Niagara Stands Out",
@@ -278,7 +279,7 @@ export default function FlyerDistributionPage() {
             "dateModified": "2024-11-17",
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": "https://niagarastandsout.ca/blog/flyer-distribution-golden-horseshoe"
+              "@id": "https://niagarastandsout.ca/pages/flyer-drops-golden-horseshoe"
             }
           })
         }}
@@ -299,13 +300,13 @@ export default function FlyerDistributionPage() {
             }, {
               "@type": "ListItem",
               "position": 2,
-              "name": "Blog",
-              "item": "https://niagarastandsout.ca/blog"
+              "name": "Pages",
+              "item": "https://niagarastandsout.ca/pages"
             }, {
               "@type": "ListItem",
               "position": 3,
-              "name": "Flyer Distribution Golden Horseshoe",
-              "item": "https://niagarastandsout.ca/blog/flyer-distribution-golden-horseshoe"
+              "name": "Flyer Drops Golden Horseshoe",
+              "item": "https://niagarastandsout.ca/pages/flyer-drops-golden-horseshoe"
             }]
           })
         }}

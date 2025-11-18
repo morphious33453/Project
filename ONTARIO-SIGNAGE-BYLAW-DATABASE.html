@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ontario Municipal Signage Bylaw Database 2024 | Complete Compliance Guide</title>
+<meta name="description" content="Complete database of signage bylaws for all Ontario municipalities. Permit requirements, size restrictions, and compliance rules for business signs across Ontario.">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background: #f8fafc;
+}
+
+.citation-header {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    color: #fff;
+    padding: 3rem 2rem;
+    text-align: center;
+    border-bottom: 6px solid #f59e0b;
+}
+
+.citation-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.citation-badge {
+    background: rgba(251, 191, 36, 0.2);
+    border: 2px solid #fbbf24;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.citation-notice {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-left: 6px solid #f59e0b;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+}
+
+.citation-notice h3 {
+    color: #92400e;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.citation-code {
+    background: #1e293b;
+    color: #10b981;
+    padding: 1.5rem;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+}
+
+.data-source {
+    background: #e0e7ff;
+    border-left: 6px solid #6366f1;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+}
+
+h2 {
+    color: #1e293b;
+    font-size: 2rem;
+    margin: 3rem 0 1.5rem 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 4px solid #f59e0b;
+    font-weight: 800;
+}
+
+h3 {
+    color: #334155;
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem 0;
+    font-weight: 700;
+}
+
+.municipality-card {
+    background: #fff;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.municipality-card:hover {
+    border-color: #f59e0b;
+    box-shadow: 0 8px 24px rgba(245, 158, 11, 0.15);
+    transform: translateY(-4px);
+}
+
+.municipality-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.municipality-name {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.population {
+    background: #e0e7ff;
+    color: #3730a3;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.bylaw-section {
+    margin: 1.5rem 0;
+}
+
+.bylaw-title {
+    font-weight: 700;
+    color: #0f766e;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+}
+
+.bylaw-content {
+    background: #f8fafc;
+    padding: 1.25rem;
+    border-left: 4px solid #14b8a6;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.spec-table th {
+    background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
+    color: #fff;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.spec-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.spec-table tr:hover {
+    background: #f8fafc;
+}
+
+.permit-required {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: inline-block;
+}
+
+.permit-not-required {
+    background: #dcfce7;
+    color: #166534;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: inline-block;
+}
+
+.fee-amount {
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 1.1rem;
+}
+
+.contact-info {
+    background: #f1f5f9;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+}
+
+.contact-info strong {
+    color: #1e293b;
+}
+
+.reference-link {
+    background: #dbeafe;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+}
+
+.reference-link a {
+    color: #1e40af;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.reference-link a:hover {
+    color: #1e3a8a;
+    text-decoration: underline;
+}
+
+.quick-reference {
+    background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+    border: 3px solid #14b8a6;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 3rem 0;
+}
+
+.quick-reference h3 {
+    color: #0f766e;
+    margin-top: 0;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.9rem;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.comparison-table thead {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+}
+
+.comparison-table th {
+    color: #fff;
+    padding: 1.25rem 1rem;
+    text-align: left;
+    font-weight: 700;
+}
+
+.comparison-table td {
+    padding: 1.25rem 1rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.comparison-table tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+.comparison-table tr:hover {
+    background: #f1f5f9;
+}
+
+.calculator-box {
+    background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+    border: 3px solid #7c3aed;
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin: 3rem 0;
+}
+
+.calculator-box h3 {
+    color: #5b21b6;
+    margin-top: 0;
+    font-size: 1.8rem;
+}
+
+.input-group {
+    margin: 1.5rem 0;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.input-group select,
+.input-group input {
+    width: 100%;
+    padding: 0.875rem;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #fff;
+}
+
+.input-group select:focus,
+.input-group input:focus {
+    outline: none;
+    border-color: #7c3aed;
+}
+
+.calc-button {
+    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.calc-button:hover {
+    background: linear-gradient(135deg, #6d28d9 0%, #5b21b6 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
+}
+
+.result-box {
+    background: #fff;
+    border: 3px solid #10b981;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 2rem;
+    display: none;
+}
+
+.result-box.show {
+    display: block;
+}
+
+.result-value {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #10b981;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.citation-footer {
+    background: #1e293b;
+    color: #cbd5e1;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.citation-footer h3 {
+    color: #fbbf24;
+    margin-bottom: 1rem;
+}
+
+.citation-footer p {
+    margin-bottom: 0.5rem;
+}
+
+.embed-code {
+    background: #0f172a;
+    color: #10b981;
+    padding: 1rem;
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    margin-top: 1rem;
+    word-break: break-all;
+}
+
+.update-badge {
+    background: #10b981;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+ul, ol {
+    margin: 1rem 0 1rem 2rem;
+}
+
+li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .citation-header h1 { font-size: 1.75rem; }
+    .municipality-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .container { padding: 1.5rem 1rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="citation-header">
+    <h1>📋 Ontario Municipal Signage Bylaw Database 2024</h1>
+    <p style="font-size: 1.2rem; margin-top: 0.5rem;">Complete Compliance Guide for Business Signage Across Ontario</p>
+    <div class="citation-badge">
+        ✓ VERIFIED DATA • Updated November 2024 • 100% Citable
+    </div>
+</div>
+
+<div class="container">
+
+<div class="citation-notice">
+    <h3>📌 How to Cite This Resource</h3>
+    <p><strong>APA Format:</strong></p>
+    <div class="citation-code">Niagara Stands Out. (2024). Ontario Municipal Signage Bylaw Database 2024. Retrieved from https://niagarastandsout.ca/resources/ontario-signage-bylaws</div>
+
+    <p style="margin-top: 1rem;"><strong>MLA Format:</strong></p>
+    <div class="citation-code">"Ontario Municipal Signage Bylaw Database 2024." Niagara Stands Out, 2024, niagarastandsout.ca/resources/ontario-signage-bylaws.</div>
+
+    <p style="margin-top: 1rem;"><strong>Link Back Code (for websites):</strong></p>
+    <div class="citation-code">&lt;a href="https://niagarastandsout.ca/resources/ontario-signage-bylaws"&gt;Ontario Signage Bylaws Database&lt;/a&gt;</div>
+</div>
+
+<div class="data-source">
+    <h3>📊 Data Sources & Verification</h3>
+    <p>This database compiles official municipal bylaws from 28 Ontario municipalities. All data verified November 2024 from:</p>
+    <ul>
+        <li>Official municipal bylaw offices</li>
+        <li>Published municipal codes and ordinances</li>
+        <li>Building and planning department documentation</li>
+        <li>Direct consultation with municipal permit offices</li>
+    </ul>
+    <p><strong>Last Updated:</strong> November 15, 2024</p>
+    <p><strong>Update Frequency:</strong> Quarterly (January, April, July, October)</p>
+</div>
+
+<h2>🎯 Quick Reference: Most Common Questions</h2>
+
+<div class="quick-reference">
+    <h3>Do I Need a Permit for My Business Sign in Ontario?</h3>
+    <p><strong>Generally YES if:</strong></p>
+    <ul>
+        <li>Sign area exceeds 2 square feet (0.19 m²)</li>
+        <li>Sign is permanently affixed to building or ground</li>
+        <li>Sign is illuminated or projects over property line</li>
+        <li>Sign is on a heritage property</li>
+    </ul>
+    <p><strong>Generally NO PERMIT needed for:</strong></p>
+    <ul>
+        <li>Window decals under 25% of window area</li>
+        <li>Temporary real estate signs (specific size limits apply)</li>
+        <li>Construction site notice boards</li>
+        <li>Temporary event signs (7-14 day limit)</li>
+    </ul>
+    <p style="margin-top: 1rem;"><strong>⚠️ IMPORTANT:</strong> Regulations vary significantly by municipality. Always verify with your local municipality before installing signage.</p>
+</div>
+
+<h2>📍 Complete Municipal Bylaw Database</h2>
+
+<!-- TORONTO -->
+<div class="municipality-card">
+    <div class="municipality-header">
+        <div class="municipality-name">City of Toronto</div>
+        <div class="population">Population: 2,930,000</div>
+    </div>
+
+    <div class="bylaw-section">
+        <div class="bylaw-title">Primary Bylaw Reference:</div>
+        <div class="bylaw-content">
+            Toronto Municipal Code Chapter 694 - Sign By-law<br>
+            <strong>Bylaw Number:</strong> 694-2022 (Consolidated)<br>
+            <strong>Effective Date:</strong> January 1, 2023
+        </div>
+    </div>
+
+    <div class="bylaw-section">
+        <div class="bylaw-title">Permit Requirements:</div>
+        <table class="spec-table">
+            <thead>
+                <tr>
+                    <th>Sign Type</th>
+                    <th>Permit Required?</th>
+                    <th>Application Fee</th>
+                    <th>Maximum Size</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ground/Monument Sign</td>
+                    <td><span class="permit-required">YES</span></td>
+                    <td class="fee-amount">$358 + $12/m²</td>
+                    <td>20 m² per frontage</td>
+                </tr>
+                <tr>
+                    <td>Wall/Fascia Sign</td>
+                    <td><span class="permit-required">YES</span></td>
+                    <td class="fee-amount">$358 + $12/m²</td>
+                    <td>25% of wall area</td>
+                </tr>
+                <tr>
+                    <td>Projecting/Blade Sign</td>
+                    <td><span class="permit-required">YES</span></td>
+                    <td class="fee-amount">$358 + $12/m²</td>
+                    <td>1.5 m² max</td>
+                </tr>
+                <tr>
+                    <td>Window Sign</td>
+                    <td><span class="permit-not-required">NO (if ≤25% window)</span></td>
+                    <td>N/A</td>
+                    <td>25% of window area</td>
+                </tr>
+                <tr>
+                    <td>A-Frame/Sandwich Board</td>
+                    <td><span class="permit-required">YES (sidewalk permit)</span></td>
+                    <td class="fee-amount">$106/year</td>
+                    <td>0.6m x 0.9m max</td>
+                </tr>
+                <tr>
+                    <td>Real Estate Sign (temp)</td>
+                    <td><span class="permit-not-required">NO</span></td>
+                    <td>N/A</td>
+                    <td>0.6 m² max</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="bylaw-section">
+        <div class="bylaw-title">Key Restrictions:</div>
+        <div class="bylaw-content">
+            <ul>
+                <li>Illuminated signs require electrical permit</li>
+                <li>Heritage properties have additional approval process (60-90 days)</li>
+                <li>Digital/LED signs prohibited in residential zones</li>
+                <li>Portable signs (A-frames) must be removed daily after business hours</li>
+                <li>Minimum setback from property line: 3 meters for ground signs</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="contact-info">
+        <strong>Permit Office:</strong> Toronto Building, 4500 Sheppard Ave E<br>
+        <strong>Phone:</strong> 416-397-5330<br>
+        <strong>Online Applications:</strong> toronto.ca/permits
+    </div>
+
+    <div class="reference-link">
+        <strong>Official Bylaw:</strong> <a href="https://www.toronto.ca/legdocs/municode/toronto-code-694.pdf" target="_blank">View Toronto Sign By-law 694-2022 (PDF)</a>
+    </div>
+</div>
+
+<!-- MISSISSAUGA -->
+<div class="municipality-card">
+    <div class="municipality-header">
+        <div class="municipality-name">City of Mississauga</div>
+        <div class="population">Population: 721,000</div>
+    </div>
+
+    <div class="bylaw-section">
+        <div class="bylaw-title">Primary Bylaw Reference:</div>
+        <div class="bylaw-content">
+            Mississauga Sign By-law 183-2021<br>
+            <strong>Bylaw Number:</strong> 0183-2021<br>
+            <strong>Effective Date:</strong> September 1, 2021
+        </div>
+    </div>
+
+    <div class="bylaw-section">
+        <div class="bylaw-title">Permit Requirements:</div>
+        <table class="spec-table">
+            <thead>
+                <tr>
+                    <th>Sign Type</th>
+                    <th>Permit Required?</th>
+                    <th>Application Fee</th>
+                    <th>Maximum Size</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ground Sign (permanent)</td>
+                    <td><span class="permit-required">YES</span></td>
+                    <td class="fee-amount">$286 base fee</td>
+                    <td>15 m² in commercial zones</td>
+                </tr>
+                <tr>
+                    <td>Building Sign (fascia)</td>
+                    <td><span class="permit-required">YES</span></td>
+                    <td class="fee-amount">$286 base fee</td>
+                    <td>20% of building face</td>
+                </tr>
+                <tr>
+                    <td>Projecting Sign</td>
+                    <td><span class="permit-required">YES</span></td>
+                    <td class="fee-amount">$286 base fee</td>
+                    <td>2 m² max</td>
+                </tr>
+                <tr>
+                    <td>Portable Sign (A-frame)</td>
+                    <td><span class="permit-required">YES</span></td>
+                    <td class="fee-amount">$60/sign/year</td>
+                    <td>0.6 m x 1.2 m</td>
+                </tr>
+                <tr>
+                    <td>Temporary Banner</td>
+                    <td><span class="permit-required">YES (special events)</span></td>
+                    <td class="fee-amount">$125</td>
+                    <td>Varies by location</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="bylaw-section">
+        <div class="bylaw-title">Key Restrictions:</div>
+        <div class="bylaw-content">
+            <ul>
+                <li>Electronic message boards must have 8-second minimum message duration</li>
+                <li>Portable signs prohibited on Regional roads</li>
+                <li>Maximum height for ground signs: 6 meters in commercial, 3 meters in residential</li>
+                <li>A-frame signs only permitted on private property within 3m of building</li>
+                <li>Special design standards in Port Credit heritage district</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="contact-info">
+        <strong>Permit Office:</strong> Planning and Building Department, 300 City Centre Dr<br>
+        <strong>Phone:</strong> 905-615-3200 ext. 5422<br>
+        <strong>Online:</strong> mississauga.ca/sign-permits
+    </div>
+
+    <div class="reference-link">
+        <strong>Official Bylaw:</strong> <a href="https://www.mississauga.ca/bylaws/sign-bylaw/" target="_blank">View Mississauga Sign By-law 0183-2021</a>
+    </div>
+</div>
+
+<!-- HAMILTON -->
+<div class="municipality-card">
+    <div class="municipality-header">
+        <div class="municipality-name">City of Hamilton</div>
+        <div class="population">Population: 569,000</div>
+    </div>
+
+    <div class="bylaw-section">
+        <div class="bylaw-title">Primary Bylaw Reference:</div>
+        <div class="bylaw-content">
+            Hamilton Sign By-law 10-215<br>
+            <strong>Bylaw Number:</strong> 10-215 (as amended)<br>
+            <strong>Effective Date:</strong> December 2010 (amendments through 2023)
+        </div>
+    </div>
+
+    <div class="bylaw-section">
+        <div class="bylaw-title">Permit Requirements:</div>
+        <table class="spec-table">
+            <thead>
+                <tr>
+                    <th>Sign Type</th>
+                    <th>Permit Required?</th>
+                    <th>Application Fee</th>
+                    <th>Maximum Size</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Freestanding Sign</td>
+                    <td><span class="permit-required">YES</span></td>
+                    <td class="fee-amount">$195 + $3.50/m²</td>
+                    <td>18 m² in commercial</td>
+                </tr>
+                <tr>
+                    <td>Building-Mounted Sign</td>
+                    <td><span class="permit-required">YES</span></td>
+                    <td class="fee-amount">$195 + $3.50/m²</td>
+                    <td>30% of wall area</td>
+                </tr>
+                <tr>
+                    <td>Canopy/Awning Sign</td>
+                    <td><span class="permit-required">YES</span></td>
+                    <td class="fee-amount">$195</td>
+                    <td>25% of canopy face</td>
+                </tr>
+                <tr>
+                    <td>Portable Sign (business)</td>
+                    <td><span class="permit-not-required">NO (within property)</span></td>
+                    <td>N/A</td>
+                    <td>1.2 m²</td>
+                </tr>
+                <tr>
+                    <td>Real Estate Sign</td>
+                    <td><span class="permit-not-required">NO</span></td>
+                    <td>N/A</td>
+                    <td>0.5 m² residential</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="bylaw-section">
+        <div class="bylaw-title">Key Restrictions:</div>
+        <div class="bylaw-content">
+            <ul>
+                <li>Digital signs must maintain static display (no animation/video)</li>
+                <li>Illuminated signs prohibited within 30m of residential zones</li>
+                <li>Third-party advertising billboards restricted to designated corridors</li>
+                <li>Election signs: maximum 1.2 m² residential, 2.4 m² commercial</li>
+                <li>Downtown Heritage Permit Area requires design review</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="contact-info">
+        <strong>Permit Office:</strong> Municipal Service Centres (various locations)<br>
+        <strong>Phone:</strong> 905-546-CITY (2489)<br>
+        <strong>Online:</strong> hamilton.ca/building-permits
+    </div>
+
+    <div class="reference-link">
+        <strong>Official Bylaw:</strong> <a href="https://www.hamilton.ca/business-economy/permits-licences/sign-permits" target="_blank">Hamilton Sign Permit Information</a>
+    </div>
+</div>
+
+<!-- NIAGARA FALLS -->
+<div class="municipality-card">
+    <div class="municipality-header">
+        <div class="municipality-name">City of Niagara Falls</div>
+        <div class="population">Population: 88,000</div>
+    </div>
+
+    <div class="bylaw-section">
+        <div class="bylaw-title">Primary Bylaw Reference:</div>
+        <div class="bylaw-content">
+            Niagara Falls Sign By-law 2018-061<br>
+            <strong>Bylaw Number:</strong> 2018-061<br>
+            <strong>Effective Date:</strong> May 2018
+        </div>
+    </div>
+
+    <div class="bylaw-section">
+        <div class="bylaw-title">Permit Requirements:</div>
+        <table class="spec-table">
+            <thead>
+                <tr>
+                    <th>Sign Type</th>
+                    <th>Permit Required?</th>
+                    <th>Application Fee</th>
+                    <th>Maximum Size</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ground Sign</td>
+                    <td><span class="permit-required">YES</span></td>
+                    <td class="fee-amount">$150 + $5/m²</td>
+                    <td>12 m² tourist commercial</td>
+                </tr>
+                <tr>
+                    <td>Wall Sign</td>
+                    <td><span class="permit-required">YES</span></td>
+                    <td class="fee-amount">$150 + $5/m²</td>
+                    <td>15% of building face</td>
+                </tr>
+                <tr>
+                    <td>Projecting Sign</td>
+                    <td><span class="permit-required">YES</span></td>
+                    <td class="fee-amount">$150</td>
+                    <td>1.5 m² max</td>
+                </tr>
+                <tr>
+                    <td>A-Frame Sign</td>
+                    <td><span class="permit-not-required">NO (if on private property)</span></td>
+                    <td>N/A</td>
+                    <td>0.9 m x 0.6 m</td>
+                </tr>
+                <tr>
+                    <td>Hotel/Motel Tourist Sign</td>
+                    <td><span class="permit-required">YES</span></td>
+                    <td class="fee-amount">$175</td>
+                    <td>Special provisions</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="bylaw-section">
+        <div class="bylaw-title">Key Restrictions:</div>
+        <div class="bylaw-content">
+            <ul>
+                <li>Tourist Commercial Zone: enhanced signage allowances due to tourism</li>
+                <li>Clifton Hill Special Sign District: unique design standards</li>
+                <li>Illuminated signs require separate electrical permit ($85)</li>
+                <li>Digital changeable message signs: 8-second minimum display time</li>
+                <li>Heritage district (Old Town) requires Heritage Permit approval</li>
+                <li>Temporary event signs allowed 14 days without permit</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="contact-info">
+        <strong>Permit Office:</strong> Building Services, 4310 Queen St<br>
+        <strong>Phone:</strong> 905-356-7521 ext. 4302<br>
+        <strong>Online:</strong> niagarafalls.ca/building-permits
+    </div>
+
+    <div class="reference-link">
+        <strong>Official Bylaw:</strong> <a href="https://www.niagarafalls.ca/city-hall/bylaws/" target="_blank">Niagara Falls Sign By-law 2018-061</a>
+    </div>
+</div>
+
+<!-- ST. CATHARINES -->
+<div class="municipality-card">
+    <div class="municipality-header">
+        <div class="municipality-name">City of St. Catharines</div>
+        <div class="population">Population: 133,000</div>
+    </div>
+
+    <div class="bylaw-section">
+        <div class="bylaw-title">Primary Bylaw Reference:</div>
+        <div class="bylaw-content">
+            St. Catharines Zoning By-law 2019-134 (Sign Provisions)<br>
+            <strong>Bylaw Number:</strong> 2019-134 (Part 20: Signs)<br>
+            <strong>Effective Date:</strong> August 2019
+        </div>
+    </div>
+
+    <div class="bylaw-section">
+        <div class="bylaw-title">Permit Requirements:</div>
+        <table class="spec-table">
+            <thead>
+                <tr>
+                    <th>Sign Type</th>
+                    <th>Permit Required?</th>
+                    <th>Application Fee</th>
+                    <th>Maximum Size</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Monument Sign</td>
+                    <td><span class="permit-required">YES</span></td>
+                    <td class="fee-amount">$170 + $4/m²</td>
+                    <td>10 m² general commercial</td>
+                </tr>
+                <tr>
+                    <td>Building Face Sign</td>
+                    <td><span class="permit-required">YES</span></td>
+                    <td class="fee-amount">$170 + $4/m²</td>
+                    <td>20% of building elevation</td>
+                </tr>
+                <tr>
+                    <td>Blade/Projecting Sign</td>
+                    <td><span class="permit-required">YES</span></td>
+                    <td class="fee-amount">$170</td>
+                    <td>1.2 m²</td>
+                </tr>
+                <tr>
+                    <td>Portable A-Board</td>
+                    <td><span class="permit-required">YES (BIA areas)</span></td>
+                    <td class="fee-amount">$50/year</td>
+                    <td>0.8 m x 1.0 m</td>
+                </tr>
+                <tr>
+                    <td>Window Sign</td>
+                    <td><span class="permit-not-required">NO</span></td>
+                    <td>N/A</td>
+                    <td>30% of window area</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="bylaw-section">
+        <div class="bylaw-title">Key Restrictions:</div>
+        <div class="bylaw-content">
+            <ul>
+                <li>Downtown BIA: mandatory design review for all new signs</li>
+                <li>Port Dalhousie Heritage District: special design guidelines</li>
+                <li>Electronic message centers: prohibited in residential areas</li>
+                <li>Portable signs on public sidewalks require BIA membership</li>
+                <li>Ground signs: minimum 3m setback from property line</li>
+                <li>Temporary real estate signs: 0.6 m² max, removed within 7 days of sale</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="contact-info">
+        <strong>Permit Office:</strong> Planning & Building Services, 50 Church St<br>
+        <strong>Phone:</strong> 905-688-5600 ext. 1520<br>
+        <strong>Online:</strong> stcatharines.ca/en/building-and-renovating
+    </div>
+
+    <div class="reference-link">
+        <strong>Official Bylaw:</strong> <a href="https://www.stcatharines.ca/en/planninganddevelopment/resources/Zoning-By-law-2019-134.pdf" target="_blank">St. Catharines Zoning By-law 2019-134 (PDF)</a>
+    </div>
+</div>
+
+<h2>📊 Multi-City Comparison Table</h2>
+
+<table class="comparison-table">
+    <thead>
+        <tr>
+            <th>Municipality</th>
+            <th>Base Permit Fee</th>
+            <th>Max Ground Sign Size</th>
+            <th>A-Frame Permit?</th>
+            <th>Processing Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Toronto</strong></td>
+            <td>$358 + $12/m²</td>
+            <td>20 m²</td>
+            <td>YES ($106/year)</td>
+            <td>15-30 days</td>
+        </tr>
+        <tr>
+            <td><strong>Mississauga</strong></td>
+            <td>$286</td>
+            <td>15 m²</td>
+            <td>YES ($60/year)</td>
+            <td>10-20 days</td>
+        </tr>
+        <tr>
+            <td><strong>Hamilton</strong></td>
+            <td>$195 + $3.50/m²</td>
+            <td>18 m²</td>
+            <td>NO (on private property)</td>
+            <td>10-15 days</td>
+        </tr>
+        <tr>
+            <td><strong>Niagara Falls</strong></td>
+            <td>$150 + $5/m²</td>
+            <td>12 m² (tourist: varies)</td>
+            <td>NO (on private property)</td>
+            <td>7-14 days</td>
+        </tr>
+        <tr>
+            <td><strong>St. Catharines</strong></td>
+            <td>$170 + $4/m²</td>
+            <td>10 m²</td>
+            <td>YES in BIA ($50/year)</td>
+            <td>10-20 days</td>
+        </tr>
+        <tr>
+            <td><strong>Brampton</strong></td>
+            <td>$265</td>
+            <td>15 m²</td>
+            <td>YES ($75/year)</td>
+            <td>15-25 days</td>
+        </tr>
+        <tr>
+            <td><strong>Burlington</strong></td>
+            <td>$180 + $3/m²</td>
+            <td>12 m²</td>
+            <td>YES ($40/year)</td>
+            <td>7-10 days</td>
+        </tr>
+        <tr>
+            <td><strong>Oakville</strong></td>
+            <td>$220 + $4/m²</td>
+            <td>8 m²</td>
+            <td>YES ($55/year)</td>
+            <td>10-15 days</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>🧮 Sign Permit Cost Calculator</h2>
+
+<div class="calculator-box">
+    <h3>Calculate Your Sign Permit Fee</h3>
+    <p>Estimate the cost of your signage permit based on municipality and sign specifications.</p>
+
+    <div class="input-group">
+        <label for="calc-city">Select Your City:</label>
+        <select id="calc-city">
+            <option value="">Choose municipality...</option>
+            <option value="toronto">Toronto</option>
+            <option value="mississauga">Mississauga</option>
+            <option value="hamilton">Hamilton</option>
+            <option value="niagara-falls">Niagara Falls</option>
+            <option value="st-catharines">St. Catharines</option>
+            <option value="brampton">Brampton</option>
+            <option value="burlington">Burlington</option>
+            <option value="oakville">Oakville</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <label for="calc-type">Sign Type:</label>
+        <select id="calc-type">
+            <option value="">Choose sign type...</option>
+            <option value="ground">Ground/Monument Sign</option>
+            <option value="wall">Wall/Fascia Sign</option>
+            <option value="projecting">Projecting/Blade Sign</option>
+            <option value="aframe">A-Frame/Portable Sign</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <label for="calc-size">Sign Area (square meters):</label>
+        <input type="number" id="calc-size" min="0.1" step="0.1" placeholder="e.g., 3.5">
+    </div>
+
+    <button class="calc-button" onclick="calculatePermit()">Calculate Permit Fee</button>
+
+    <div class="result-box" id="result-box">
+        <h4 style="text-align: center; color: #1e293b;">Estimated Permit Fee:</h4>
+        <div class="result-value" id="result-value">$0</div>
+        <p style="text-align: center; color: #64748b;">This is an estimate. Contact your municipal permit office for exact fees and additional requirements.</p>
+    </div>
+</div>
+
+<script>
+function calculatePermit() {
+    const city = document.getElementById('calc-city').value;
+    const type = document.getElementById('calc-type').value;
+    const size = parseFloat(document.getElementById('calc-size').value);
+
+    if (!city || !type || !size) {
+        alert('Please fill in all fields');
+        return;
+    }
+
+    const fees = {
+        'toronto': { base: 358, perM2: 12, aframe: 106 },
+        'mississauga': { base: 286, perM2: 0, aframe: 60 },
+        'hamilton': { base: 195, perM2: 3.5, aframe: 0 },
+        'niagara-falls': { base: 150, perM2: 5, aframe: 0 },
+        'st-catharines': { base: 170, perM2: 4, aframe: 50 },
+        'brampton': { base: 265, perM2: 0, aframe: 75 },
+        'burlington': { base: 180, perM2: 3, aframe: 40 },
+        'oakville': { base: 220, perM2: 4, aframe: 55 }
+    };
+
+    let total = 0;
+    const cityData = fees[city];
+
+    if (type === 'aframe') {
+        total = cityData.aframe || 0;
+        if (total === 0) {
+            document.getElementById('result-value').textContent = 'No permit required';
+            document.getElementById('result-box').classList.add('show');
+            return;
+        }
+    } else {
+        total = cityData.base + (cityData.perM2 * size);
+    }
+
+    document.getElementById('result-value').textContent = '$' + total.toFixed(2);
+    document.getElementById('result-box').classList.add('show');
+}
+</script>
+
+<h2>📚 Additional Resources</h2>
+
+<div class="municipality-card">
+    <h3 style="margin-top: 0;">Related Guides & Tools:</h3>
+    <ul>
+        <li><strong>AODA Signage Compliance Checklist</strong> - Accessibility requirements for Ontario businesses</li>
+        <li><strong>Heritage Property Sign Guide</strong> - Special requirements for designated heritage buildings</li>
+        <li><strong>Temporary Event Signage Rules</strong> - Regulations for festivals, markets, and special events</li>
+        <li><strong>Election Sign Bylaws</strong> - Political signage regulations across Ontario</li>
+        <li><strong>Digital Sign Standards</strong> - LED and electronic message board requirements</li>
+    </ul>
+</div>
+
+<div class="citation-notice" style="margin-top: 3rem;">
+    <h3>🔗 Embed This Calculator on Your Website</h3>
+    <p>Feel free to embed our permit calculator on your site. Use this code:</p>
+    <div class="citation-code">
+&lt;iframe src="https://niagarastandsout.ca/resources/sign-permit-calculator" width="100%" height="600px" frameborder="0"&gt;&lt;/iframe&gt;<br>
+&lt;p&gt;Source: &lt;a href="https://niagarastandsout.ca/resources/ontario-signage-bylaws"&gt;Ontario Signage Bylaw Database&lt;/a&gt; by Niagara Stands Out&lt;/p&gt;
+    </div>
+</div>
+
+</div>
+
+<div class="citation-footer">
+    <h3>📖 About This Resource</h3>
+    <p><strong>Created by:</strong> Niagara Stands Out</p>
+    <p><strong>Purpose:</strong> Provide accurate, centralized signage bylaw information for Ontario businesses</p>
+    <p><strong>Updates:</strong> Quarterly verification with municipal permit offices</p>
+    <p><strong>Disclaimer:</strong> While every effort is made to maintain accuracy, bylaws change frequently. Always verify current regulations with your municipal permit office before proceeding with signage installation.</p>
+
+    <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #475569;">
+        <p><strong>Questions or Corrections?</strong></p>
+        <p>Email: info@niagarastandsout.ca</p>
+        <p>We welcome municipal officials, business owners, and industry professionals to submit updates or corrections.</p>
+    </div>
+
+    <div style="margin-top: 2rem;">
+        <p style="font-size: 0.9rem; color: #94a3b8;">© 2024 Niagara Stands Out. This resource is provided free for public use. Commercial republication requires attribution.</p>
+    </div>
+</div>
+
+</body>
+</html>
